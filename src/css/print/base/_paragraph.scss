@@ -1,0 +1,7 @@
+p, .gov-paragraph {
+    /* margin-bottom: 0.25cm; */
+
+    color: gov-colors('grey-dark');
+    break-inside: avoid;
+    page-break-inside: avoid;
+}

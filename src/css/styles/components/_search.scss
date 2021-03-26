@@ -1,0 +1,41 @@
+.gov-search {
+    display: block;
+    margin-bottom: rem-calc(20);
+    width: 100%;
+
+    [type='text'] {
+        padding: rem-calc(14) rem-calc(60) rem-calc(14) rem-calc(20);
+    }
+
+    &--large {
+        margin-bottom: rem-calc(35);
+    }
+
+    .gov-form-control {
+        margin-bottom: 0;
+    }
+}
+
+.gov-search__inner {
+    position: relative;
+
+    display: block;
+    width: 100%;
+}
+
+.gov-search__submit {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    &.gov-button--icon-only {
+        &:after {
+            @include pseudo(block, relative, '\41');
+
+            font-family: $gov-icon-font;
+            font-size: rem-calc(20);
+        }
+    }
+}

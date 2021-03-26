@@ -1,0 +1,138 @@
+$class: '.gov-form-control';
+
+#{$class} {
+    position: relative;
+
+    margin-bottom: rem-calc(15);
+
+    -webkit-font-smoothing: antialiased;
+
+    //  --------------------
+    &__label {
+        color: gov-colors('grey-dark');
+        cursor: pointer;
+        font-family: $gov-font-family-primary;
+        line-height: initial;
+    }
+
+    &:not(#{$class}--custom) {
+        #{$class}__label {
+            position: absolute;
+            left: 1px; right: 1px; top: 1px;
+
+            display: block;
+            margin-bottom: 0;
+            padding-top: rem-calc(20);
+            padding-left: rem-calc(20);
+
+            font-size: rem-calc(16);
+
+            opacity: 0.5;
+            transition: background-color ease 150ms, padding-top ease 150ms, font-size ease 150ms, opacity ease 150ms;
+        }
+    }
+
+    //  --------------------
+    &__message {
+        display: block;
+        margin-left: rem-calc(10);
+        margin-top: rem-calc(4);
+
+        color: gov-colors('grey-mid');
+        font-size: rem-calc(12);
+    }
+
+    //  --------------------
+    &__datepicker {
+        &:after {
+            @include pseudo(block, absolute, '\67');
+            right: rem-calc(15); top: rem-calc(18);
+
+            color: gov-colors('blue');
+            font-family: $gov-icon-font;
+            font-size: rem-calc(24);
+            pointer-events: none;
+            text-transform: none;
+            vertical-align: middle;
+        }
+    }
+
+
+    /*  Custom type
+    ------------------------------------------------------------------ */
+    &--custom {
+        #{$class}__label {
+			position: relative;
+            z-index: 1;
+
+            display: inline-block;
+            padding-left: rem-calc(35);
+
+            font-size: rem-calc(12);
+            font-weight: 500;
+            text-transform: uppercase;
+
+            @include hover() {
+                & + #{$class}__indicator {
+                    border-color: gov-colors('grey-dark');
+                }
+            }
+        }
+
+        #{$class}__indicator {
+			position: absolute;
+			left: 0; top: rem-calc(-1);
+
+            display: inline-block;
+            width: rem-calc(20);
+			height: rem-calc(20);
+
+			user-select: none;
+			background-color: transparent;
+            border: 2px solid gov-colors('blue');
+			box-shadow: none;
+        }
+    }
+
+    /*  Error
+    ------------------------------------------------------------------ */
+    &--error {
+        #{$class}__label {
+            color: gov-colors('error');
+        }
+
+        #{$class}__indicator {
+            border-color: gov-colors('error') !important;
+        }
+
+        #{$class}__message {
+			color: gov-colors('error');
+        }
+    }
+
+    /*  Inversed
+    ------------------------------------------------------------------ */
+    &--inversed {
+        #{$class}__label {
+            color: gov-colors('white');
+        }
+
+        #{$class}__indicator {
+            border-color: gov-colors('white');
+        }
+    }
+
+    /*  Filled input
+    ------------------------------------------------------------------ */
+    &.not-empty {
+        #{$class}__label {
+            padding-top: rem-calc(7);
+            padding-bottom: rem-calc(5);
+
+            border-radius: $gov-border-radius $gov-border-radius 0 0;
+            font-size: rem-calc(12);
+
+            opacity: 1;
+        }
+    }
+}

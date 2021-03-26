@@ -1,0 +1,97 @@
+.gov-complex-icon {
+    color: currentColor;
+    font-size: rem-calc(48);
+    line-height: 0.5;
+
+    &:before {
+        font-family: 'gov-complex-icons';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        line-height: 1;
+        text-transform: none;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /*  Sizes
+    ------------------------------------------------------------------ */
+    &--16x16 {
+        font-size: rem-calc(16);
+    }
+
+    &--24x24 {
+        font-size: rem-calc(24);
+    }
+
+    &--32x32 {
+        font-size: rem-calc(32);
+    }
+
+    &--56x56 {
+        font-size: rem-calc(56);
+    }
+
+    &--64x64 {
+        font-size: rem-calc(64);
+    }
+
+    /*  Icons
+    ------------------------------------------------------------------ */
+    &--car:before {
+        content: '\61';
+    }
+
+    &--doc-health:before {
+        content: '\62';
+    }
+
+    &--doc-search:before {
+        content: '\63';
+    }
+
+    &--doc-stamp:before {
+        content: '\64';
+    }
+
+    &--doc-taxes:before {
+        content: '\65';
+    }
+
+    &--house:before {
+        content: '\66';
+    }
+
+    &--id-card:before {
+        content: '\67';
+    }
+
+    &--info:before {
+        content: '\68';
+    }
+
+    &--map:before {
+        content: '\69';
+    }
+
+    &--newborn:before {
+        content: '\6a';
+    }
+
+    &--packet:before {
+        content: '\6b';
+    }
+
+    &--planet:before {
+        content: '\6c';
+    }
+
+    &--pregnant:before {
+        content: '\6d';
+    }
+
+    &--review:before {
+        content: '\6e';
+    }
+}

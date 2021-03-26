@@ -1,0 +1,189 @@
+.gov-icon {
+    color: currentColor;
+    font-size: rem-calc(24);
+    line-height: 0.5;
+
+    &:before {
+        font-family: 'gov-basic-icons';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        line-height: 1;
+        text-transform: none;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /*  Sizes
+    ------------------------------------------------------------------ */
+    &--16x16 {
+        font-size: rem-calc(16);
+    }
+
+    &--20x20 {
+        font-size: rem-calc(20);
+    }
+
+    &--32x32 {
+        font-size: rem-calc(32);
+    }
+
+    &--48x48 {
+        font-size: rem-calc(48);
+    }
+
+    &--64x64 {
+        font-size: rem-calc(64);
+    }
+
+    /*  Icons
+    ------------------------------------------------------------------ */
+    &--add:before {
+        content: '\61';
+    }
+
+    &--arrow-down:before {
+        content: '\62';
+    }
+
+    &--arrow-left:before {
+        content: '\63';
+    }
+
+    &--arrow-on:before {
+        content: '\64';
+    }
+
+    &--arrow-right:before {
+        content: '\65';
+    }
+
+    &--attachment:before {
+        content: '\66';
+    }
+
+    &--calendar:before {
+        content: '\67';
+    }
+
+    &--check:before {
+        content: '\68';
+    }
+
+    &--compass:before {
+        content: '\69';
+    }
+
+    &--cross:before {
+        content: '\6a';
+    }
+
+    &--dashboard:before {
+        content: '\6b';
+    }
+
+    &--download:before {
+        content: '\6c';
+    }
+
+    &--e-envelope:before {
+        content: '\6d';
+    }
+
+    &--exit:before {
+        content: '\6e';
+    }
+
+    &--external:before {
+        content: '\6f';
+    }
+
+    &--info:before {
+        content: '\70';
+    }
+
+    &--lightbulb:before {
+        content: '\71';
+    }
+
+    &--mail:before {
+        content: '\72';
+    }
+
+    &--message:before {
+        content: '\73';
+    }
+
+    &--more:before {
+        content: '\74';
+    }
+
+    &--notifications:before {
+        content: '\75';
+    }
+
+    &--phone:before {
+        content: '\76';
+    }
+
+    &--place:before {
+        content: '\77';
+    }
+
+    &--plus:before {
+        content: '\78';
+    }
+
+    &--plus-small:before {
+        content: '\79';
+    }
+
+    &--remove:before {
+        content: '\7a';
+    }
+
+    &--search:before {
+        content: '\41';
+    }
+
+    &--settings:before {
+        content: '\42';
+    }
+
+    &--star:before {
+        content: '\43';
+    }
+
+    &--time:before {
+        content: '\44';
+    }
+
+    &--user:before {
+        content: '\45';
+    }
+
+    &--warning:before {
+        content: '\46';
+    }
+
+    &--facebook:before {
+        content: '\47';
+    }
+
+    &--twitter:before {
+        content: '\48';
+    }
+
+    &--youtube:before {
+        content: '\49';
+    }
+
+    &--point-right:before {
+        content: '\4a';
+    }
+
+    &--sigma:before {
+        content: '\4b';
+    }
+}

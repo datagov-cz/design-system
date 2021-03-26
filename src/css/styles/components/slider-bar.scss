@@ -1,0 +1,134 @@
+.gov-slider-bar {
+    position: relative;
+
+    display: block;
+    width: 100%;
+
+    &__content {
+        display: block;
+        overflow: hidden;
+        padding: $gov-outline-width;
+        width: 100%;
+    }
+
+    &__items {
+        display: flex;
+        flex-wrap: nowrap;
+        width: auto;
+
+        transition: transform 512ms ease-out;
+        will-change: transform;
+    }
+
+    &__item {
+        flex: 1;
+        display: block;
+        padding: rem-calc(0 25);
+        min-width: 100%;
+
+        text-align: center;
+        text-decoration: none;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px gov-colors('blue-focus');
+        }
+
+        & > *:last-child {
+            margin-bottom: 0;
+
+            color: gov-colors('grey-dark');
+        }
+    }
+
+    &__icon {
+        margin-bottom: rem-calc(10);
+
+        color: gov-colors('grey-dark');
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+
+        margin-top: -10px;
+        height: 32px;
+        width: 32px;
+
+        border-radius: $gov-border-radius;
+        cursor: pointer;
+
+        transition: opacity 256ms ease-out;
+        will-change: opacity;
+
+        &:after {
+            @include pseudo();
+            left: 4px; right: 4px; top: 4px; bottom: 4px;
+
+            border: 2px solid transparent;
+
+            transform: rotate(-45deg);
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px gov-colors('blue-focus');
+        }
+
+        &--next {
+            right: 0;
+
+            &:after {
+                border-bottom-color: gov-colors('blue');
+                border-right-color: gov-colors('blue');
+            }
+        }
+
+        &--prev {
+            left: 0;
+
+            &:after {
+                border-top-color: gov-colors('blue');
+                border-left-color: gov-colors('blue');
+            }
+        }
+
+        &--disabled {
+            pointer-events: none;
+
+            opacity: 0;
+        }
+    }
+
+    /* RESPONSE
+    ------------------------------------------------------------------ */
+    @include mq($from: mobile) {
+        &__item {
+            padding: rem-calc(0 40);
+            min-width: 50%;
+        }
+    }
+
+    @include mq($from: mobile-landscape) {
+        &__item {
+            min-width: 33.3334%;
+        }
+    }
+
+    @include mq($from: tablet-landscape) {
+        &__item {
+            min-width: 25%;
+        }
+
+        &__arrow {
+            &--next {
+                right: rem-calc(-10);
+            }
+
+            &--prev {
+                left: rem-calc(-10);
+            }
+        }
+    }
+}

@@ -1,0 +1,100 @@
+.gov-form-article {
+    h3, .gov-title--gamma, .gov-form-article__fieldset > .gov-button, .gov-form-article__btns > .gov-button {
+        margin-bottom: rem-calc(25);
+    }
+
+    .gov-form-control {
+        max-width: 640px;
+    }
+
+    &__fieldset {
+        margin: 0;
+        padding: 0;
+
+        border: 0;
+
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__wrap {
+        margin-bottom: rem-calc(25);
+    }
+
+    &__group {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: rem-calc(15);
+        max-width: 640px;
+
+        .gov-form-control {
+            width: 300px;
+
+            &:not(:only-of-type) {
+                &:first-of-type {
+                    margin-right: rem-calc(10);
+                }
+            }
+        }
+    }
+
+    &__control {
+        width: 300px;
+
+        .gov-form-control {
+            width: 150px;
+        }
+    }
+
+    &__btns {
+        button:first-of-type {
+            margin-right: rem-calc(10);
+        }
+    }
+
+    &--plain {
+        .gov-tabs {
+            margin-top: rem-calc(30);
+        }
+    }
+
+    /*  RESPONSE
+    ------------------------------------------------------------------ */
+    @include mq($from: tablet) {
+        &--plain {
+            .gov-form-control {
+                &:not(.gov-form-control--custom) {
+                    margin-bottom: rem-calc(30);
+                    max-width: 300px;
+                }
+            }
+
+            .gov-form-article__group {
+                .gov-form-control {
+                    margin-bottom: rem-calc(15);
+                }
+            }
+        }
+    }
+
+    @include mq($until: tablet) {
+        &__group {
+            display: block;
+
+            .gov-form-control {
+                width: 100%;
+            }
+        }
+    }
+
+    @include mq($until: mobile) {
+        &__btns {
+            button:first-of-type {
+                margin-right: 0;
+                margin-bottom: rem-calc(10);
+            }
+        }
+    }
+}

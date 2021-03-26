@@ -1,0 +1,324 @@
+button, .gov-button {
+    @include button-core();
+
+    padding: rem-calc(10) rem-calc(20);
+
+    border: 1px solid transparent;
+    border-radius: $gov-border-radius;
+    color: gov-colors('blue');
+    font-family: $gov-font-family-primary;
+    font-size: rem-calc(12);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+    text-transform: uppercase;
+
+    transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+    will-change: background-color, border-color;
+
+    -webkit-font-smoothing: antialiased;
+
+    & > * {
+        color: currentColor;
+    }
+
+    &:focus {
+        border-color: gov-colors('white');
+        box-shadow: 0 0 0 $gov-outline-width gov-colors('blue-focus');
+        outline: none;
+    }
+
+    &.is-active {
+        background-color: gov-colors('blue-hover');
+
+        & > * {
+            color: currentColor;
+        }
+    }
+
+    @include hover() {
+        background-color: gov-colors('blue-hover');
+
+        & > * {
+            color: currentColor;
+        }
+    }
+
+    &:visited {
+        color: gov-colors('blue');
+
+        & > * {
+            color: currentColor;
+        }
+    }
+
+    /* Button Types
+    ------------------------------------------------------------------ */
+    &--primary {
+        background-color: gov-colors('blue');
+        border-color: gov-colors('blue');
+        color: gov-colors('white');
+
+        &.is-active {
+            background-color: gov-colors('blue-dark');
+            border-color: gov-colors('blue-dark');
+            color: gov-colors('white');
+        }
+
+        @include hover() {
+            background-color: gov-colors('blue-dark');
+            border-color: gov-colors('blue-dark');
+            color: gov-colors('white');
+        }
+
+        &:visited {
+            color: gov-colors('white');
+        }
+    }
+
+    &--primary-outlined {
+        border-color: gov-colors('blue');
+        color: gov-colors('blue');
+
+        &:focus {
+            border-color: gov-colors('blue-focus');
+        }
+
+        &.is-active {
+            border-color: gov-colors('blue-dark');
+            color: gov-colors('blue-dark');
+        }
+
+        @include hover() {
+            border-color: gov-colors('blue-dark');
+            color: gov-colors('blue-dark');
+        }
+
+        &:visited {
+            color: gov-colors('blue');
+        }
+    }
+
+    &--secondary {
+        color: gov-colors('blue');
+        background-color: gov-colors('blue-hover');
+        border-color: gov-colors('blue-hover');
+
+        &.is-active {
+            background-color: gov-colors('blue-inactive-2');
+            border-color: gov-colors('blue-inactive-2');
+        }
+
+        @include hover() {
+            background-color: gov-colors('blue-inactive-2');
+            border-color: gov-colors('blue-inactive-2');
+            color: gov-colors('blue-dark');
+        }
+
+        &:visited {
+            color: gov-colors('blue');
+        }
+    }
+
+    &--tertiary {
+        color: gov-colors('blue');
+
+        &.is-active {
+            border-color: gov-colors('blue-hover');
+            color: gov-colors('blue-dark');
+        }
+
+        @include hover() {
+            border-color: gov-colors('blue-hover');
+            color: gov-colors('blue-dark');
+        }
+
+        &:visited {
+            color: gov-colors('blue');
+        }
+    }
+
+    &--icon-only {
+        padding: 0 rem-calc(5);
+
+        text-transform: none;
+    }
+
+    &--has-icon {
+        padding-left: rem-calc(15);
+
+        .gov-icon {
+            margin-right: rem-calc(10);
+        }
+    }
+
+    /* Button Sizes
+    ------------------------------------------------------------------ */
+    &--small {
+        padding: rem-calc(8) rem-calc(13);
+
+        font-size: rem-calc(10);
+        line-height: 1.2;
+    }
+
+    &--large {
+        padding: rem-calc(13) rem-calc(25);
+
+        font-size: rem-calc(14);
+        line-height: 1.6;
+    }
+
+    /* Disabled
+    ------------------------------------------------------------------ */
+    &--disabled,
+    &[disabled],
+    &:disabled {
+        box-shadow: none !important;
+        cursor: not-allowed;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &.gov-button--primary {
+            background-color: gov-colors('blue-inactive-2') !important;
+            border-color: gov-colors('blue-inactive-2') !important;
+        }
+
+        &.gov-button--primary-outlined {
+            background-color: transparent !important;
+            border-color: gov-colors('blue-inactive-2') !important;
+            color: gov-colors('blue-inactive-1') !important;
+        }
+
+        &.gov-button--secondary {
+            background-color: gov-colors('blue-inactive-3') !important;
+            border-color: gov-colors('blue-inactive-3') !important;
+            color: gov-colors('blue-inactive-1') !important;
+        }
+
+        &.gov-button--tertiary {
+            background-color: transparent !important;
+            border-color: transparent !important;
+            color: gov-colors('blue-inactive-1') !important;
+        }
+    }
+
+    /* Inversed
+    ------------------------------------------------------------------ */
+    &--inversed {
+        &:focus {
+            border-color: transparent;
+            box-shadow: 0 0 0 $gov-outline-width gov-colors('white');
+        }
+
+        &.gov-button--primary {
+            background-color: gov-colors('white');
+            border-color: gov-colors('white');
+            color: gov-colors('blue');
+
+            &:focus {
+                border-color: gov-colors('blue');
+            }
+
+            &.is-active {
+                background-color: gov-colors('blue-hover');
+                border-color: gov-colors('blue-hover');
+            }
+
+            @include hover() {
+                background-color: gov-colors('blue-hover');
+                border-color: gov-colors('blue-hover');
+            }
+
+            &:visited {
+                color: gov-colors('blue');
+            }
+        }
+
+        &.gov-button--primary-outlined {
+            border-color: gov-colors('white');
+            color: gov-colors('white');
+
+            &:focus {
+                border-color: gov-colors('white');
+            }
+
+            &.is-active {
+                background-color: gov-colors('blue-light');
+            }
+
+            @include hover() {
+                background-color: gov-colors('blue-light');
+            }
+
+            &:visited {
+                color: gov-colors('white');
+            }
+        }
+
+        &.gov-button--secondary {
+            color: gov-colors('blue');
+
+            &.is-active {
+                background-color: gov-colors('blue-inactive-2');
+                border-color: gov-colors('blue-inactive-2');
+                color: gov-colors('blue-dark');
+            }
+
+            @include hover() {
+                background-color: gov-colors('blue-inactive-2');
+                border-color: gov-colors('blue-inactive-2');
+                color: gov-colors('blue-dark');
+            }
+
+            &:visited {
+                color: gov-colors('blue');
+            }
+        }
+
+        &.gov-button--tertiary {
+            color: gov-colors('white');
+
+            &.is-active {
+                background-color: gov-colors('blue-light');
+                border-color: gov-colors('blue-light');
+                color: gov-colors('white');
+            }
+
+            @include hover() {
+                background-color: gov-colors('blue-light');
+                border-color: gov-colors('blue-light');
+                color: gov-colors('white');
+            }
+
+            &:visited {
+                color: gov-colors('white');
+            }
+        }
+    }
+
+    /* Inversed && Disabled
+    ------------------------------------------------------------------ */
+    &--inversed {
+        &.gov-button--disabled,
+        &[disabled]
+        &:disabled {
+            &.gov-button--primary {
+                background-color: gov-colors('blue-light') !important;
+                border-color: gov-colors('blue-light') !important;
+                color: gov-colors('blue-dark') !important;
+            }
+
+            &.gov-button--primary-outlined {
+                border-color: gov-colors('blue-light') !important;
+                color: gov-colors('blue-inactive-1') !important;
+            }
+
+            &.gov-button--secondary,
+            &.gov-button--tertiary {
+                color: gov-colors('blue-inactive-1') !important;
+            }
+        }
+    }
+}

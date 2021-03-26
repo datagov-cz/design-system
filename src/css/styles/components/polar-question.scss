@@ -1,0 +1,24 @@
+.gov-polar-question {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: rem-calc(10);
+
+    .gov-button--primary-outlined {
+        margin-left: rem-calc(15);
+    }
+
+    /*  RESPONSE
+    ------------------------------------------------------------------ */
+    @include mq($until: mobile) {
+        display: block;
+
+        .gov-button--primary-outlined {
+            margin-top: rem-calc(10);
+
+            &:not(:last-child) {
+                margin-left: 0;
+            }
+        }
+    }
+}

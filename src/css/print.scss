@@ -1,0 +1,13 @@
+@media print {
+    //  abstract
+    @import "styles/abstracts/config";
+    @import "styles/abstracts/functions";
+    @import "styles/abstracts/theme";
+    @import "styles/abstracts/variables";
+
+    //  mixins
+    @import "styles/mixins/*.scss";
+
+    //  patterns
+    @import "print/**/*.scss";
+}

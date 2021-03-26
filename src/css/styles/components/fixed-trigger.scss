@@ -1,0 +1,67 @@
+$class: '.gov-fixed-trigger';
+
+#{$class} {
+    @extend .gov-button--primary;
+
+    position: fixed;
+    right: rem-calc(20); bottom: rem-calc(20);
+    @include z-index('modal', -10);
+
+    padding: rem-calc(10);
+    height: rem-calc(80);
+    width: rem-calc(80);
+
+    border-radius: 50% 50%;
+    box-shadow: 0 0 4px 0 gov-colors('grey-dark');
+    text-align: left;
+
+    &__msg {
+        display: none;
+        margin: 0 rem-calc(10);
+    }
+
+    &__close {
+        position: absolute;
+        top: 0; right: 0;
+
+        height: 20px;
+        width: 20px;
+
+        background-color: gov-colors('white');
+        border-radius: 100%;
+        box-shadow: 0 0 8px 0 gov-colors('grey-light');
+
+        &:after {
+            @include pseudo(block, absolute, '\6a');
+            left: 50%; top: 50%;
+            z-index: 5;
+
+            color: gov-colors('grey-dark');
+            font-family: $gov-icon-font;
+            font-size: rem-calc(24);
+            text-transform: none;
+
+            transform: translate3d(-50%, -50%, 0);
+        }
+
+        @include hover() {
+            background-color: gov-colors('blue-hover');
+        }
+    }
+
+    &--expanded {
+        max-width: 260px;
+        width: auto;
+
+        border-radius: $gov-border-radius;
+
+        #{$class}__msg {
+            display: block;
+        }
+
+        #{$class}__close {
+            right: rem-calc(-10);
+            top: rem-calc(-10);
+        }
+    }
+}

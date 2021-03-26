@@ -1,0 +1,102 @@
+.gov-content-block {
+    position: relative;
+
+    margin-bottom: rem-calc(35);
+    padding: rem-calc(30 50);
+
+    background-color: gov-colors('white');
+    border-radius: $gov-border-radius;
+
+    &--e-service-icon {
+        &:after {
+            @include pseudo();
+            top: 0;
+            right: 0;
+
+            width: rem-calc(65);
+            height: rem-calc(59);
+
+            background: transparent url($domain + 'assets/icons/basic/e-vyrizeni.svg' + '?v=' + $versionKey);
+            background-size: cover;
+        }
+    }
+
+    & > *:last-child {
+        margin-bottom: 0;
+    }
+
+    //  separator
+    hr {
+        margin: 0;
+        margin-bottom: rem-calc(30);
+
+        height: 1px;
+
+        border: none;
+        border-bottom: 1px solid gov-colors('grey-inactive');
+
+        &.gov-content-block__separator {
+            margin-left: rem-calc(-50);
+			margin-right: rem-calc(-50);
+        }
+    }
+
+    //  tabs
+    .gov-tabs {
+        &--full-width {
+            .gov-tabs__links-holder {
+				&:after {
+					left: rem-calc(-50);
+                    right: rem-calc(-50);
+                }
+            }
+        }
+    }
+
+    &--no-padding {
+        position: relative;
+
+        padding: 0;
+    }
+
+    //  RESPONSE
+    @include mq($until: tablet) {
+        padding: rem-calc(20 30);
+
+        //  separator
+        hr {
+            &.gov-content-block__separator {
+                margin-left: rem-calc(-30);
+                margin-right: rem-calc(-30);
+            }
+        }
+
+        //  tabs
+        .gov-tabs {
+            &--full-width {
+                .gov-tabs__links-holder {
+                    &:after {
+                        left: rem-calc(-30);
+                        right: rem-calc(-30);
+                    }
+                }
+            }
+        }
+
+        &--no-padding {
+            position: relative;
+
+            padding: 0;
+        }
+    }
+
+    @include mq($until: mobile) {
+        left: rem-calc(-20);
+
+        width: 100vw;
+
+        &:not(.gov-content-block--no-padding) {
+            padding: rem-calc(20);
+        }
+    }
+}

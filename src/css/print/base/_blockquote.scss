@@ -1,0 +1,11 @@
+blockquote, .gov-blockquote {
+    padding-left: rem-calc(20);
+
+    background-color: gov-colors('white');
+    border-left: 4px solid gov-colors('grey-dark');
+
+    &:before,
+    &:after {
+        display: none;
+    }
+}

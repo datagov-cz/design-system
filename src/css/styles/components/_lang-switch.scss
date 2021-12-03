@@ -17,38 +17,32 @@
         pointer-events: none;
     }
 
-    @include hover() {
-        background-color: gov-colors('blue-light');
-    }
-}
-
-.gov-select {
-	appereance: none;
-	-webkit-appearance: none;
-
-	&--lang {
-        border-radius: $gov-border-radius;
-        cursor: pointer;
-
+    &__select {
         padding: 0 rem-calc(5);
         width: rem-calc(50);
 		height: rem-calc(40);
 
-		border: none;
-
-		color: gov-colors('white');
-		font-size: rem-calc(12);
-
         background: transparent;
+		border: none;
+        border-radius: $gov-border-radius;
+		color: gov-colors('white');
+        cursor: pointer;
+		font-size: rem-calc(12);
+        appereance: none;
+	    -webkit-appearance: none;
 
         &:focus {
             border-color: gov-colors('white');
             box-shadow: 0 0 0 $gov-outline-width gov-colors('white');
             outline: none;
         }
+
+        option {
+            color: gov-colors('grey-dark');
+        }
     }
 
-    option {
-        color: gov-colors('grey-dark');
+    @include hover() {
+        background-color: gov-colors('blue-light');
     }
 }

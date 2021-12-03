@@ -13,7 +13,20 @@ import merge from 'lodash/merge';
 import GovCalendar from './GovCalendar';
 import GovElement from '../mixins/GovElement';
 import {padStart} from '../utils/string';
-import {addClass, hasClass} from '../../utils/classie';
+import {matchCzechDate} from '../utils/date';
+import {addClass, hasClass, removeClass} from '../../utils/classie';
+
+
+const locales = {
+    cs: {
+        errorFormatMessage: 'Zadejte datum ve formátu DD. MM. YYYY',
+        errorMessage: 'Zadejte datum',
+    },
+    en: {
+        errorFormatMessage: 'Enter the date in DD. MM. YYYY format',
+        errorMessage: 'Enter the date',
+    },
+}
 
 class GovDatePicker extends GovElement {
     /**
@@ -28,6 +41,7 @@ class GovDatePicker extends GovElement {
             classes: {
                 inputContainer:    'gov-datepicker',
                 calendarContainer: 'gov-calendar',
+                errorContainer:    'gov-form-control--error',
             }
         }
         this._options = merge({}, this._defaults, options);
@@ -35,6 +49,7 @@ class GovDatePicker extends GovElement {
         this._clickEscape = this._detectClickEscape.bind(this);
         this._calendarInstance = null;
         this._currentValue = null;
+        this._tempControlMessage = null;
         this._init();
     }
 
@@ -45,6 +60,7 @@ class GovDatePicker extends GovElement {
     _init() {
         this._bindEvents();
         this._prepareDefaultValue();
+        this._prepareTempData();
     }
 
     /**
@@ -61,6 +77,9 @@ class GovDatePicker extends GovElement {
             this._iniCalendar();
             this._bindClickOutside();
             e.target.focus();
+        });
+        this._containerElement.addEventListener('blur', (e) => {
+            this._validateInput();
         });
     }
 
@@ -114,6 +133,8 @@ class GovDatePicker extends GovElement {
             }
         }
         this._containerElement.value = format;
+
+        this._validateInput();
 
         if (hasClass(parentEl, 'gov-form-control__datepicker')) {
             addClass(parentEl, 'not-empty');
@@ -201,6 +222,55 @@ class GovDatePicker extends GovElement {
         }
     }
 
+    /**
+     * @return {void}
+     * @private
+     */
+    _prepareTempData() {
+        if (this._formMessageElement) {
+            this._tempControlMessage = this._formMessageElement.textContent;
+        }
+    }
+
+    /**
+     * @return {Boolean}
+     * @private
+     */
+    _validateInput() {
+        const value = this._containerElement.value;
+        const {errorContainer} = this._options.classes;
+        if (hasClass(this._formControlElement, errorContainer)) {
+            removeClass(this._formControlElement, errorContainer);
+            if (this._tempControlMessage) {
+                this._formMessageElement.textContent = this._tempControlMessage;
+            }
+        }
+
+        if (value) {
+            if (!matchCzechDate(value)) {
+                addClass(this._formControlElement, errorContainer);
+                this._formMessageElement.textContent = this._locales.errorFormatMessage;
+                return true;
+            }
+        } else {
+            if(this._containerElement.hasAttribute('required')) {
+                addClass(this._formControlElement, errorContainer);
+                this._formMessageElement.textContent = this._locales.errorMessage;
+                return true;
+            }
+            return false;
+        }
+    }
+
+    /**
+     * @return {Object}
+     * @private
+     */
+    get _locales() {
+        const {locale} = this._options;
+        return locales.hasOwnProperty(locale) ? locales[locale] : locales['cs'];
+    }
+
 
     /**
      * @return {HTMLElement|Element}
@@ -239,6 +309,31 @@ class GovDatePicker extends GovElement {
             this._inputContainerElement.append(calendarContainer);
 
             return calendarContainer;
+        }
+    }
+
+    /**
+     * @return {HTMLElement|Element|null}
+     * @private
+     */
+    get _formControlElement() {
+        const parents = this._containerElement.parents('.gov-form-control');
+        if (parents.length) {
+            return parents[0];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @return {HTMLElement|Element|null}
+     * @private
+     */
+    get _formMessageElement() {
+        if (this._formControlElement) {
+            return this._formControlElement.querySelector('.gov-form-control__message');
+        } else {
+            return null;
         }
     }
 }

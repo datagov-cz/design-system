@@ -8,4 +8,8 @@
 
         color: gov-colors('blue');
     }
+
+    .gov-badge + p {
+        margin-top: rem-calc(8);
+    }
 }

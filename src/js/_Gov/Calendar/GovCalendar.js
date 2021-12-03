@@ -16,6 +16,8 @@ import GovElement from '../mixins/GovElement';
 import {chunk} from '../utils/array';
 import {padStart} from '../utils/string';
 
+const DATE_FORMAT = /([12]\d{3})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])/;
+
 const locales = {
     cs: {
         months: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'],
@@ -71,7 +73,7 @@ class GovCalendar extends GovElement {
         const {selected} = this._options;
         let date = new Date();
         if (selected) {
-            const re = new RegExp(/([12]\d{3})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])/);
+            const re = new RegExp(DATE_FORMAT);
             const match = selected.match(re);
             date = new Date(match[1], match[2] - 1, match[3]);
 

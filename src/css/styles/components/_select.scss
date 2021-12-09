@@ -65,6 +65,7 @@
         }
     }
 
+    //  --------------------
     .gov-select {
         position: relative;
 
@@ -77,21 +78,17 @@
             color: gov-colors('blue');
             font-family: $gov-icon-font;
             font-size: rem-calc(24);
+            line-height: 1;
             pointer-events: none;
         }
 
         .gov-form-control__label {
-            opacity: 1;
-
-            padding-top: rem-calc(7);
-            padding-bottom: rem-calc(5);
-
-            border-radius: $gov-border-radius $gov-border-radius 0 0;
-            font-size: rem-calc(12);
             pointer-events: none;
         }
     }
 
+    /*  Error
+    ------------------------------------------------------------------ */
     &--error {
         select {
             color: gov-colors('error');

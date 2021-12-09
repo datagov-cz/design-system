@@ -1,5 +1,6 @@
 import GovFormText from './GovFormText';
 import GovFileInput from './GovFileInput';
+import GovSelect from './GovSelect';
 
 /**
  * @return {void}
@@ -15,4 +16,12 @@ export function initFormTexts() {
 export function initFileInputs() {
     const fileInputs = document.querySelectorAll('.gov-fileinput');
     fileInputs.forEach((fileinput) => new GovFileInput(fileinput));
+}
+
+/**
+ * @return {void}
+ */
+ export function initSelects() {
+    const selects = document.querySelectorAll('.gov-select');
+    selects.forEach((select) => new GovSelect(select));
 }

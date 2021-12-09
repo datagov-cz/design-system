@@ -54,7 +54,7 @@ $class: '.gov-portal-subnav';
 
         background-color: gov-colors('blue');
         border-radius: $gov-border-radius;
-        box-shadow: 0 0 4px 0 gov-colors('grey-dark');
+        box-shadow: 0 1px 4px 0 gov-colors('grey-dark');
         pointer-events: none;
         visibility: hidden;
 

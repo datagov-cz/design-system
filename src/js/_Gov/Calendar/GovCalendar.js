@@ -125,7 +125,7 @@ class GovCalendar extends GovElement {
      */
     _renderCalendar() {
         const {year, month} = this._state;
-        let firstDay = new Date(year, month).getDay() - 1;
+        let firstDay =  new Date(year, month).getDay() - 1;
         this._clearDaysElement();
         this._prepareWeekDays()
 
@@ -273,10 +273,16 @@ class GovCalendar extends GovElement {
         let numberOfDays = new Date(year, month + 1, 0).getDate();
         const buffer = [];
 
+        if(firstDay === -1) {
+            firstDay = 6;
+        }
+
         for (let k = firstDay; k > 0; k--) {
             buffer.push({year, month: month + 1, day: numberOfDays, disabled: true});
             numberOfDays = numberOfDays - 1;
         }
+
+        buffer.reverse();
 
         return buffer;
     }

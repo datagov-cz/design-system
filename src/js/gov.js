@@ -6,11 +6,18 @@ import {initScrollUpControler} from './_Gov/Control/default';
 import {initGovSliderBars} from './_Gov/Slider/default';
 import {initHamburgerNavs} from './_Gov/Nav/default';
 import {initPortalHamburgerNavs, destroyPortalHamburgerNavs} from './_Gov/PortalHamburgerNav/default';
-import {initFormTexts, initFileInputs, initSelects} from './_Gov/Form/default';
+import {
+    initFormTexts,
+    initFileInputs,
+    initSelects,
+    initMultipleSelect,
+    initTimePicker,
+    initDatePicker
+} from './_Gov/Form/default';
 import {initModals} from './_Gov/Modal/default';
-import {initCalendar, initDatePicker} from './_Gov/Calendar/default';
+import {initCalendar} from './_Gov/Calendar/default';
 import {initTables, initSortableTable} from './_Gov/Table/default';
-import './_Gov/Autocomplete/GovAutocomplete';
+import './_Gov/Form/GovAutocomplete';
 
 var hamburgerNavInited = false;
 
@@ -21,7 +28,9 @@ initGovSliderBars();
 initHamburgerNavs();
 initFormTexts();
 initFileInputs();
+initTimePicker();
 initSelects();
+initMultipleSelect();
 initCalendar();
 initDatePicker();
 initModals();

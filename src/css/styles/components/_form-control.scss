@@ -43,9 +43,9 @@ $class: '.gov-form-control';
     }
 
     //  --------------------
-    &__datepicker {
+    &__datepicker,
+    &__timepicker {
         &:after {
-            @include pseudo(block, absolute, '\67');
             right: rem-calc(15); top: rem-calc(18);
 
             color: gov-colors('blue');
@@ -58,6 +58,19 @@ $class: '.gov-form-control';
         }
     }
 
+    &__datepicker {
+        &:after {
+            @include pseudo(block, absolute, '\67');
+        }
+    }
+
+    &__timepicker {
+        max-width: 130px;
+
+        &:after {
+            @include pseudo(block, absolute, '\44');
+        }
+    }
 
     /*  Custom type
     ------------------------------------------------------------------ */

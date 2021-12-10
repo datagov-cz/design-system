@@ -1,12 +1,12 @@
-import GovTable from './GovTable';
+//import GovTable from './GovTable';
 import GovSortableTable from './GovSortableTable';
 
 /**
  * @return {void}
  */
 export function initTables() {
-    const tableContainers = document.querySelectorAll('.gov-table-cover');
-    tableContainers.forEach((table) => new GovTable(table));
+    //const tableContainers = document.querySelectorAll('.gov-table-cover');
+    //tableContainers.forEach((table) => new GovTable(table));
 }
 
 /**

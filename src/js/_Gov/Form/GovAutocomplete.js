@@ -34,11 +34,12 @@ class GovAutocomplete extends GovElement {
     constructor(el, options = {}) {
         super(el);
         this._defaults = {
-            locale:   'cs',
-            onSearch: null,
-            onSelect: null,
-            minChars: 2,
-            classes:  {
+            locale:      'cs',
+            onSearch:    null,
+            onSelect:    null,
+            minChars:    2,
+            allowCreate: false,
+            classes:     {
                 resultItem:            'gov-autocomplete__result',
                 emptyItem:             'gov-autocomplete__empty',
                 autocompleteContainer: 'gov-autocomplete',
@@ -226,6 +227,11 @@ class GovAutocomplete extends GovElement {
         if (this._data.hasOwnProperty(this._arrowCounter)) {
             const item = this._data[this._arrowCounter];
             this._pick(item);
+        } else {
+            const {allowCreate} = this._options;
+            if (allowCreate && this._containerElement.value) {
+                this._pick({id: null, name: this._containerElement.value});
+            }
         }
     }
 
@@ -274,13 +280,16 @@ class GovAutocomplete extends GovElement {
      * @private
      */
     _setSelectedOption() {
-        const options = this._inputListElement.querySelectorAll('li');
+        const options = this._inputListElement.querySelectorAll('li'),
+              optionsEl = this._inputListElement;
+
         map(options, (option, index) => {
             option.classList.remove('selected');
             option.setAttribute('aria-selected', '0');
             if (index === this._arrowCounter) {
                 option.classList.add('selected');
                 option.setAttribute('aria-selected', '1');
+                optionsEl.scrollTop = option.offsetTop;
             }
         })
     }
@@ -311,6 +320,16 @@ class GovAutocomplete extends GovElement {
      */
     _isListVisible() {
         return this._inputListElement.style.display === 'block';
+    }
+
+    // CALLABLE
+
+    /**
+     * @return {void}
+     */
+    clear() {
+        this._containerElement.value = '';
+        this._containerElement.focus();
     }
 
     // ELEMENTS

@@ -9,47 +9,48 @@
 
 'use strict';
 
-import merge from 'lodash/merge';
-import GovCalendar from './GovCalendar';
-import GovElement from '../mixins/GovElement';
+import GovCalendar from '../Calendar/GovCalendar';
 import {padStart} from '../utils/string';
 import {matchCzechDate} from '../utils/date';
-import {addClass, hasClass, removeClass} from '../../utils/classie';
-
+import {addClass, hasClass} from '../../utils/classie';
+import classes from '../_extends/lib/classes';
+import GovComponent from '../_extends/GovComponent';
+import GovElement from '../_extends/GovElement';
+import GovFormControl from '../_extends/GovFormControl';
+import GovControl from '../_extends/GovControl';
 
 const locales = {
     cs: {
         errorFormatMessage: 'Zadejte datum ve formátu DD. MM. YYYY',
-        errorMessage: 'Zadejte datum',
+        errorMessage:       'Zadejte datum',
     },
     en: {
         errorFormatMessage: 'Enter the date in DD. MM. YYYY format',
-        errorMessage: 'Enter the date',
+        errorMessage:       'Enter the date',
     },
 }
 
-class GovDatePicker extends GovElement {
+class GovDatePicker extends classes(GovElement, GovControl, GovComponent, GovFormControl) {
     /**
      * @param {Element} el
      * @param {Object} options
      */
     constructor(el, options = {}) {
-        super(el);
+        super();
         this._defaults = {
             locale:  'cs',
             format:  'DD. MM. YYYY',
             classes: {
                 inputContainer:    'gov-datepicker',
                 calendarContainer: 'gov-calendar',
-                errorContainer:    'gov-form-control--error',
             }
         }
-        this._options = merge({}, this._defaults, options);
-        this._clickOutside = this._detectClickOutside.bind(this);
-        this._clickEscape = this._detectClickEscape.bind(this);
+        this._prepareOptions(options);
+        this._prepareDomElement(el);
+        this._setLocales(locales);
+        this._prepareTempData();
         this._calendarInstance = null;
         this._currentValue = null;
-        this._tempControlMessage = null;
         this._init();
     }
 
@@ -58,9 +59,9 @@ class GovDatePicker extends GovElement {
      * @private
      */
     _init() {
+        this._registerClickOutside(this);
         this._bindEvents();
         this._prepareDefaultValue();
-        this._prepareTempData();
     }
 
     /**
@@ -68,30 +69,19 @@ class GovDatePicker extends GovElement {
      * @private
      */
     _bindEvents() {
-        this._containerElement.addEventListener('click', (e) => {
+        this._domElement().addEventListener('click', (e) => {
             this._iniCalendar();
             this._bindClickOutside();
             e.target.focus();
         });
-        this._containerElement.addEventListener('focus', (e) => {
+        this._domElement().addEventListener('focus', (e) => {
             this._iniCalendar();
             this._bindClickOutside();
             e.target.focus();
         });
-        this._containerElement.addEventListener('blur', (e) => {
+        this._domElement().addEventListener('blur', () => {
             this._validateInput();
         });
-    }
-
-    /**
-     * @return {void}
-     * @private
-     */
-    _bindClickOutside() {
-        setTimeout(() => {
-            document.addEventListener('click', this._clickOutside);
-            document.addEventListener('keyup', this._clickEscape);
-        }, 100);
     }
 
     /**
@@ -124,7 +114,7 @@ class GovDatePicker extends GovElement {
             'M':    month,
             'YYYY': date.getFullYear(),
         }
-        const parentEl = this._containerElement.parentElement.parentElement;
+        const parentEl = this._domElement().parentElement.parentElement;
 
         for (const key in replaceTable) {
             if (replaceTable.hasOwnProperty(key)) {
@@ -132,7 +122,7 @@ class GovDatePicker extends GovElement {
                 format = format.replace(re, replaceTable[key]);
             }
         }
-        this._containerElement.value = format;
+        this._domElement().value = format;
 
         this._validateInput();
 
@@ -148,42 +138,9 @@ class GovDatePicker extends GovElement {
      * @private
      */
     _destroy() {
-        document.removeEventListener('click', this._clickOutside);
-        document.removeEventListener('keyup', this._clickEscape);
         this._calendarContainerElement.remove();
         this._inputContainerElement.unwrap();
         this._calendarInstance = null;
-    }
-
-    /**
-     * @param {MouseEvent} evt
-     * @return {void}
-     * @private
-     */
-    _detectClickOutside(evt) {
-        const {classes: {inputContainer}} = this._options;
-        const parents = this._containerElement.parents('.' + inputContainer);
-        if (parents.length === 0) this._destroy();
-        const flyoutElement = parents[0];
-        let targetElement = evt.target;
-        do {
-            if (targetElement == flyoutElement) {
-                return;
-            }
-            targetElement = targetElement.parentNode;
-        } while (targetElement);
-
-        this._destroy();
-    }
-
-    /**
-     * @param {KeyboardEvent} evt
-     * @private
-     */
-    _detectClickEscape(evt) {
-        if (evt.key === "Escape") {
-            this._destroy();
-        }
     }
 
     /**
@@ -192,7 +149,7 @@ class GovDatePicker extends GovElement {
      */
     _prepareDefaultValue() {
         const {format} = this._options;
-        let {value} = this._containerElement;
+        let {value} = this._domElement();
         if (String(value).length === 0) return;
 
         const formatBlocks = {
@@ -223,39 +180,21 @@ class GovDatePicker extends GovElement {
     }
 
     /**
-     * @return {void}
-     * @private
-     */
-    _prepareTempData() {
-        if (this._formMessageElement) {
-            this._tempControlMessage = this._formMessageElement.textContent;
-        }
-    }
-
-    /**
      * @return {Boolean}
      * @private
      */
     _validateInput() {
-        const value = this._containerElement.value;
-        const {errorContainer} = this._options.classes;
-        if (hasClass(this._formControlElement, errorContainer)) {
-            removeClass(this._formControlElement, errorContainer);
-            if (this._tempControlMessage) {
-                this._formMessageElement.textContent = this._tempControlMessage;
-            }
-        }
+        const value = this._domElement().value;
+        this._clearError();
 
         if (value) {
             if (!matchCzechDate(value)) {
-                addClass(this._formControlElement, errorContainer);
-                this._formMessageElement.textContent = this._locales.errorFormatMessage;
+                this._setError(this._locale().errorFormatMessage);
                 return true;
             }
         } else {
-            if(this._containerElement.hasAttribute('required')) {
-                addClass(this._formControlElement, errorContainer);
-                this._formMessageElement.textContent = this._locales.errorMessage;
+            if (this._domElement().hasAttribute('required')) {
+                this._setError(this._locale().errorMessage);
                 return true;
             }
             return false;
@@ -263,33 +202,23 @@ class GovDatePicker extends GovElement {
     }
 
     /**
-     * @return {Object}
-     * @private
-     */
-    get _locales() {
-        const {locale} = this._options;
-        return locales.hasOwnProperty(locale) ? locales[locale] : locales['cs'];
-    }
-
-
-    /**
      * @return {HTMLElement|Element}
      * @private
      */
     get _inputContainerElement() {
-        const inputContainer = this._containerElement.parents('.' + this._options.classes.inputContainer);
+        const inputContainer = this._domElement().parents('.' + this._options.classes.inputContainer);
         if (inputContainer.length) return inputContainer[0];
         else {
             const inputContainer = document.createElement('div');
             inputContainer.classList.add(this._options.classes.inputContainer);
 
             let labelElement = null;
-            const sibling = this._containerElement.nextElementSibling;
+            const sibling = this._domElement().nextElementSibling;
             if (sibling && sibling.tagName === 'LABEL') {
                 labelElement = sibling;
             }
 
-            this._containerElement.wrap(inputContainer);
+            this._domElement().wrap(inputContainer);
             if (labelElement) inputContainer.append(labelElement);
 
             return inputContainer;
@@ -301,7 +230,7 @@ class GovDatePicker extends GovElement {
      * @private
      */
     get _calendarContainerElement() {
-        const calendarContainer = this._inputContainerElement.querySelector('.' + this._options.classes.calendarContainer);
+        const calendarContainer = this._inputContainerElement.querySelector(`.${this._options.classes.calendarContainer}`);
         if (calendarContainer) return calendarContainer;
         else {
             const calendarContainer = document.createElement('div');
@@ -313,28 +242,11 @@ class GovDatePicker extends GovElement {
     }
 
     /**
-     * @return {HTMLElement|Element|null}
+     * @return {Element|HTMLElement}
      * @private
      */
-    get _formControlElement() {
-        const parents = this._containerElement.parents('.gov-form-control');
-        if (parents.length) {
-            return parents[0];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * @return {HTMLElement|Element|null}
-     * @private
-     */
-    get _formMessageElement() {
-        if (this._formControlElement) {
-            return this._formControlElement.querySelector('.gov-form-control__message');
-        } else {
-            return null;
-        }
+    _outsideElement() {
+        return this._domElement();
     }
 }
 

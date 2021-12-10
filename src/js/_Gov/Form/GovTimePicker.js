@@ -17,6 +17,7 @@ import GovElement from '../_extends/GovElement';
 import GovFormControl from '../_extends/GovFormControl';
 import {matchTime} from '../utils/time';
 import GovControl from '../_extends/GovControl';
+import {isNumber} from "../utils/pattern";
 
 
 const locales = {
@@ -40,9 +41,9 @@ class GovTimePicker extends classes(GovElement, GovControl, GovComponent, GovFor
         this._defaults = {
             interval: 15,
             classes:  {
-                timepickerContainer:    'gov-timepicker',
-                timepickerOptions:      'gov-timepicker__options',
-                timepickerOption:       'gov-timepicker__option',
+                timepickerContainer: 'gov-timepicker',
+                timepickerOptions:   'gov-timepicker__options',
+                timepickerOption:    'gov-timepicker__option',
             }
         }
         this._prepareOptions(options);
@@ -74,6 +75,7 @@ class GovTimePicker extends classes(GovElement, GovControl, GovComponent, GovFor
             this._bindClickOutside();
         });
         this._domElement().addEventListener('blur', () => {
+            this._formatInput();
             this._validateInput();
             return;
             setTimeout(() => {
@@ -130,6 +132,38 @@ class GovTimePicker extends classes(GovElement, GovControl, GovComponent, GovFor
         }
 
         return times;
+    }
+
+    /**
+     * @return {void}
+     * @private
+     */
+    _formatInput() {
+        const value = this._domElement().value;
+        if (isNumber(value)) {
+            let stringValue = value.toString();
+            let newFormat = null;
+            if (stringValue.length === 1) {
+                newFormat = value + ':00';
+            } else if (stringValue.length === 2) {
+                if (value < 24) newFormat = value + ':00';
+                else if (value < 60) newFormat = '00:' + value;
+            } else if (stringValue.length === 3) {
+                let firstTwo = parseInt(stringValue.substring(0, 2));
+                let lastTwo = parseInt(stringValue.substring(1, 3));
+                let last = stringValue.substring(2, 3);
+                let first = stringValue.substring(0, 1);
+                if (firstTwo < 24) newFormat = firstTwo + ':0' + last;
+                else if (lastTwo < 60) newFormat = first + ':' + lastTwo;
+            } else if (stringValue.length === 4) {
+                let firstTwo = parseInt(stringValue.substring(0, 2));
+                let lastTwo = parseInt(stringValue.substring(2, 4));
+                if (firstTwo < 24 && lastTwo < 60) newFormat = firstTwo + ':' + lastTwo;
+            }
+            if (newFormat) {
+                this._domElement().value = newFormat;
+            }
+        }
     }
 
     /**
@@ -261,7 +295,7 @@ class GovTimePicker extends classes(GovElement, GovControl, GovComponent, GovFor
      */
     _setSelectedOption() {
         const options = this._inputListElement.querySelectorAll('li'),
-              optionsEl = this._inputListElement;
+            optionsEl = this._inputListElement;
 
         map(options, (option, index) => {
             option.classList.remove('selected');

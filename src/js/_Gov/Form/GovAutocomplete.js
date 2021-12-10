@@ -329,7 +329,7 @@ class GovAutocomplete extends GovElement {
      */
     clear() {
         this._containerElement.value = '';
-        this._containerElement.focus();
+        removeClass(this._inputControlElement, 'not-empty');
     }
 
     // ELEMENTS

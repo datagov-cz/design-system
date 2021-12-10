@@ -246,7 +246,7 @@ class GovDatePicker extends classes(GovElement, GovControl, GovComponent, GovFor
      * @private
      */
     _outsideElement() {
-        return this._domElement();
+        return this._calendarContainerElement;
     }
 }
 

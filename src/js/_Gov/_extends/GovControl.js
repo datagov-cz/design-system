@@ -46,7 +46,7 @@ export default class GovControl {
         if (typeof this['_outsideElement'] !== 'function') {
             return;
         }
-        const flyoutElement = this._outsideElement;
+        const flyoutElement = this._outsideElement();
         if (!flyoutElement) this._destroyClickOutside();
         let targetElement = evt.target;
         do {

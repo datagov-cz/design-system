@@ -122,6 +122,13 @@ $class: '.gov-form-control';
         #{$class}__message {
 			color: gov-colors('error');
         }
+
+        &#{$class}__datepicker,
+        &#{$class}__timepicker {
+            &:after {
+                color: gov-colors('error');
+            }
+        }
     }
 
     /*  Inversed

@@ -63,3 +63,21 @@ if (!Element.prototype.unwrap) {
         this.replaceWith(...this.childNodes);
     }
 }
+
+if (!Element.prototype.optionByText) {
+    Element.prototype.optionByText = function (text) {
+        let elem = this;
+        const buffer = [];
+        elem.querySelectorAll('option').forEach((option) => {
+            if (option.text === text) buffer.push(option);
+        });
+        return buffer.length ? buffer[0] : null;
+    }
+}
+
+if (!Element.prototype.insertAfter) {
+    Element.prototype.insertAfter = function (newNode) {
+        let referenceNode = this;
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    }
+}

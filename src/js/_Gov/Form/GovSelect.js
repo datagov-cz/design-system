@@ -9,23 +9,20 @@
 
 'use strict';
 
-import merge from 'lodash/merge';
-import { addClass } from '../../utils/classie';
-import GovElement from '../mixins/GovElement';
+import classes from '../_extends/lib/classes';
+import {addClass, removeClass} from '../../utils/classie';
+import GovComponent from '../_extends/GovComponent';
+import GovElement from '../_extends/GovElement';
+import GovFormControl from '../_extends/GovFormControl';
 
-class GovSelect extends GovElement {
+class GovSelect extends classes(GovElement, GovComponent, GovFormControl) {
     /**
      * @param {Element} el
      * @param {Object} options
      */
-    constructor(el, options = {}) {
-        super(el);
-
-        this._defaults = {
-            selectSelector:  'select',
-        }
-
-        this._options = merge({}, this._defaults, options);
+    constructor(el) {
+        super();
+        this._prepareDomElement(el);
         this._init();
     }
 
@@ -34,7 +31,7 @@ class GovSelect extends GovElement {
      * @private
      */
     _init() {
-        this._suppressDefault();
+        this._prepareSelect();
         this._bindEvents();
     }
 
@@ -42,29 +39,55 @@ class GovSelect extends GovElement {
      * @return {void}
      * @private
      */
-    _suppressDefault() {
-        this._selectElement.selectedIndex = -1;
+    _prepareSelect() {
+        const option = this._getFirstOptionElement();
+        if (option) {
+            if (String(option.textContent).length) {
+                addClass(this._formControlElement(), 'not-empty');
+            }
+        }
     }
 
     /**
      * @return {void}
      * @private
      */
-     _bindEvents() {
-        this._selectElement.addEventListener('change', () => {
-            if (this._selectElement && this._selectElement.selectedIndex > -1) {
-                addClass(this._containerElement.parentElement, 'not-empty');
-            }
+    _bindEvents() {
+        this._domElement().addEventListener('change', () => {
+            this._verifyEmptySelect();
+        });
+        this._domElement().addEventListener('focus', () => {
+            this._verifyEmptySelect();
+        });
+        this._domElement().addEventListener('blue', () => {
+            this._verifyEmptySelect();
         });
     }
 
     /**
-     * @return {Element|null}
+     * @return {null|Element}
      * @private
      */
-    get _selectElement() {
-        const {selectSelector} = this._options;
-        return this._containerElement.querySelector(selectSelector);
+    _getFirstOptionElement() {
+        const options = this._domElement().querySelectorAll('option:first-of-type');
+        if (options.length) {
+            const option = options[0];
+            return option;
+        }
+        return null;
+    }
+
+    /**
+     * @return {void}
+     * @private
+     */
+    _verifyEmptySelect() {
+        const value = this._domElement().value;
+        if (value) {
+            addClass(this._formControlElement(), 'not-empty');
+        } else {
+            removeClass(this._formControlElement(), 'not-empty');
+        }
     }
 }
 

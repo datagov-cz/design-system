@@ -1,6 +1,7 @@
 .gov-form-control {
     select {
 	    padding: rem-calc(25 20 11);
+        padding-right: rem-calc(40);
         width: 100%;
 
         background-color: gov-colors('white');

@@ -1,0 +1,43 @@
+.gov-timepicker {
+    position: relative;
+
+    &__options {
+        @extend .gov-list--plain;
+
+        position: absolute;
+        left: 0; right: 0; bottom: rem-calc(-30);
+        z-index: 10;
+
+        overflow-y: scroll;
+        max-height: 320px;
+
+        background-color: gov-colors('blue');
+        border-radius: $gov-border-radius;
+        box-shadow: 0 0 $gov-outline-width 0 gov-colors('grey-light');
+
+        transform: translateY(100%);
+    }
+
+    &__option {
+        @extend .gov-title;
+        @extend .gov-title--gamma;
+
+        display: block;
+        margin: 0 !important;
+        padding: rem-calc(15 20);
+
+        color: gov-colors('white');
+        cursor: pointer;
+
+        @include hover() {
+            background-color: gov-colors('white');
+            color: gov-colors('blue-dark');
+        }
+
+        &.selected,
+        &.is-active {
+            background-color: gov-colors('white');
+            color: gov-colors('blue-dark');
+        }
+    }
+}

@@ -12,7 +12,6 @@
 
 		&:after {
 			@include pseudo();
-
 			left: 0;
 			right: 0;
 			bottom: 0;
@@ -25,6 +24,7 @@
 
 	&__link {
 		position: relative;
+        z-index: 2;
 
 		@include button-core();
 
@@ -51,13 +51,14 @@
 			margin-right: rem-calc(40);
 		}
 
-		&:focus,
+		&:focus {
+            box-shadow: 0 0 0 $gov-outline-width gov-colors('blue-focus');
+            outline: none;
+        }
+
 		&.is-active {
             background-color: transparent;
-            box-shadow: none;
             color: gov-colors('grey-dark');
-
-            outline: 0;
 
 			&:after {
 				z-index: 1;

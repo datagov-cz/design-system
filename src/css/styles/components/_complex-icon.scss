@@ -40,58 +40,78 @@
     /*  Icons
     ------------------------------------------------------------------ */
     &--car:before {
-        content: '\61';
+        content: "\61";
+    }
+
+    &--covid:before {
+        content: "\62";
     }
 
     &--doc-health:before {
-        content: '\62';
+        content: "\63";
     }
 
     &--doc-search:before {
-        content: '\63';
+        content: "\64";
     }
 
     &--doc-stamp:before {
-        content: '\64';
+        content: "\65";
     }
 
     &--doc-taxes:before {
-        content: '\65';
+        content: "\66";
     }
 
     &--house:before {
-        content: '\66';
+        content: "\67";
     }
 
     &--id-card:before {
-        content: '\67';
+        content: "\68";
     }
 
     &--info:before {
-        content: '\68';
+        content: "\69";
     }
 
     &--map:before {
-        content: '\69';
+        content: "\6a";
+    }
+
+    &--new-comments:before {
+        content: "\6b";
     }
 
     &--newborn:before {
-        content: '\6a';
+        content: "\6c";
     }
 
     &--packet:before {
-        content: '\6b';
+        content: "\6d";
     }
 
     &--planet:before {
-        content: '\6c';
+        content: "\6e";
     }
 
     &--pregnant:before {
-        content: '\6d';
+        content: "\6f";
     }
 
     &--review:before {
-        content: '\6e';
+        content: "\70";
+    }
+
+    &--rings:before {
+        content: "\71";
+    }
+
+    &--tombstone:before {
+        content: "\72";
+    }
+
+    &--vacation:before {
+        content: "\73";
     }
 }

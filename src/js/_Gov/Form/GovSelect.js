@@ -40,9 +40,10 @@ class GovSelect extends classes(GovElement, GovComponent, GovFormControl) {
      * @private
      */
     _prepareSelect() {
+        const value = this._domElement().value;
         const option = this._getFirstOptionElement();
-        if (option) {
-            if (String(option.textContent).length) {
+        if (option || value) {
+            if (value || String(option.textContent).length) {
                 addClass(this._formControlElement(), 'not-empty');
             }
         }

@@ -33,6 +33,7 @@
 
     &__tag {
         display: inline-flex !important;
+        align-items: flex-start;
         margin-bottom: 0 !important;
         margin-top: rem-calc(10);
         padding: rem-calc(6 0 0 10);

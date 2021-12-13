@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'gov-complex-icons';
-  src: url($domain + 'assets/fonts/icons/gov-complex-icons.woff2' + '?v=' + $versionKey) format('woff2');
+  src: url($path + 'assets/fonts/icons/gov-complex-icons.woff2' + '?v=' + $version) format('woff2');
   font-weight: normal;
   font-style: normal;
 }

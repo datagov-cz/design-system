@@ -1,0 +1,242 @@
+.gov-accordion {
+    position: relative;
+
+    display: block;
+    width: 100%;
+
+    //  --------------------
+    &__header {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: rem-calc(14 10);
+        width: 100%;
+
+        border-radius: 0;
+        text-align: left;
+        text-transform: none;
+
+        &:before {
+            @include pseudo();
+            left: 0; right: 0; top: -1px;
+
+            height: 1px;
+            background-color: gov-colors('grey-inactive');
+        }
+
+        &:after {
+            @include pseudo(inline-block, relative, '\62');
+
+            margin-left: rem-calc(10);
+
+            font-family: $gov-icon-font;
+            font-size: rem-calc(24);
+        }
+
+        & > * {
+            margin-bottom: 0;
+        }
+
+        .gov-icon,
+        .gov-complex-icon {
+            position: relative;
+            top: rem-calc(-2);
+
+            display: inline-block;
+            margin-right: rem-calc(10);
+
+            font-size: 1.5em !important;
+            vertical-align: middle;
+        }
+
+        &:focus {
+            border-radius: $gov-border-radius;
+        }
+
+        //  ----------
+        &--noborder {
+            &:before {
+                display: none;
+            }
+        }
+
+        //  ----------
+        &.is-expanded {
+            &:after {
+                transform: scale(1, -1);
+            }
+        }
+    }
+
+    //  --------------------
+    &__content {
+        overflow: hidden;
+        height: 0;
+
+        visibility: hidden;
+
+        transition: height 300ms ease-out, min-height 300ms ease-out;
+
+        &.is-expanded {
+            height: auto;
+
+            visibility: visible;
+        }
+    }
+
+    //  --------------------
+    &__content-inner {
+        padding: rem-calc(20);
+        padding-left: rem-calc(10);
+
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    /*  Accordion with top & bottom border
+    ------------------------------------------------------------------ */
+    &--bordered {
+        &:before,
+        &:after {
+            @include pseudo();
+            left: 0; right: 0;
+
+            height: 1px;
+            background-color: gov-colors('grey-inactive');
+        }
+
+        &:before {
+            top: -1px;
+        }
+
+        &:after {
+            bottom: -1px;
+        }
+    }
+
+    /*  Sizes
+    ------------------------------------------------------------------ */
+    &--large {
+        & > .gov-accordion__header {
+            padding: rem-calc(24 10);
+
+            .gov-icon,
+            .gov-complex-icon {
+                font-size: 1.8em !important;
+            }
+        }
+    }
+
+    &--small {
+        & > .gov-accordion__header {
+            padding: rem-calc(6 10);
+
+            h3,
+            .gov-title--gamma {
+                font-size: rem-calc(16);
+            }
+
+            .gov-icon,
+            .gov-complex-icon {
+                margin-right: rem-calc(4);
+            }
+        }
+    }
+
+    /*  Content-block accordion
+    ------------------------------------------------------------------ */
+    &--as-section {
+        margin-bottom: rem-calc(35);
+
+        background-color: gov-colors('white');
+        border-radius: $gov-border-radius;
+
+        & > .gov-accordion__header,
+        & > .gov-accordion__content > .gov-accordion__content-inner {
+            padding-left: rem-calc(50);
+            padding-right: rem-calc(50);
+        }
+
+        & > .gov-accordion__header {
+            border-radius: $gov-border-radius;
+
+            &:after {
+                transform: translateX(rem-calc(-10));
+            }
+        }
+
+        & > .gov-accordion__content > .gov-accordion__content-inner {
+            position: relative;
+
+            &:before {
+                @include pseudo();
+                left: 0; right: 0; top: 0;
+
+                height: 1px;
+                background-color: gov-colors('grey-inactive');
+            }
+        }
+    }
+
+    /*  Sidebar accordion
+    ------------------------------------------------------------------ */
+    &--as-sidebar {
+        &:after {
+            @include pseudo();
+            left: 0; right: 0;
+
+            height: 1px;
+            background-color: gov-colors('grey-inactive');
+        }
+
+        &:after {
+            bottom: -1px;
+        }
+
+        & > .gov-accordion__header {
+            padding-top: rem-calc(20);
+            padding-bottom: rem-calc(20);
+        }
+    }
+
+    /*  No offset for content
+    ------------------------------------------------------------------ */
+    &--no-inner-offset {
+        & > .gov-accordion__content > .gov-accordion__content-inner {
+            padding: 0;
+            padding-top: rem-calc(2);
+            padding-bottom: rem-calc(2);
+        }
+    }
+
+    &--no-inner-y-offset {
+        & > .gov-accordion__content > .gov-accordion__content-inner {
+            padding-top: rem-calc(2);
+            padding-bottom: rem-calc(2);
+        }
+    }
+
+    /*  RESPONSE
+    ------------------------------------------------------------------ */
+    @include mq($until: tablet-landscape) {
+        &--large {
+            & > .gov-accordion__header {
+                padding: rem-calc(20 10);
+            }
+        }
+    }
+
+    @include mq($until: tablet) {
+        &--as-section {
+            & > .gov-accordion__header,
+            & > .gov-accordion__content > .gov-accordion__content-inner {
+                padding-left: rem-calc(30);
+                padding-right: rem-calc(30);
+            }
+        }
+    }
+}

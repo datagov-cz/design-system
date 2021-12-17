@@ -2,7 +2,7 @@
  * GovFormText
  * Copyright(c) 2020 Ministerstvo vnitra České republiky
  * Copyright(c) 2020 Zdeněk Vítek
- * MIT Licensed
+ * EUPL v1.2 Licensed
  *
  * Version 1.0.0
  */

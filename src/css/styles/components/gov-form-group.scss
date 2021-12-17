@@ -38,4 +38,21 @@ $class: '.gov-form-group';
             }
         }
     }
+
+    /*  Complex
+    ------------------------------------------------------------------ */
+    &--complex {
+        .gov-form-control__label {
+            p, .gov-paragraph {
+                margin-top: rem-calc(10);
+                margin-bottom: rem-calc(15);
+
+                text-transform: none;
+            }
+        }
+
+        .gov-form-control__indicator {
+            top: rem-calc(-3);
+        }
+    }
 }

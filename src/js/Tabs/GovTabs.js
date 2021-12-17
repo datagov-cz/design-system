@@ -2,26 +2,27 @@
  * GovTabs
  * Copyright(c) 2020 Ministerstvo vnitra České republiky
  * Copyright(c) 2020 Zdeněk Vítek
- * MIT Licensed
+ * EUPL v1.2 Licensed
  *
- * Version 1.0.0
+ * Version 1.1.0
  */
 
 'use strict';
 
-import merge from 'lodash/merge';
 import {addClass, removeClass} from '../utils/classie';
-import GovElement from '../mixins/GovElement';
+import GovElement from '../_extends/GovElement';
 import GovError from '../common/Error/gov.error';
+import classes from '../_extends/lib/classes';
+import GovComponent from '../_extends/GovComponent';
 
-class GovTabs extends GovElement {
+class GovTabs extends classes(GovElement, GovComponent) {
 
     /**
      * @param {Element} el
      * @param {Object} options
      */
     constructor(el, options = {}) {
-        super(el);
+        super();
         this._defaults = {
             triggerSelector: '.gov-tabs__link',
             contentSelector: '.gov-tabs__content',
@@ -29,7 +30,8 @@ class GovTabs extends GovElement {
                 onChange: null
             }
         }
-        this._options = merge({}, this._defaults, options);
+        this._prepareOptions(options);
+        this._prepareDomElement(el);
         this._activeIndex = 0;
         this._focusIndex = 0;
         this._init();
@@ -82,7 +84,7 @@ class GovTabs extends GovElement {
      * @private
      */
     _handleArrows(e) {
-        const {keyCode} = e;
+        const { keyCode } = e;
         if (keyCode === 39 || keyCode === 37) {
             if (false === this._isTriggerIndex(this._focusIndex)) {
                 return;
@@ -121,8 +123,8 @@ class GovTabs extends GovElement {
         const activeTriggerElement = this._triggerElements[this._activeIndex];
         const nextTriggerElement = this._triggerElements[index];
 
-        activeTriggerElement.setAttribute('aria-selected', false);
-        nextTriggerElement.setAttribute('aria-selected', true);
+        activeTriggerElement.setAttribute('aria-selected', 'false');
+        nextTriggerElement.setAttribute('aria-selected', 'true');
 
         removeClass(activeTriggerElement, 'is-active');
         addClass(nextTriggerElement, 'is-active');
@@ -131,8 +133,8 @@ class GovTabs extends GovElement {
         const activeContentElement = this._contentElements[this._activeIndex];
         const nextContentElement = this._contentElements[index];
 
-        activeContentElement.setAttribute('hidden', true);
-        nextContentElement.setAttribute('hidden', false);
+        activeContentElement.hidden = true;
+        nextContentElement.hidden = false;
 
         removeClass(activeContentElement, 'is-active');
         addClass(nextContentElement, 'is-active');
@@ -146,7 +148,7 @@ class GovTabs extends GovElement {
      * @private
      */
     _callChangeCallback(e) {
-        const {onChange} = this._options.events;
+        const { onChange } = this._options.events;
         if (onChange && typeof onChange === 'function') {
             onChange(e);
         }
@@ -175,8 +177,8 @@ class GovTabs extends GovElement {
      * @private
      */
     get _triggerElements() {
-        const {triggerSelector} = this._options;
-        return this._containerElement.querySelectorAll(triggerSelector);
+        const { triggerSelector } = this._options;
+        return this._domElementInstance.querySelectorAll(triggerSelector);
     }
 
     /**
@@ -184,8 +186,8 @@ class GovTabs extends GovElement {
      * @private
      */
     get _contentElements() {
-        const {contentSelector} = this._options;
-        return this._containerElement.querySelectorAll(contentSelector);
+        const { contentSelector } = this._options;
+        return this._domElementInstance.querySelectorAll(contentSelector);
     }
 
     /**
@@ -193,7 +195,7 @@ class GovTabs extends GovElement {
      * @private
      */
     get _tabList() {
-        return this._containerElement.querySelector('[role="tablist"]');
+        return this._domElementInstance.querySelector('[role="tablist"]');
     }
 }
 

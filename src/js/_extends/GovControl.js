@@ -2,7 +2,7 @@
  * GovControl
  * Copyright(c) 2021 Ministerstvo vnitra České republiky
  * Copyright(c) 2021 Zdeněk Vítek
- * MIT Licensed
+ * EUPL v1.2 Licensed
  *
  * Version 1.0.0
  */

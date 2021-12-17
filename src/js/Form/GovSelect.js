@@ -2,7 +2,7 @@
  * GovSelect
  * Copyright(c) 2020 Ministerstvo vnitra České republiky
  * Copyright(c) 2020 Zdeněk Vítek
- * MIT Licensed
+ * EUPL v1.2 Licensed
  *
  * Version 1.0.0
  */
@@ -43,7 +43,7 @@ class GovSelect extends classes(GovElement, GovComponent, GovFormControl) {
         const value = this._domElement().value;
         const option = this._getFirstOptionElement();
         if (option || value) {
-            if (value || String(option.textContent).length) {
+            if (value || (option && String(option.textContent).length)) {
                 addClass(this._formControlElement(), 'not-empty');
             }
         }
@@ -84,10 +84,15 @@ class GovSelect extends classes(GovElement, GovComponent, GovFormControl) {
      */
     _verifyEmptySelect() {
         const value = this._domElement().value;
+        const option = this._domElement().querySelector('option[value="' + value + '"]');
         if (value) {
             addClass(this._formControlElement(), 'not-empty');
         } else {
-            removeClass(this._formControlElement(), 'not-empty');
+            if(option && String(option.textContent).length) {
+                addClass(this._formControlElement(), 'not-empty');
+            } else {
+                removeClass(this._formControlElement(), 'not-empty');
+            }
         }
     }
 }

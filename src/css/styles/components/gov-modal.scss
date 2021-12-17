@@ -8,11 +8,16 @@
     justify-content: center;
     padding: rem-calc(20);
 
+    &__header {
+        padding: rem-calc(30 70 0 50);
+
+        border-bottom: 1px solid gov-colors('grey-inactive');
+    }
+
     &__content {
         position: relative;
         z-index: 2;
 
-        padding: rem-calc(30 0);
         max-width: $gov-container-width * 0.75;
         width: 90vw;
 
@@ -31,24 +36,38 @@
 
     &__content-inner {
         overflow-y: scroll;
-        padding: rem-calc(0 50);
-        max-height: 90vh;
+        padding: rem-calc(30 50);
+        max-height: 80vh;
 
         & > *:last-child {
             margin-bottom: 0;
         }
     }
 
+    // @TODO - Prepracovat až bude existovat button-icon
     &__close {
         position: absolute;
-        right: 0; top: 0;
+        right: rem-calc(20); top: rem-calc(28);
+
+        width: rem-calc(38);
+        height: rem-calc(38);
+
+        padding: 0;
 
         &:before {
             @include pseudo(inline-block, relative, '\6a');
 
             font-family: $gov-icon-font;
-			font-size: rem-calc(24);
-			text-transform: none;
+            font-size: rem-calc(40);
+            text-transform: none;
+
+            color: gov-colors('grey-light');
+        }
+
+        &:hover {
+            &:before {
+                color: gov-colors('grey-dark');
+            }
         }
     }
 
@@ -81,22 +100,37 @@
     }
 
     @include mq($until: tablet) {
+        &__header {
+            padding: rem-calc(20 50 0 30);
+        }
+
         &__content-inner {
-            padding: rem-calc(0 30);
+            padding: rem-calc(30);
+        }
+
+        &__close {
+            top: rem-calc(20);
         }
     }
 
     @include mq($until: mobile) {
         padding: rem-calc(10);
 
+        &__header {
+            padding: rem-calc(20 50 0 20);
+        }
+
         &__content {
             width: 100vw;
         }
 
-        &__close {
-            padding: rem-calc(5 10) !important;
+        &__content-inner {
+            padding: rem-calc(20);
+        }
 
-            background-color: gov-colors('white') !important;
+        &__close {
+            right: rem-calc(10);
+            top: rem-calc(16)
         }
     }
 }

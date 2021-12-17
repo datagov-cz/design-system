@@ -2,7 +2,7 @@
  * GovModal
  * Copyright(c) 2020 Ministerstvo vnitra České republiky
  * Copyright(c) 2020 Zdeněk Vítek
- * MIT Licensed
+ * EUPL v1.2 Licensed
  *
  * Version 1.0.0
  */
@@ -43,6 +43,24 @@ class GovModal extends GovElement {
     _init() {
         this._bindEvents();
     }
+
+    // ACCESSIBLE
+
+    /**
+     * @return {void}
+     */
+    open() {
+        this._revealModal();
+    }
+
+    /**
+     * @return {void}
+     */
+    close() {
+        this._hideModal();
+    }
+
+    // LISTENER
 
     /**
      * @return {void}

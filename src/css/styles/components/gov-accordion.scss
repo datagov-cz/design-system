@@ -97,7 +97,7 @@
         }
     }
 
-    /*  Accordion with top & bottom border
+    /*  Accordion with borders
     ------------------------------------------------------------------ */
     &--bordered {
         &:before,
@@ -118,10 +118,24 @@
         }
     }
 
+    &--bordered-bottom {
+        &:after {
+            @include pseudo();
+            left: 0; right: 0;
+
+            height: 1px;
+            background-color: gov-colors('grey-inactive');
+        }
+
+        &:after {
+            bottom: -1px;
+        }
+    }
+
     /*  Sizes
     ------------------------------------------------------------------ */
     &--large {
-        & > .gov-accordion__header {
+        .gov-accordion__header {
             padding: rem-calc(24 10);
 
             .gov-icon,
@@ -132,7 +146,7 @@
     }
 
     &--small {
-        & > .gov-accordion__header {
+        .gov-accordion__header {
             padding: rem-calc(6 10);
 
             h3,
@@ -179,27 +193,6 @@
                 height: 1px;
                 background-color: gov-colors('grey-inactive');
             }
-        }
-    }
-
-    /*  Sidebar accordion
-    ------------------------------------------------------------------ */
-    &--as-sidebar {
-        &:after {
-            @include pseudo();
-            left: 0; right: 0;
-
-            height: 1px;
-            background-color: gov-colors('grey-inactive');
-        }
-
-        &:after {
-            bottom: -1px;
-        }
-
-        & > .gov-accordion__header {
-            padding-top: rem-calc(20);
-            padding-bottom: rem-calc(20);
         }
     }
 

@@ -1,7 +1,7 @@
 button, .gov-button {
     @include button-core();
 
-    padding: rem-calc(10) rem-calc(20);
+    padding: rem-calc(10) rem-calc(12);
 
     border: 1px solid transparent;
     border-radius: $gov-border-radius;
@@ -118,17 +118,24 @@ button, .gov-button {
     /* Button Sizes
     ------------------------------------------------------------------ */
     &--small {
-        padding: rem-calc(8) rem-calc(10);
+        padding: rem-calc(8) rem-calc(12);
 
-        font-size: rem-calc(10);
-        line-height: 1.2;
+        font-size: rem-calc(12);
+        line-height: 1.167;
     }
 
     &--large {
-        padding: rem-calc(13) rem-calc(25);
+        padding: rem-calc(12) rem-calc(16);
 
         font-size: rem-calc(14);
-        line-height: 1.6;
+        line-height: 1.572;
+    }
+
+    &--x-large {
+        padding: rem-calc(14) rem-calc(20);
+
+        font-size: rem-calc(18);
+        line-height: 1.445;
     }
 
     /* Disabled

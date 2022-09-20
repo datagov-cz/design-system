@@ -14,6 +14,7 @@ import GovElement from '../_extends/GovElement';
 import GovError from '../common/Error/gov.error';
 import classes from '../_extends/lib/classes';
 import GovComponent from '../_extends/GovComponent';
+import {govErrorLog} from '../common/Log/gov.log';
 
 class GovTabs extends classes(GovElement, GovComponent) {
 
@@ -44,6 +45,9 @@ class GovTabs extends classes(GovElement, GovComponent) {
     _init() {
         try {
             this._checkElements();
+            this._checkDimenssions();
+            this._resize();
+            this._verifyWcag();
             this._bindEvents();
         } catch (e) {
             console.warn(e.message);
@@ -57,8 +61,39 @@ class GovTabs extends classes(GovElement, GovComponent) {
      */
     _checkElements() {
         if (this._contentElements.length === 0 || this._triggerElements.length === 0) {
-            throw new GovError('We could not find all the necessary elements for [GovAccordion]');
+            throw new GovError('We could not find all the necessary elements for [GovTabs]');
         }
+    }
+
+    /**
+     * @return {void}
+     * @private
+     */
+    _checkDimenssions() {
+        this._tab.style.overflow = 'hidden';
+        this._tabList.style.width = '10000px';
+        this._tab.classList.remove('gov-tabs--compact')
+
+        const spacer = 32
+        const containerWidth = this._tab.offsetWidth;
+        let triggersLength = 0;
+        this._triggerElements.forEach((trigger) => {
+            triggersLength += (trigger.offsetWidth + spacer);
+        })
+
+        if (triggersLength > containerWidth) {
+            this._tab.classList.add('gov-tabs--compact')
+        }
+
+        this._tab.style.overflow = 'auto';
+        this._tabList.style.width = 'auto';
+    }
+
+    _resize() {
+        const observer = new ResizeObserver(() => {
+            this._checkDimenssions()
+        })
+        observer.observe(this._tab)
     }
 
     /**
@@ -103,8 +138,9 @@ class GovTabs extends classes(GovElement, GovComponent) {
                 }
             }
             if (this._isTriggerIndex(this._focusIndex)) {
-                this._triggerElements[this._focusIndex].setAttribute('tabindex', '0');
-                this._triggerElements[this._focusIndex].focus();
+                const current = this._triggerElements[this._focusIndex]
+                current.focus();
+                this._goToTab(this._focusIndex);
             }
         }
     }
@@ -119,12 +155,17 @@ class GovTabs extends classes(GovElement, GovComponent) {
             return false;
         }
 
+        this._triggerElements.forEach((triggerElement) => {
+            triggerElement.setAttribute('tabindex', '-1')
+        });
+
         // Prepare triggers
         const activeTriggerElement = this._triggerElements[this._activeIndex];
         const nextTriggerElement = this._triggerElements[index];
 
         activeTriggerElement.setAttribute('aria-selected', 'false');
         nextTriggerElement.setAttribute('aria-selected', 'true');
+        nextTriggerElement.setAttribute('tabindex', '0')
 
         removeClass(activeTriggerElement, 'is-active');
         addClass(nextTriggerElement, 'is-active');
@@ -140,6 +181,37 @@ class GovTabs extends classes(GovElement, GovComponent) {
         addClass(nextContentElement, 'is-active');
 
         this._activeIndex = this._focusIndex = index;
+    }
+
+    /**
+     * @return {void}
+     * @private
+     */
+    _verifyWcag() {
+        this._triggerElements.forEach((trigger, index) => {
+            const isActive = index === 0
+
+            if (!trigger.hasAttribute('aria-selected')) trigger.setAttribute('aria-selected', isActive ? 'true' : 'false')
+            if (!trigger.hasAttribute('role')) trigger.setAttribute('role', 'tab')
+            if (!trigger.hasAttribute('tabindex')) trigger.setAttribute('tabindex', isActive ? '0' : '-1')
+
+            if (!trigger.hasAttribute('aria-controls')) {
+                govErrorLog(`[GovTabs] controls missing mandatory attribute [aria-controls]`)
+            }
+            if (!trigger.hasAttribute('id')) {
+                govErrorLog(`[GovTabs] controls missing mandatory attribute [id]`)
+            }
+        });
+        this._contentElements.forEach((content) => {
+            if (!content.hasAttribute('role')) content.setAttribute('role', 'tabpanel')
+
+            if (!content.hasAttribute('id')) {
+                govErrorLog("[GovTabs] content missing mandatory attribute [id]")
+            }
+            if (!content.hasAttribute('aria-labelledby')) {
+                govErrorLog("[GovTabs] content missing mandatory attribute [aria-labelledby]")
+            }
+        });
     }
 
     /**
@@ -173,7 +245,7 @@ class GovTabs extends classes(GovElement, GovComponent) {
     }
 
     /**
-     * @return {NodeListOf<Element>}
+     * @return {NodeListOf<HTMLElement>}
      * @private
      */
     get _triggerElements() {
@@ -182,7 +254,7 @@ class GovTabs extends classes(GovElement, GovComponent) {
     }
 
     /**
-     * @return {NodeListOf<Element>}
+     * @return {NodeListOf<HTMLElement>}
      * @private
      */
     get _contentElements() {
@@ -191,11 +263,19 @@ class GovTabs extends classes(GovElement, GovComponent) {
     }
 
     /**
-     * @return {Element}
+     * @return {HTMLElement}
      * @private
      */
     get _tabList() {
         return this._domElementInstance.querySelector('[role="tablist"]');
+    }
+
+    /**
+     * @return {HTMLElement}
+     * @private
+     */
+    get _tab() {
+        return this._domElementInstance;
     }
 }
 

@@ -1,4 +1,6 @@
 import GovScrollUp from './GovScrollUp';
+import './focus'
+import './link'
 
 /**
  * @return {void}

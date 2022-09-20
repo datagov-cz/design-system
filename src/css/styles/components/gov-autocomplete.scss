@@ -1,3 +1,6 @@
+$class: '.gov-autocomplete';
+$classFormControl: '.gov-form-control';
+
 .gov-autocomplete {
     position: relative;
 
@@ -7,7 +10,9 @@
         @extend .gov-list--plain;
 
         position: absolute;
-        left: 0; right: 0; bottom: rem-calc(-25);
+        left: 0;
+        right: 0;
+        bottom: rem-calc(-25);
         z-index: 10;
 
         max-height: 320px;
@@ -49,5 +54,12 @@
         padding: rem-calc(15 10);
 
         color: gov-colors('grey-light');
+    }
+}
+
+#{$classFormControl}--classic {
+    #{$class} {
+        display: flex;
+        flex-direction: column;
     }
 }

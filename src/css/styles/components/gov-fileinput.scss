@@ -1,5 +1,6 @@
 $baseclass: '.gov-form-control';
 $class: '.gov-fileinput';
+$classValidationMark: '.gov-form-control__validation-mark';
 
 #{$class} {
     &__label {
@@ -162,6 +163,10 @@ $class: '.gov-fileinput';
 
         #{$class}__upload {
             border-color: gov-colors('error');
+        }
+
+        #{$classValidationMark} {
+            display: none;
         }
     }
 }

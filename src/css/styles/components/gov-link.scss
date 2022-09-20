@@ -69,7 +69,7 @@ a, .gov-link {
         margin-right: rem-calc(-5);
 
         &:after {
-            @include pseudo(inline-block, relative, '\6f');
+            @include pseudo(inline-block, relative, '\36');
 
             vertical-align: middle;
         }
@@ -82,7 +82,7 @@ a, .gov-link {
         padding-right: rem-calc(26);
 
         &:after {
-            @include pseudo(inline-block, absolute, '\65');
+            @include pseudo(inline-block, absolute, '\46');
             right: 0; top: 50%;
 
             transform: translateY(-50%);

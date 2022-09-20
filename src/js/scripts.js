@@ -1,6 +1,7 @@
 import './utils/dom';
 
 import {initAccordions} from './Accordion/default';
+import {initTooltips} from './Tooltip/default';
 import {initTabs} from './Tabs/default';
 import {initScrollUpControler} from './Control/default';
 import {initGovSliderBars} from './Slider/default';
@@ -16,6 +17,7 @@ import {initModals} from './Modal/default';
 import {initCalendar} from './Calendar/default';
 import {initSortableTable} from './Table/default';
 import './Form/GovAutocomplete';
+import {govLinkAriaLabel} from './Control/link';
 
 /**
  * @return {void}
@@ -37,9 +39,11 @@ function reinitGovComponents() {
     initFormTexts();
     initTabs();
     initAccordions();
+    initTooltips()
     initGovSliderBars();
     initCalendar();
     initGovSideNav();
+    govLinkAriaLabel()
 }
 
 window.reinitGovComponents = reinitGovComponents;

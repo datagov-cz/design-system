@@ -12,7 +12,17 @@
 import classes from '../_extends/lib/classes';
 import GovElement from '../_extends/GovElement';
 import GovComponent from '../_extends/GovComponent';
-import {removeClass} from '../utils/classie';
+
+const locales = {
+    cs: {
+        closeSubmenu: 'Zavřít submenu',
+        openSubmenu:  'Otevřít submenu',
+    },
+    en: {
+        closeSubmenu: 'Close submenu',
+        openSubmenu:  'Open submenu',
+    },
+}
 
 class GovSideNav extends classes(GovElement, GovComponent) {
     /**
@@ -22,9 +32,13 @@ class GovSideNav extends classes(GovElement, GovComponent) {
     constructor(el, options = {}) {
         super();
         this._defaults = {
-            hiddenListSelector: '.gov-sidenav__items--hidden',
+            classes:     {
+                hasToggle: '.has-toggle',
+            },
+            toggleClass: '.gov-sidenav__toggle',
         }
 
+        this._setLocales(locales)
         this._prepareOptions(options);
         this._prepareDomElement(el);
         this._init();
@@ -35,7 +49,7 @@ class GovSideNav extends classes(GovElement, GovComponent) {
      * @private
      */
     _init() {
-        if (this._hiddenListElements.length) {
+        if (this._toggleElements.length) {
             this._registerListeners();
         }
     }
@@ -45,35 +59,50 @@ class GovSideNav extends classes(GovElement, GovComponent) {
      * @private
      */
     _registerListeners() {
-        this._hiddenListElements.forEach((listElement) => {
-            const controlButton = listElement.nextElementSibling;
-            if (controlButton && controlButton.tagName === 'BUTTON') {
-                controlButton.addEventListener('click', () => {
-                    this._toggleHiddenList(controlButton, listElement);
-                })
-            }
+        this._toggleElements.forEach((toggleElement) => {
+            toggleElement.addEventListener('click', () => {
+                this._toggleSubmenu(toggleElement)
+            })
         });
     }
 
     /**
-     * @param {HTMLButtonElement} controlButton
-     * @param {HTMLUListElement} listElement
+     * @param {HTMLButtonElement} toggleElement
      * @return {void}
      * @private
      */
-    _toggleHiddenList(controlButton, listElement) {
-        const {hiddenListSelector} = this._options;
-        removeClass(listElement, hiddenListSelector.replace('.', ''));
-        controlButton.style.display = 'none'
+    _toggleSubmenu(toggleElement) {
+        const submenu = toggleElement.nextElementSibling;
+        const linkElement = toggleElement.previousElementSibling;
+        const parentLi = toggleElement.parentElement;
+        let name = toggleElement.textContent;
+
+        if (linkElement) {
+            name = linkElement.textContent
+        }
+
+        if (submenu && submenu.tagName === 'UL') {
+            if (submenu.hidden) {
+                submenu.hidden = false;
+                toggleElement.setAttribute('aria-expanded', 'true');
+                toggleElement.setAttribute('aria-label', this._locale().closeSubmenu + ' ' + name);
+                parentLi.classList.add('is-active');
+            } else {
+                submenu.hidden = true;
+                toggleElement.setAttribute('aria-expanded', 'false');
+                toggleElement.setAttribute('aria-label', this._locale().openSubmenu + ' ' + name);
+                parentLi.classList.remove('is-active');
+            }
+        }
     }
 
     /**
-     * @return {NodeListOf<HTMLUListElement>}
+     * @return {NodeListOf<HTMLButtonElement>}
      * @private
      */
-    get _hiddenListElements() {
-        const {hiddenListSelector} = this._options;
-        return this._domElement().querySelectorAll(hiddenListSelector);
+    get _toggleElements() {
+        const { classes: { hasToggle } } = this._options;
+        return this._domElement().querySelectorAll(hasToggle + '> button');
     }
 }
 

@@ -1,3 +1,5 @@
+$classTooltip: '.gov-tooltip--icon';
+
 p, .gov-paragraph {
     margin-bottom: rem-calc(25);
 
@@ -12,5 +14,9 @@ p, .gov-paragraph {
 
     a, .gov-link {
         font-size: rem-calc(15);
+    }
+
+    & #{$classTooltip} {
+        vertical-align: text-top;
     }
 }

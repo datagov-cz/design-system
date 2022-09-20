@@ -22,7 +22,7 @@ $class: '.gov-portal-nav';
                 padding-right: rem-calc(30);
 
                 &:after {
-                    @include pseudo(inline-block, absolute, '\62');
+                    @include pseudo(inline-block, absolute, '\47');
                     right: rem-calc(5); top: 50%;
 
                     margin-top: rem-calc(-12);

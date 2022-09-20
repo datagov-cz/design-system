@@ -1,9 +1,13 @@
-.gov-multiselect {
+$class: '.gov-multiselect';
+$classFormControl: '.gov-form-control';
+
+#{$class} {
     position: relative;
 
     &:after {
-        @include pseudo(inline-block, absolute, '\62');
-        right: rem-calc(15); top: 50%;
+        @include pseudo(inline-block, absolute, '\70');
+        right: rem-calc(15);
+        top: 50%;
 
         margin-top: rem-calc(-12);
 
@@ -62,7 +66,7 @@
             color: gov-colors('blue');
 
             &:after {
-                @include pseudo(block, relative, '\6a');
+                @include pseudo(block, relative, '\70');
 
                 color: currentColor;
                 font-family: $gov-icon-font;
@@ -75,6 +79,45 @@
 
             @include hover() {
                 background-color: gov-colors('blue-inactive-2');
+            }
+        }
+    }
+}
+
+#{$classFormControl} {
+
+    /*  Classic
+    ------------------------------------------------------------------ */
+    &--classic {
+        #{$class} {
+            display: flex;
+            flex-direction: column;
+
+            #{$classFormControl}__input {
+                order: 2;
+            }
+
+            &::after {
+                top: rem-calc(42);
+            }
+        }
+    }
+
+    /*  Sizes
+    ------------------------------------------------------------------ */
+
+    &--large {
+        #{$class} {
+            &::after {
+                top: rem-calc(46);
+            }
+        }
+    }
+
+    &--x-large {
+        #{$class} {
+            &::after {
+                top: rem-calc(54);
             }
         }
     }

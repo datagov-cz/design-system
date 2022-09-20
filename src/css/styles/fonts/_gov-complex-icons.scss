@@ -1,10 +1,10 @@
 @charset 'UTF-8';
 
 @font-face {
-  font-family: 'gov-complex-icons';
-  src: url($path + 'assets/fonts/icons/gov-complex-icons.woff2' + '?v=' + $version) format('woff2');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'gov-complex-icons';
+    src: url($path + 'assets/fonts/icons/gov-complex-icons.woff2' + '?v=' + $version) format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 [data-icon]:before {

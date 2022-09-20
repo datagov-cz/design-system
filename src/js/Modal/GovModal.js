@@ -98,12 +98,31 @@ class GovModal extends GovElement {
             return false;
         }
         this._bodyElement.style.overflow = 'hidden';
-        addClass(this._modalElement, 'is-active')
+        addClass(this._modalElement, 'is-active');
         setTimeout(() => addClass(this._modalElement, 'is-visible'), 64);
+
+        this._modalElement.setAttribute('aria-hidden', 'false');
+        this._modalElement.setAttribute('tabindex', '0');
 
         this._bindModalEvents();
         this._focusToModal();
         this._callOpenCallback();
+    }
+
+    /**
+     * @return {void}
+     * @private
+     */
+    _hideModal() {
+        this._callCloseCallback();
+        this._bodyElement.style.overflow = 'initial';
+        removeClass(this._modalElement, 'is-visible');
+        setTimeout(() => removeClass(this._modalElement, 'is-active'), 1024);
+
+        this._modalElement.setAttribute('aria-hidden', 'true');
+        this._modalElement.setAttribute('tabindex', '-1');
+
+        this._containerElement.focus();
     }
 
     /**
@@ -124,18 +143,6 @@ class GovModal extends GovElement {
         this._backdropElement.removeEventListener('click', this._hideModalControl);
         this._closeButtonElement.removeEventListener('click', this._hideModalControl);
         this._hideModal();
-    }
-
-    /**
-     * @return {void}
-     * @private
-     */
-    _hideModal() {
-        this._callCloseCallback();
-        this._bodyElement.style.overflow = 'initial';
-        removeClass(this._modalElement, 'is-visible')
-        setTimeout(() => removeClass(this._modalElement, 'is-active'), 1024);
-        this._containerElement.focus();
     }
 
     /**

@@ -35,4 +35,12 @@ export default class GovElement {
     _domElement() {
         return this._domElementInstance;
     }
+
+    /**
+     * @return {HTMLBodyElement}
+     * @private
+     */
+    _body() {
+        return document.querySelector('body')
+    }
 };

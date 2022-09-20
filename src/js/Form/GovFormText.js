@@ -18,7 +18,7 @@ class GovFormText extends GovElement {
     constructor(el, options) {
         super(el);
         this._defaults = {
-            controlSelector: '.gov-form-control',
+            controlSelector: '.gov-form-control:not(.gov-form-control--classic)',
         }
         this._options = merge({}, this._defaults, options);
         this._init();

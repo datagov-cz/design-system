@@ -1,4 +1,6 @@
-.gov-tabs {
+$class: '.gov-tabs';
+
+#{$class} {
 	$this: &;
 
 	width: 100%;
@@ -9,7 +11,7 @@
 	&__links-holder {
 		position: relative;
 
-		margin-bottom: rem-calc(25);
+		margin-bottom: rem-calc(24);
 
 		&:after {
 			@include pseudo();
@@ -29,13 +31,10 @@
 
 		@include button-core();
 
-		padding-left: 0;
-		padding-right: 0;
+		padding: rem-calc(12 0);
 
-		width: 100%;
-		margin-right: 0;
-
-		padding-bottom: rem-calc(15);
+        width: auto;
+        margin-right: rem-calc(32);
 
 		text-align: center;
         color: gov-colors('blue');
@@ -45,12 +44,6 @@
 		text-transform: uppercase;
 
 		background-color: transparent;
-
-		@media screen and (min-width: em-calc(920)) {
-			width: auto;
-
-			margin-right: rem-calc(40);
-		}
 
 		&:focus {
             box-shadow: 0 0 0 $gov-outline-width gov-colors('blue-focus');
@@ -99,9 +92,16 @@
         }
     }
 
+    &--compact {
+        #{$class}__link {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+
 	&__content {
         display: none;
-        padding-bottom: rem-calc(25);
+        padding-bottom: rem-calc(24);
 
         outline: 0;
         visibility: hidden;

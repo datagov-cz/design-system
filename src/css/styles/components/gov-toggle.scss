@@ -55,6 +55,10 @@ $class: '.gov-form-control';
                 outline: 0;
             }
 
+            & ~ #{$class}__message {
+                margin-left: rem-calc(55);
+            }
+
             //  --------------------
             &[aria-disabled="true"],
             &:disabled,
@@ -82,6 +86,12 @@ $class: '.gov-form-control';
                     }
                 }
             }
+        }
+
+        /*  Message
+        ------------------------------------------------------------------ */
+        #{$class}__message {
+            margin-left: rem-calc(35);
         }
 
         /*  Error

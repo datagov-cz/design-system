@@ -1,31 +1,54 @@
 import './utils/dom';
 
-import {initAccordions} from './_Gov/Accordion/default';
-import {initTabs} from './_Gov/Tabs/default';
-import {initScrollUpControler} from './_Gov/Control/default';
-import {initGovSliderBars} from './_Gov/Slider/default';
-import {initHamburgerNavs} from './_Gov/Nav/default';
-import {initPortalHamburgerNavs, destroyPortalHamburgerNavs} from './_Gov/PortalHamburgerNav/default';
-import {initFormTexts, initFileInputs} from './_Gov/Form/default';
-import {initModals} from './_Gov/Modal/default';
-import {initCalendar, initDatePicker} from './_Gov/Calendar/default';
-import {initTables, initSortableTable} from './_Gov/Table/default';
-import './_Gov/Autocomplete/GovAutocomplete';
+import {initAccordions} from './Accordion/default';
+import {initTabs} from './Tabs/default';
+import {initScrollUpControler} from './Control/default';
+import {initGovSliderBars} from './Slider/default';
+import {initHamburgerNavs, initGovSideNav} from './Nav/default';
+import {initPortalHamburgerNavs, destroyPortalHamburgerNavs} from './PortalHamburgerNav/default';
+import {
+    initFormTexts,
+    initFileInputs,
+    initSelects,
+    initMultipleSelect
+} from './Form/default';
+import {initModals} from './Modal/default';
+import {initCalendar} from './Calendar/default';
+import {initSortableTable} from './Table/default';
+import './Form/GovAutocomplete';
 
-var hamburgerNavInited = false;
+/**
+ * @return {void}
+ */
+function initGovComponents() {
+    initScrollUpControler();
+    initHamburgerNavs();
+}
 
-initTabs();
-initAccordions();
-initScrollUpControler();
-initGovSliderBars();
-initHamburgerNavs();
-initFormTexts();
-initFileInputs();
-initCalendar();
-initDatePicker();
-initModals();
-initTables();
-initSortableTable();
+/**
+ * @return {void}
+ */
+function reinitGovComponents() {
+    initModals();
+    initSortableTable();
+    initFileInputs();
+    initSelects();
+    initMultipleSelect();
+    initFormTexts();
+    initTabs();
+    initAccordions();
+    initGovSliderBars();
+    initCalendar();
+    initGovSideNav();
+}
+
+window.reinitGovComponents = reinitGovComponents;
+window.initGovComponents = initGovComponents;
+
+initGovComponents();
+reinitGovComponents();
+
+let hamburgerNavInited = false;
 
 function onWindowResize() {
     if (window.innerWidth < 672 && !hamburgerNavInited) {

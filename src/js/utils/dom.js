@@ -1,4 +1,14 @@
 /**
+ * @param {Element|HTMLElement|null} element
+ * @return {Element|null}
+ */
+export const getFirstFocusableElement = (element = null) => {
+    element = element || document;
+    const elements = element.querySelectorAll('button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    return elements.length ? elements[0] : null;
+}
+
+/**
  * The parents() method returns all ancestor elements of the selected element.
  * @param selector
  * @returns {[Element|HTMLElement]}
@@ -61,5 +71,23 @@ if (!Element.prototype.wrap) {
 if (!Element.prototype.unwrap) {
     Element.prototype.unwrap = function () {
         this.replaceWith(...this.childNodes);
+    }
+}
+
+if (!Element.prototype.optionByText) {
+    Element.prototype.optionByText = function (text) {
+        let elem = this;
+        const buffer = [];
+        elem.querySelectorAll('option').forEach((option) => {
+            if (option.text === text) buffer.push(option);
+        });
+        return buffer.length ? buffer[0] : null;
+    }
+}
+
+if (!Element.prototype.insertAfter) {
+    Element.prototype.insertAfter = function (newNode) {
+        let referenceNode = this;
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
     }
 }

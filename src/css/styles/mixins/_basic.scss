@@ -5,9 +5,3 @@
         }
     }
 }
-
-/// To quickly centre a block element without having to worry about if there is any top or bottom margin already applied.
-@mixin push--auto {
-	margin-left: auto;
-	margin-right: auto;
-}

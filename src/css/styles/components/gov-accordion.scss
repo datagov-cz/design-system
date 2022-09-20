@@ -1,4 +1,7 @@
-.gov-accordion {
+$class: '.gov-accordion';
+$classGovIcon: '.gov-icon';
+
+#{$class} {
     position: relative;
 
     display: block;
@@ -12,7 +15,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: rem-calc(14 10);
+        padding: rem-calc(19 8);
         width: 100%;
 
         border-radius: 0;
@@ -21,35 +24,49 @@
 
         &:before {
             @include pseudo();
-            left: 0; right: 0; top: -1px;
+            left: 0;
+            right: 0;
+            top: -1px;
 
             height: 1px;
             background-color: gov-colors('grey-inactive');
         }
 
-        &:after {
-            @include pseudo(inline-block, relative, '\62');
+        & h3 + #{$classGovIcon} {
+            position: absolute;
+            right: rem-calc(8);
+            top: 50%;
+            transform: translateY(-50%);
 
-            margin-left: rem-calc(10);
-
-            font-family: $gov-icon-font;
-            font-size: rem-calc(24);
+            &:before {
+                font-size: rem-calc(12);
+                color: gov-colors('blue');
+            }
         }
 
         & > * {
             margin-bottom: 0;
         }
 
+        h3,
+        .gov-title--gamma {
+            display: flex;
+            align-items: start;
+        }
+
         .gov-icon,
         .gov-complex-icon {
             position: relative;
-            top: rem-calc(-2);
 
             display: inline-block;
-            margin-right: rem-calc(10);
+            margin-right: rem-calc(8);
 
-            font-size: 1.5em !important;
+            font-size: rem-calc(24);
             vertical-align: middle;
+
+            color: gov-colors('grey-dark');
+
+            flex-shrink: 1;
         }
 
         &:focus {
@@ -65,8 +82,8 @@
 
         //  ----------
         &.is-expanded {
-            &:after {
-                transform: scale(1, -1);
+            & h3 + #{$classGovIcon} {
+                transform: translateY(-50%) rotate(180deg);
             }
         }
     }
@@ -89,8 +106,7 @@
 
     //  --------------------
     &__content-inner {
-        padding: rem-calc(20);
-        padding-left: rem-calc(10);
+        padding: rem-calc(20 8);
 
         & > *:last-child {
             margin-bottom: 0;
@@ -103,7 +119,8 @@
         &:before,
         &:after {
             @include pseudo();
-            left: 0; right: 0;
+            left: 0;
+            right: 0;
 
             height: 1px;
             background-color: gov-colors('grey-inactive');
@@ -121,7 +138,8 @@
     &--bordered-bottom {
         &:after {
             @include pseudo();
-            left: 0; right: 0;
+            left: 0;
+            right: 0;
 
             height: 1px;
             background-color: gov-colors('grey-inactive');
@@ -135,29 +153,45 @@
     /*  Sizes
     ------------------------------------------------------------------ */
     &--large {
-        .gov-accordion__header {
-            padding: rem-calc(24 10);
+        #{$class}__header {
+            padding: rem-calc(27 8);
+
+            h3,
+            .gov-title--gamma {
+                min-height: rem-calc(32);
+                line-height: rem-calc(32);
+            }
 
             .gov-icon,
             .gov-complex-icon {
-                font-size: 1.8em !important;
+                font-size: rem-calc(32);
+
+                margin-right: rem-calc(16);
             }
         }
     }
 
     &--small {
-        .gov-accordion__header {
-            padding: rem-calc(6 10);
+        #{$class}__header {
+            padding: rem-calc(15 8);
 
             h3,
             .gov-title--gamma {
+                min-height: rem-calc(19);
+                line-height: rem-calc(19);
                 font-size: rem-calc(16);
             }
 
             .gov-icon,
             .gov-complex-icon {
-                margin-right: rem-calc(4);
+                font-size: rem-calc(16);
+
+                margin-right: rem-calc(8);
             }
+        }
+
+        #{$class}__content-inner {
+            padding: rem-calc(8) !important;
         }
     }
 
@@ -188,7 +222,9 @@
 
             &:before {
                 @include pseudo();
-                left: 0; right: 0; top: 0;
+                left: 0;
+                right: 0;
+                top: 0;
 
                 height: 1px;
                 background-color: gov-colors('grey-inactive');

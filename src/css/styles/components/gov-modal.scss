@@ -9,9 +9,13 @@
     padding: rem-calc(20);
 
     &__header {
-        padding: rem-calc(30 70 0 50);
+        padding: rem-calc(32 64 0 48);
 
         border-bottom: 1px solid gov-colors('grey-inactive');
+
+        > * {
+            margin-bottom: rem-calc(32);
+        }
     }
 
     &__content {
@@ -36,7 +40,7 @@
 
     &__content-inner {
         overflow-y: scroll;
-        padding: rem-calc(30 50);
+        padding: rem-calc(24 48 32 48);
         max-height: 80vh;
 
         & > *:last-child {
@@ -47,27 +51,21 @@
     // @TODO - Prepracovat až bude existovat button-icon
     &__close {
         position: absolute;
-        right: rem-calc(20); top: rem-calc(28);
+        right: rem-calc(32); top: rem-calc(32);
 
-        width: rem-calc(38);
-        height: rem-calc(38);
+        width: rem-calc(40);
+        height: rem-calc(40);
 
         padding: 0;
 
         &:before {
-            @include pseudo(inline-block, relative, '\6a');
+            @include pseudo(inline-block, relative, '\73');
 
             font-family: $gov-icon-font;
-            font-size: rem-calc(40);
+            font-size: rem-calc(20);
             text-transform: none;
 
-            color: gov-colors('grey-light');
-        }
-
-        &:hover {
-            &:before {
-                color: gov-colors('grey-dark');
-            }
+            color: gov-colors('grey-dark');
         }
     }
 
@@ -101,11 +99,15 @@
 
     @include mq($until: tablet) {
         &__header {
-            padding: rem-calc(20 50 0 30);
+            padding: rem-calc(20 50 0 32);
+
+            > * {
+                margin-bottom: rem-calc(24);
+            }
         }
 
         &__content-inner {
-            padding: rem-calc(30);
+            padding: rem-calc(32);
         }
 
         &__close {
@@ -117,7 +119,7 @@
         padding: rem-calc(10);
 
         &__header {
-            padding: rem-calc(20 50 0 20);
+            padding: rem-calc(24 40 0 16);
         }
 
         &__content {
@@ -125,12 +127,11 @@
         }
 
         &__content-inner {
-            padding: rem-calc(20);
+            padding: rem-calc(24 16);
         }
 
         &__close {
-            right: rem-calc(10);
-            top: rem-calc(16)
+            right: rem-calc(8);
         }
     }
 }

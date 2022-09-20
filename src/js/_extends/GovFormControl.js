@@ -21,6 +21,7 @@ export default class GovFormControl {
             controlMessage: 'gov-form-control__message',
             formComntrol:   'gov-form-control',
             controlError:   'gov-form-control--error',
+            classic:        'gov-form-control--classic',
         }
     }
 
@@ -46,6 +47,18 @@ export default class GovFormControl {
             }
         } else {
             return null;
+        }
+    }
+
+    /**
+     * @return {boolean}
+     * @private
+     */
+    _isClassicElement() {
+        if (this._formControlElement()) {
+            return this._formControlElement().classList.contains(this._classes.classic)
+        } else {
+            return false
         }
     }
 
@@ -82,7 +95,7 @@ export default class GovFormControl {
      */
     _setError(message) {
         if (this._formControlElement()) {
-            const {controlError} = this._classes;
+            const { controlError } = this._classes;
             addClass(this._formControlElement(), controlError);
             if (this._formMessageElement() && message) {
                 this._formMessageElement().textContent = message;
@@ -96,7 +109,7 @@ export default class GovFormControl {
      */
     _clearError() {
         if (this._formControlElement()) {
-            const {controlError} = this._classes;
+            const { controlError } = this._classes;
             this._formMessageElement().textContent = '';
             if (hasClass(this._formControlElement(), controlError)) {
                 removeClass(this._formControlElement(), controlError);

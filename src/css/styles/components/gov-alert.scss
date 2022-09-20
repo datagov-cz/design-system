@@ -1,4 +1,5 @@
 $class: '.gov-alert';
+$classIcon: '.gov-icon';
 
 #{$class} {
     position: relative;
@@ -6,25 +7,25 @@ $class: '.gov-alert';
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: rem-calc(15 20);
+    padding: rem-calc(16);
     padding-right: rem-calc(40);
     width: 100%;
 
     background-color: gov-colors('white');
 
     &:before {
-        @include pseudo(inline-block, relative, '\46');
+        @include pseudo(inline-block, relative, '\62');
 
         padding-top: rem-calc(2);
 
         color: gov-colors('error');
         font-family: $gov-icon-font;
-        font-size: rem-calc(24);
+        font-size: rem-calc(20);
     }
 
     &__content {
         display: inline-block;
-        margin-left: rem-calc(15);
+        margin-left: rem-calc(16);
         max-width: 1040px;
         width: 100%;
 
@@ -35,9 +36,13 @@ $class: '.gov-alert';
 
     &__close {
         position: absolute;
-        right: rem-calc(15); top: rem-calc(15);
+        right: rem-calc(16); top: rem-calc(20);
 
         color: gov-colors('grey-mid');
+
+        & #{$classIcon} {
+            font-size: rem-calc(12);
+        }
     }
 
     /*  Types
@@ -95,7 +100,7 @@ $class: '.gov-alert';
 
     &--content {
         justify-content: flex-start;
-        padding: rem-calc(10 20);
+        padding: rem-calc(8 16);
 
         background-color: gov-colors('blue-hover');
 

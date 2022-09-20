@@ -75,3 +75,98 @@ ol > li, .gov-ordered-list > li, .gov-ordered-list__item {
         font-weight: 500;
     }
 }
+
+/*  Definition list
+------------------------------------------------------------------ */
+$class: '.gov-definition-list';
+
+#{$class} {
+    &--inline {
+        @include mq($from: mobile-landscape) {
+            display: flex;
+            flex-wrap: wrap;
+
+            & > dt,
+            & > dd,
+            & > #{$class}__term,
+            #{$class}__def {
+                min-width: calc(25% - 25px);
+
+                &:nth-of-type(n + 3) {
+                    margin-top: rem-calc(10);
+                }
+            }
+
+            & > dt,
+            & > #{$class}__term {
+                padding-top: rem-calc(5);
+
+                &:nth-of-type(2n) {
+                    margin-left: rem-calc(50);
+                }
+            }
+
+            & > * + dt,
+            & > * + #{$class}__term  {
+                margin-top: 0;
+            }
+
+            & > dd,
+            #{$class}__def {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+dl > dd,
+#{$class} > dd,
+#{$class}__def {
+    color: gov-colors('grey-mid');
+    font-family: $gov-font-family-primary;
+    font-size: rem-calc(15);
+    font-weight: 400;
+    letter-spacing: em-calc(0.2);
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+dl > dt,
+#{$class} > dt,
+#{$class}__term {
+    display: inline-block;
+    margin: 0;
+    margin-right: rem-calc(15);
+    min-width: rem-calc(80);
+
+    color: gov-colors('grey-dark');
+    font-family: $gov-font-family-primary;
+    font-size: rem-calc(12);
+    font-weight: 500;
+    letter-spacing: em-calc(0.5);
+    line-height: 1.333;
+    text-transform: uppercase;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+dl > * + dt,
+#{$class} > * + dt,
+* + #{$class}__term {
+    margin-top: rem-calc(15);
+}
+
+dl > dd,
+#{$class} > dd,
+#{$class}__def {
+    display: inline;
+    margin: 0;
+
+    &:after {
+        content: '\a';
+        white-space: pre;
+    }
+}

@@ -24,18 +24,19 @@
 			&:before {
 				font-family: $gov-icon-font;
 				font-size: rem-calc(24);
+				text-transform: none;
 			}
 		}
 
 		&--arrow-left {
 			&:before {
-				@include pseudo(inline-block, relative, '\63');
+				@include pseudo(inline-block, relative, '\74');
 			}
 		}
 
 		&--arrow-right {
 			&:before {
-				@include pseudo(inline-block, relative, '\65');
+				@include pseudo(inline-block, relative, '\46');
 			}
 		}
 

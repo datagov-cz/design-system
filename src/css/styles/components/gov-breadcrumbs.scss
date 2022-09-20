@@ -1,7 +1,7 @@
 .gov-breadcrumbs {
 	&__item + &__item {
 		&:before {
-			@include pseudo(inline-block, relative, '\65');
+			@include pseudo(inline-block, relative, '\46');
 
             color: gov-colors('grey-dark');
 			font-family: $gov-icon-font;

@@ -31,8 +31,10 @@ class GovSelect extends classes(GovElement, GovComponent, GovFormControl) {
      * @private
      */
     _init() {
-        this._prepareSelect();
-        this._bindEvents();
+        if (!this._isClassicElement()) {
+            this._prepareSelect();
+            this._bindEvents();
+        }
     }
 
     /**
@@ -88,7 +90,7 @@ class GovSelect extends classes(GovElement, GovComponent, GovFormControl) {
         if (value) {
             addClass(this._formControlElement(), 'not-empty');
         } else {
-            if(option && String(option.textContent).length) {
+            if (option && String(option.textContent).length) {
                 addClass(this._formControlElement(), 'not-empty');
             } else {
                 removeClass(this._formControlElement(), 'not-empty');

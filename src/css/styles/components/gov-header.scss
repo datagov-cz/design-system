@@ -172,6 +172,7 @@
 
 		@include hover() {
 			background-color: transparent;
+            color: gov-colors('white');
 		}
 
 		&.active {

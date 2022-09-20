@@ -13,6 +13,7 @@ import merge from 'lodash/merge';
 import {hasClass, toggleClass} from '../utils/classie';
 import GovElement from '../mixins/GovElement';
 import GovError from '../common/Error/gov.error';
+import {govErrorLog} from "../common/Log/gov.log";
 
 class GovAccordion extends GovElement {
     /**
@@ -40,6 +41,7 @@ class GovAccordion extends GovElement {
     _init() {
         try {
             this._checkElements();
+            this._verifyWcag();
             this._bindEvents();
         } catch (e) {
             console.warn(e.message);
@@ -86,11 +88,11 @@ class GovAccordion extends GovElement {
 
         if (!hasClass(triggerElement, 'is-expanded')) {
             this._expandContent(contentElement);
-            triggerElement.setAttribute('aria-expanded', true);
+            triggerElement.setAttribute('aria-expanded', 'true');
             this._callOpenCallback(e);
         } else {
             this._collapseContent(contentElement)
-            triggerElement.setAttribute('aria-expanded', false);
+            triggerElement.setAttribute('aria-expanded', 'false');
             this._callCloseCallback(e);
         }
 
@@ -107,6 +109,7 @@ class GovAccordion extends GovElement {
         const contentHeight = element.scrollHeight;
         const contentTransition = element.style.transition;
 
+        element.setAttribute('aria-hidden', 'true');
         element.style.transition = '';
 
         requestAnimationFrame(function () {
@@ -129,6 +132,7 @@ class GovAccordion extends GovElement {
     _expandContent(element) {
         const contentHeight = element.scrollHeight;
 
+        element.setAttribute('aria-hidden', 'false');
         element.style.minHeight = contentHeight + 'px';
         element.style.height = 'auto';
         element.style.visibility = 'visible';
@@ -180,6 +184,33 @@ class GovAccordion extends GovElement {
         if (onClose && typeof onClose === 'function') {
             onClose(e);
         }
+    }
+
+    /**
+     * @return {void}
+     * @private
+     */
+    _verifyWcag() {
+        this._triggerElements.forEach((trigger, index) => {
+            if (!trigger.hasAttribute('aria-expanded')) trigger.setAttribute('aria-expanded', 'false')
+
+            if (!trigger.hasAttribute('aria-controls')) {
+                govErrorLog(`[GovAccordion] controls missing mandatory attribute [aria-controls]`)
+            }
+            if (!trigger.hasAttribute('id')) {
+                govErrorLog(`[GovAccordion] controls missing mandatory attribute [id]`)
+            }
+        });
+        this._contentElements.forEach((content) => {
+            if (!content.hasAttribute('role')) content.setAttribute('role', 'tabpanel')
+
+            if (!content.hasAttribute('id')) {
+                govErrorLog("[GovAccordion] content missing mandatory attribute [id]")
+            }
+            if (!content.hasAttribute('aria-labelledby')) {
+                govErrorLog("[GovAccordion] content missing mandatory attribute [aria-labelledby]")
+            }
+        });
     }
 
     /**

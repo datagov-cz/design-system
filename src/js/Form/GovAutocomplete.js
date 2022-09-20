@@ -9,7 +9,6 @@
 
 'use strict';
 
-
 import merge from 'lodash/merge';
 import map from 'lodash/map';
 import GovElement from '../mixins/GovElement';
@@ -68,7 +67,7 @@ class GovAutocomplete extends GovElement {
 
     _bindEvents() {
         this._containerElement.addEventListener('focus', (e) => {
-            const {value} = e.target;
+            const { value } = e.target;
             this._searchValues(value);
             this._bindClickOutside();
         });
@@ -81,7 +80,7 @@ class GovAutocomplete extends GovElement {
             else if (e.keyCode === 27) this._pick(null);
         });
         this._containerElement.addEventListener('input', debounce((e) => {
-            const {value} = e.target;
+            const { value } = e.target;
             if (value.length === 0) this._pick(null);
             this._searchValues(value);
         }, 200));
@@ -93,7 +92,7 @@ class GovAutocomplete extends GovElement {
      * @private
      */
     _searchValues(value) {
-        const {onSearch, minChars} = this._options;
+        const { onSearch, minChars } = this._options;
         const minimalCharacters = parseInt(minChars);
         if (onSearch && typeof onSearch === 'function' && String(value).length >= minimalCharacters) {
             // TODO cancel promise
@@ -110,10 +109,10 @@ class GovAutocomplete extends GovElement {
      * @private
      */
     _prepareListeOffer() {
-        const {classes: {resultItem, emptyItem}} = this._options;
+        const { classes: { resultItem, emptyItem } } = this._options;
         this._inputListElement.innerHTML = '';
         map(this._data, (item) => {
-            const {name} = item;
+            const { name } = item;
             const li = document.createElement('li');
             li.classList.add(resultItem);
             li.setAttribute('role', 'option');
@@ -145,14 +144,18 @@ class GovAutocomplete extends GovElement {
      * @private
      */
     _pick(item) {
-        const {onSelect} = this._options;
+        const { onSelect } = this._options;
         if (null === item) {
             this._containerElement.value = '';
-            removeClass(this._inputControlElement, 'not-empty');
+            if (!this._isControlElementClassic) {
+                removeClass(this._inputControlElement, 'not-empty');
+            }
         } else {
-            const {name} = item;
+            const { name } = item;
             this._containerElement.value = name;
-            addClass(this._inputControlElement, 'not-empty');
+            if (!this._isControlElementClassic) {
+                addClass(this._inputControlElement, 'not-empty');
+            }
         }
         this._hideListOffer();
         this._arrowCounter = -1;
@@ -228,9 +231,9 @@ class GovAutocomplete extends GovElement {
             const item = this._data[this._arrowCounter];
             this._pick(item);
         } else {
-            const {allowCreate} = this._options;
+            const { allowCreate } = this._options;
             if (allowCreate && this._containerElement.value) {
-                this._pick({id: null, name: this._containerElement.value});
+                this._pick({ id: null, name: this._containerElement.value });
             }
         }
     }
@@ -242,7 +245,7 @@ class GovAutocomplete extends GovElement {
      * @private
      */
     _prepareStructure() {
-        const {classes: {autocompleteContainer, resultContainer}} = this._options;
+        const { classes: { autocompleteContainer, resultContainer } } = this._options;
         this._containerElement.setAttribute('role', 'searchbox');
         this._containerElement.setAttribute('aria-autocomplete', 'list');
         this._containerElement.setAttribute('aria-controls', 'autocomplete-' + this._id);
@@ -281,7 +284,7 @@ class GovAutocomplete extends GovElement {
      */
     _setSelectedOption() {
         const options = this._inputListElement.querySelectorAll('li'),
-              optionsEl = this._inputListElement;
+            optionsEl = this._inputListElement;
 
         map(options, (option, index) => {
             option.classList.remove('selected');
@@ -329,7 +332,9 @@ class GovAutocomplete extends GovElement {
      */
     clear() {
         this._containerElement.value = '';
-        removeClass(this._inputControlElement, 'not-empty');
+        if (!this._isControlElementClassic) {
+            removeClass(this._inputControlElement, 'not-empty');
+        }
     }
 
     // ELEMENTS
@@ -339,7 +344,7 @@ class GovAutocomplete extends GovElement {
      * @private
      */
     get _inputContainerElement() {
-        const {classes: {autocompleteContainer}} = this._options;
+        const { classes: { autocompleteContainer } } = this._options;
         const inputContainer = this._containerElement.parents('.' + autocompleteContainer);
         return inputContainer.length ? inputContainer[0] : null;
     }
@@ -349,9 +354,20 @@ class GovAutocomplete extends GovElement {
      * @private
      */
     get _inputControlElement() {
-        const {classes: {controlContainer}} = this._options;
+        const { classes: { controlContainer } } = this._options;
         const container = this._containerElement.parents('.' + controlContainer);
         return container.length ? container[0] : null;
+    }
+
+    /**
+     * @returns {boolean}
+     * @private
+     */
+    get _isControlElementClassic() {
+        if (this._inputControlElement) {
+            return this._inputControlElement.classList.contains('gov-form-control--classic')
+        }
+        return false
     }
 
     /**
@@ -367,7 +383,7 @@ class GovAutocomplete extends GovElement {
      * @private
      */
     get _locales() {
-        const {locale} = this._options;
+        const { locale } = this._options;
         return locales.hasOwnProperty(locale) ? locales[locale] : locales['cs'];
     }
 }

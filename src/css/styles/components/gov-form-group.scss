@@ -16,7 +16,7 @@ $class: '.gov-form-group';
     }
 
     & + .gov-form-control__message {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 
     .gov-form-control__indicator {

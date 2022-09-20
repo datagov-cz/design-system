@@ -71,6 +71,18 @@ export default class GovControl {
         }
     }
 
+    /**
+     * @return {void}
+     * @private
+     */
+    _destroyKeyup() {
+        document.removeEventListener('click', this._clickOutside);
+        document.removeEventListener('keyup', this._clickEscape);
+        if (typeof this['_destroy'] === 'function') {
+            this._destroy();
+        }
+    }
+
     // ESCAPE
 
     /**
@@ -79,6 +91,7 @@ export default class GovControl {
      */
     _detectClickEscape(evt) {
         if (evt.key === 'Escape') {
+            this._destroyKeyup()
             if (typeof this['_destroy'] === 'function') {
                 this._destroy();
             }

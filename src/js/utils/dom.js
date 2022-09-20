@@ -91,3 +91,13 @@ if (!Element.prototype.insertAfter) {
         referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
     }
 }
+
+if (!Element.prototype.boundingDocumentRect) {
+    Element.prototype.boundingDocumentRect = function () {
+        let clientRect = this.getBoundingClientRect();
+        return {
+            left: clientRect.left + document.documentElement.scrollLeft,
+            top:  clientRect.top + document.documentElement.scrollTop,
+        };
+    }
+}

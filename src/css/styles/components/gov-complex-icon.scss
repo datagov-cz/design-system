@@ -43,91 +43,215 @@
         content: '\61';
     }
 
-    &--covid:before {
+    &--doc:before {
         content: '\62';
     }
 
-    &--doc-health:before {
+    &--doc-odt:before {
         content: '\63';
     }
 
-    &--doc-search:before {
+    &--doc-health:before {
         content: '\64';
     }
 
-    &--doc-stamp:before {
+    &--doc-pdf:before {
         content: '\65';
     }
 
-    &--doc-taxes:before {
+    &--doc-plain:before {
         content: '\66';
     }
 
-    &--graduate:before {
-        content: '\74';
-    }
-
-    &--house:before {
+    &--doc-stamp:before {
         content: '\67';
     }
 
-    &--id-card:before {
+    &--doc-search:before {
         content: '\68';
     }
 
-    &--illness:before {
-        content: '\75';
-    }
-
-    &--info:before {
+    &--doc-xls:before {
         content: '\69';
     }
 
-    &--jobloss:before {
-        content: '\77';
-    }
-
-    &--map:before {
+    &--doc-taxes:before {
         content: '\6a';
     }
 
-    &--new-comments:before {
+    &--doc-xml:before {
         content: '\6b';
     }
 
-    &--newborn:before {
+    &--graduate:before {
         content: '\6c';
     }
 
-    &--packet:before {
+    &--id-card:before {
         content: '\6d';
     }
 
-    &--planet:before {
+    &--illness:before {
         content: '\6e';
     }
 
-    &--pregnant:before {
+    &--info:before {
         content: '\6f';
     }
 
-    &--review:before {
+    &--image:before {
         content: '\70';
     }
 
-    &--rings:before {
+    &--jobloss:before {
         content: '\71';
     }
 
-    &--senior:before {
-        content: '\76';
-    }
-
-    &--tombstone:before {
+    &--new-comments:before {
         content: '\72';
     }
 
-    &--vacation:before {
+    &--map:before {
         content: '\73';
+    }
+
+    &--newborn:before {
+        content: '\74';
+    }
+
+    &--packet:before {
+        content: '\75';
+    }
+
+    &--planet:before {
+        content: '\76';
+    }
+
+    &--review:before {
+        content: '\77';
+    }
+
+    &--rings:before {
+        content: '\78';
+    }
+
+    &--senior:before {
+        content: '\79';
+    }
+
+    &--arrival:before {
+        content: '\7a';
+    }
+
+    &--car-point-list:before {
+        content: '\41';
+    }
+
+    &--coins:before {
+        content: '\42';
+    }
+
+    &--communication:before {
+        content: '\43';
+    }
+
+    &--covid:before {
+        content: '\44';
+    }
+
+    &--confusion:before {
+        content: '\45';
+    }
+
+    &--envelope-simple:before {
+        content: '\46';
+    }
+
+    &--health:before {
+        content: '\47';
+    }
+
+    &--envelope:before {
+        content: '\48';
+    }
+
+    &--help:before {
+        content: '\49';
+    }
+
+    &--help-big:before {
+        content: '\4a';
+    }
+
+    &--hourglass:before {
+        content: '\4b';
+    }
+
+    &--house:before {
+        content: '\4c';
+    }
+
+    &--job:before {
+        content: '\4d';
+    }
+
+    &--news:before {
+        content: '\4e';
+    }
+
+    &--pet:before {
+        content: '\4f';
+    }
+
+    &--petition:before {
+        content: '\50';
+    }
+
+    &--pills:before {
+        content: '\51';
+    }
+
+    &--portal:before {
+        content: '\52';
+    }
+
+    &--pregnant:before {
+        content: '\53';
+    }
+
+    &--registers:before {
+        content: '\54';
+    }
+
+    &--retiree:before {
+        content: '\55';
+    }
+
+    &--ring-bell:before {
+        content: '\56';
+    }
+
+    &--twentyfour-seven:before {
+        content: '\57';
+    }
+
+    &--vacation:before {
+        content: '\58';
+    }
+
+    &--vaccine:before {
+        content: '\59';
+    }
+
+    &--visa:before {
+        content: '\5a';
+    }
+
+    &--tombstone:before {
+        content: '\30';
+    }
+
+    &--sos:before {
+        content: '\31';
     }
 }

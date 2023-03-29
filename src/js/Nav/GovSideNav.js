@@ -1,6 +1,6 @@
 /*!
  * GovSideNav
- * Copyright(c) 2021 Ministerstvo vnitra České republiky
+ * Copyright(c) 2021 Digitalni a informacni agentura
  * Copyright(c) 2021 Zdeněk Vítek
  * EUPL v1.2 Licensed
  *

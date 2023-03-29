@@ -1,6 +1,6 @@
 /*!
  * GovTooltip
- * Copyright(c) 2022 Ministerstvo vnitra České republiky
+ * Copyright(c) 2022 Digitalni a informacni agentura
  * Copyright(c) 2022 Zdeněk Vítek
  * EUPL v1.2 Licensed
  *

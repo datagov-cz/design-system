@@ -1,6 +1,6 @@
 /*!
  * Gov Design System
- * Copyright(c) 2020 - 2022 Ministerstvo vnitra Ceske republiky
+ * Copyright(c) 2020 - 2022 Digitalni a informacni agentura
  * Copyright(c) 2020 - 2022 Zdenek Vitek
  * Copyright(c) 2020 - 2022 Lukas Nulicek
  * EUPL v1.2 Licensed

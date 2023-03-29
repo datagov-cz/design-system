@@ -1,6 +1,6 @@
 /*!
  * GovPortalHamburgerNav
- * Copyright(c) 2020 Ministerstvo vnitra České republiky
+ * Copyright(c) 2020 Digitalni a informacni agentura
  * Copyright(c) 2020 Zdeněk Vítek
  * EUPL v1.2 Licensed
  *

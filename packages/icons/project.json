@@ -1,0 +1,24 @@
+{
+	"name": "icons",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "packages/icons",
+	"projectType": "library",
+	"generators": {},
+	"tags": [],
+	"targets": {
+		"build": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "npm run build",
+				"cwd": "packages/icons"
+			}
+		},
+		"serve": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "npm run serve",
+				"cwd": "packages/icons"
+			}
+		}
+	}
+}

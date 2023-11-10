@@ -1,0 +1,48 @@
+/*
+ * General typography
+ */
+
+* {
+	margin: 0;
+}
+
+h1,
+.h1 {
+	@include typography($font-size-6xl);
+}
+
+h2,
+.h2 {
+	@include typography($font-size-5xl);
+}
+
+h3,
+.h3 {
+	@include typography($font-size-4xl);
+}
+
+h4,
+.h4 {
+	@include typography($font-size-3xl);
+}
+
+h5,
+.h5 {
+	@include typography($font-size-2xl);
+}
+
+h6,
+.h6 {
+	@include typography($font-size-xl);
+}
+
+p {
+	@include typography($font-size-m);
+}
+
+// Generate size classes
+@each $size, $properties in map-get($font-sizes, $view-none, "texts") {
+	.#{$prefix}text--#{$size} {
+		@include typography($size);
+	}
+}

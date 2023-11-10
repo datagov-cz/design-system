@@ -1,0 +1,7 @@
+$class: ".gov-form-checkbox";
+
+#{$class} {
+	input:checked + span &__check {
+		color: $form-checkbox-indicator-bg;
+	}
+}

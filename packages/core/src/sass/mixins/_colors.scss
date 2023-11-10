@@ -1,0 +1,21 @@
+/*
+ * Gets color from theme-colors or from palette-colors
+ */
+
+@function color-val($key) {
+	$color: map-get($theme-colors, $key);
+
+	@if not $color {
+		@return get($key);
+	} @else {
+		@return $color;
+	}
+}
+
+@function color($key) {
+	@return var(--#{$prefix}color-#{str-replace($key, ".", "-")});
+}
+
+@function color-rgb($key) {
+	@return var(--#{$prefix}color-#{str-replace($key, ".", "-")}-rgb);
+}

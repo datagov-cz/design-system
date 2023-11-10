@@ -1,0 +1,3 @@
+@function get-font-size($size) {
+	@return var(--#{$prefix}text-#{$size}-font-size);
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@gov-design-system-ce/styles",
+  "version": "0.0.16",
+  "description": "This package includes Gov Design System CE Styles.",
+  "author": "Zdeněk Vítek",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "prebuild": "rimraf --glob 'lib/'",
+    "build": "npm run copyAll && npm run sass && npm run copyAllFinished && npm run sassGlobal && npm run sassContent && npm run sassLayout && npm run sassCritical && npm run sassPrint && npm run copyDist",
+    "sass": "sass --no-source-map --style=compressed -I ./../core/src/sass lib/components_:lib/components_",
+    "sassGlobal": "sass --no-source-map --style=compressed ./../core/src/sass/global.scss:lib/styles.css",
+    "sassCritical": "sass --no-source-map --style=compressed ./../core/src/sass/critical.scss:lib/critical.css",
+    "sassPrint": "sass --no-source-map --style=compressed ./../core/src/sass/print.scss:lib/print.css",
+    "sassContent": "sass --no-source-map --style=compressed ./../core/src/sass/content.scss:lib/content.css",
+    "sassLayout": "sass --no-source-map --style=compressed ./../core/src/sass/layout.scss:lib/layout.css",
+    "copyAll": "copyfiles --up 2 ./../core/src/components/**/*.scss lib/components_ && copyfiles --up 2 ./../core/src/components/**/**/*.scss lib/components_ && node run.js",
+    "copyAllFinished": "copyfiles --flat lib/components_/**/*.css lib/components && copyfiles --flat lib/components_/**/**/*.css lib/components && rimraf lib/components_",
+    "copyDist": "copyfiles --flat ./lib/* ../../dist/packages/styles",
+    "watch": "chokidar '../core/src/**/*.scss' -c 'npm run build'"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "copyfiles": "2.4.1",
+    "rimraf": "^5.0.1",
+    "sass": "^1.66.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "EUPL v1.2 Licensed"
+}

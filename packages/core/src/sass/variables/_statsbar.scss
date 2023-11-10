@@ -1,0 +1,16 @@
+/*
+ -  Variables - Statsbar
+ */
+
+$statsbar-variants: (
+	$variant-primary: (
+		"bg-color": make-var(statsbar-primary-bg-color, color("primary.200")),
+		"text-color": make-var(statsbar-primary-text-color, color("primary")),
+		"text-color-inverse": make-var(statsbar-primary-text-color-inverse, color("primary")),
+	),
+	$variant-secondary: (
+		"bg-color": make-var(statsbar-secondary-bg-color, color("secondary")),
+		"text-color": make-var(statsbar-secondary-text-color, color("neutral.white")),
+		"text-color-inverse": make-var(statsbar-secondary-text-color-inverse, color("secondary")),
+	),
+);

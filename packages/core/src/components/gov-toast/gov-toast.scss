@@ -1,0 +1,95 @@
+/*
+ *   Alert
+ */
+
+@import "./gov-toast-message-core.scss";
+$class: ".gov-toast";
+
+#{$class} {
+	@include toast-message-core;
+	@include z-index("toast", 1);
+	position: relative;
+	position: fixed;
+	max-width: rem-calc(375);
+	padding-right: rem-calc(50);
+	opacity: 1;
+	transition: opacity 300ms ease-in-out;
+	&__content {
+		padding-right: 0;
+	}
+	&__close {
+		position: absolute;
+		top: rem-calc(8);
+		right: rem-calc(12);
+	}
+	&__timer {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+	}
+
+	// VARIANTS
+	&--hidden {
+		opacity: 0;
+	}
+	&[gravity="top" i] {
+		top: rem-calc(16);
+	}
+	&[gravity="bottom" i] {
+		bottom: rem-calc(16);
+	}
+	&[position="left" i] {
+		left: rem-calc(16);
+	}
+	&[position="center" i] {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	&[position="right" i] {
+		right: rem-calc(16);
+	}
+	&[type="solid" i] {
+		border: none;
+		border-radius: rem-calc(4);
+		overflow: hidden;
+		box-shadow: none;
+		&.is-initialized #{$class}__timer {
+			transform-origin: right;
+			animation: countdown linear forwards var(--toast-duration, 0);
+		}
+	}
+
+	@each $variant, $definitions in $toast-message-variants {
+		&[variant="#{$variant}"] {
+			border-left-color: get("decor-color", $definitions);
+			#{$class} {
+				&__icon {
+					color: get("decor-color", $definitions);
+				}
+			}
+
+			&[type="solid" i] {
+				background-color: get("background", $definitions);
+				color: get("color", $definitions);
+				#{$class} {
+					&__icon {
+						color: get("color", $definitions);
+					}
+					&__timer {
+						background-color: get("timer-background", $definitions);
+					}
+				}
+			}
+		}
+	}
+
+	// MQ
+	@include mq($from: sm) {
+		&__content {
+			padding-right: rem-calc(32);
+		}
+	}
+}

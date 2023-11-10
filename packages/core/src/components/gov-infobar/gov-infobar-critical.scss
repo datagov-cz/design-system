@@ -1,0 +1,30 @@
+gov-infobar:not(.hydrated) {
+	@include base();
+	display: flex;
+	gap: rem-calc(16);
+	padding: rem-calc(16);
+
+	.gov-infobar__section {
+		padding: 0;
+	}
+
+	& > gov-icon {
+		flex: 0 0 auto;
+		width: rem-calc(20);
+		height: rem-calc(20);
+	}
+	@each $variant, $definitions in $infobar-variants {
+		&[variant="#{$variant}"] {
+			background-color: get("bg-color", $definitions);
+			gov-icon {
+				color: get("icon-color", $definitions);
+			}
+			p, a {
+				color: get("text-color", $definitions);
+			}
+			@if deep-map-check($definitions, "border") {
+				border-bottom: $infobar-border;
+			}
+		}
+	}
+}

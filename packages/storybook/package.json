@@ -1,0 +1,25 @@
+{
+    "name": "@gov-design-system-ce/storybook",
+    "description": "This package includes Gov Design System Web Components and related utilities.",
+    "author": "Zdeněk Vítek",
+    "version": "0.0.1",
+    "license": "EUPL v1.2 Licensed",
+    "main": "./dist/index.cjs.js",
+    "module": "./dist/index.js",
+    "es2015": "./dist/esm/index.mjs",
+    "es2017": "./dist/esm/index.mjs",
+    "types": "./dist/types/index.d.ts",
+    "collection": "./dist/collection/collection-manifest.json",
+    "collection:main": "./dist/collection/index.js",
+    "unpkg": "./dist/core/core.js",
+    "files": [
+        "dist/",
+        "loader/"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}

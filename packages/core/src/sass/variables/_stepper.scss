@@ -1,0 +1,30 @@
+/*
+ -  Variables - Stepper
+ */
+
+$stepper-sizes: (
+	$size-xs: (
+		"font-size": $font-size-m,
+		"font-size-annot": $font-size-s,
+		"font-size-indicator": $font-size-m,
+		"indicator-size": make-var(stepper-xs-indicator-size, rem-calc(24)),
+		"content-padding": make-var(stepper-xs-content-padding, rem-calc(16 16 32 40)),
+		"connect-gap": make-var(stepper-xs-connect-gap, rem-calc(8)),
+	),
+	$size-s: (
+		"font-size": $font-size-l,
+		"font-size-annot": $font-size-m,
+		"font-size-indicator": $font-size-xl,
+		"indicator-size": make-var(stepper-s-indicator-size, rem-calc(32)),
+		"content-padding": make-var(stepper-s-content-padding, rem-calc(16 16 32 48)),
+		"connect-gap": make-var(stepper-s-connect-gap, rem-calc(16)),
+	),
+	$size-m: (
+		"font-size": $font-size-xl,
+		"font-size-annot": $font-size-m,
+		"font-size-indicator": $font-size-xl,
+		"indicator-size": make-var(stepper-m-indicator-size, rem-calc(40)),
+		"content-padding": make-var(stepper-m-content-padding, rem-calc(16 16 32 56)),
+		"connect-gap": make-var(stepper-m-connect-gap, rem-calc(16)),
+	),
+);

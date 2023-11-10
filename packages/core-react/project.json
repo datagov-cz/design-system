@@ -1,0 +1,18 @@
+{
+	"name": "core-react",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "packages/core-react",
+	"projectType": "library",
+	"generators": {},
+	"tags": [],
+	"targets": {
+		"build": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "npm run build",
+				"cwd": "packages/core-react"
+			},
+			"dependsOn": ["core:build", "styles:build"]
+		}
+	}
+}

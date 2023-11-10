@@ -1,0 +1,9 @@
+/*
+ *   Stepper
+ */
+
+$class: ".gov-stepper";
+
+#{$class} {
+	@include base();
+}

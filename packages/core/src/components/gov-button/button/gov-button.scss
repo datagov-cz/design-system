@@ -1,0 +1,66 @@
+/*
+ *   Button
+ */
+
+// Shared definitions - BUTTON & chip
+@import "gov-button-core";
+
+.gov-button {
+	@extend %button-core;
+	display: inline-block;
+	.element {
+		border-radius: #{$border-radius};
+	}
+
+	&[type="link"] {
+		.element {
+			justify-content: flex-start;
+			align-items: flex-start;
+			text-align: left;
+			min-height: inherit;
+			padding: 0 !important;
+			line-height: inherit;
+			text-decoration: underline;
+			@include hover() {
+				text-decoration: none;
+			}
+		}
+	}
+
+	// STATES
+	&[loading="true"],
+	&[loading="1"] {
+		.element {
+			> .gov-icon:not(.gov-spin-animation),
+			> gov-icon:not(.gov-spin-animation) {
+				display: none;
+			}
+			.gov-icon {
+				margin: 0;
+			}
+		}
+	}
+
+	// VARIANTS
+	@each $size, $definitions in $button-sizes {
+		// Loading state
+		&[loading="0"][size="#{$size}"],
+		&[loading="false"][size="#{$size}"],
+		&[loading=""][size="#{$size}"] {
+			.element {
+				padding: get("padding-y", $definitions) calc(((get("padding-x", $definitions) * 3) + get("icon-size", $definitions)) / 2);
+			}
+		}
+		&[size="#{$size}"] {
+			.element {
+				font-weight: map-get($definitions, "font-weight");
+			}
+		}
+	}
+	&[size="s"][type="link"] .gov-icon {
+		margin-top: 4px;
+	}
+	&[size="m"][type="link"] .gov-icon {
+		margin-top: 2px;
+	}
+}

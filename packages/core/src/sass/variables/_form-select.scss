@@ -1,0 +1,22 @@
+/*
+ -	Variables - Form select
+ */
+
+$form-select-sizes: (
+	$size-s: (
+		arrow-size: make-var(form-select-s-arrow-size, rem-calc(12)),
+		arrow-right-position: make-var(form-select-s-arrow-right-position, rem-calc(12)),
+	),
+	$size-m: (
+		arrow-size: make-var(form-select-m-arrow-size, rem-calc(12)),
+		arrow-right-position: make-var(form-select-m-arrow-right-position, rem-calc(16)),
+	),
+	$size-l: (
+		arrow-size: make-var(form-select-l-arrow-size, rem-calc(16)),
+		arrow-right-position: make-var(form-select-l-arrow-right-position, rem-calc(16)),
+	),
+	$size-xl: (
+		arrow-size: make-var(form-select-xl-arrow-size, rem-calc(16)),
+		arrow-right-position: make-var(form-select-xl-arrow-right-position, rem-calc(21)),
+	),
+);

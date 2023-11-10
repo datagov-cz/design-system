@@ -1,0 +1,63 @@
+/*
+ *   Checkbox
+ */
+
+@import "../checkbox/gov-form-checkbox-core.scss";
+
+$class: ".gov-form-checkbox";
+
+#{$class} {
+    @extend %form-checkbox-core;
+
+    input + span {
+        &::before {
+            border-radius: $border-radius;
+        }
+    }
+
+    &__check {
+        position: absolute;
+        color: $form-checkbox-check-color;
+        opacity: 0;
+        transition: $t linear opacity;
+    }
+
+    &__label {
+        position: relative;
+    }
+
+    // STATES
+    input:checked + span::before {
+        background: $form-checkbox-indicator-bg;
+    }
+
+    input:checked + span &__check {
+        opacity: 1;
+    }
+
+    @include parameter("invalid") {
+        input:checked + span::before {
+            background: $form-state-color-error;
+        }
+    }
+    @include parameter("disabled") {
+        input:checked + span::before {
+            border-color: $form-state-bg-disabled;
+            background-color: $form-state-bg-disabled;
+        }
+    }
+
+    // VARIANTS
+    @each $size, $definitions in $form-checkbox-core-sizes {
+        &[size="#{$size}"] {
+            #{$class} {
+                &__check {
+                    top: calc((get("indicator-size", $definitions) - get("check-size", $definitions)) / 2);
+                    left: calc((get("indicator-size", $definitions) - get("check-size", $definitions)) / 2);
+                    width: get("check-size", $definitions);
+                    height: get("check-size", $definitions);
+                }
+            }
+        }
+    }
+}

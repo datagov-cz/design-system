@@ -1,0 +1,28 @@
+/*
+ *   Backdrop
+ */
+
+$class: ".gov-backdrop";
+
+#{$class} {
+	&__bg {
+		@include z-index("modal", 0);
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: $backdrop-bg;
+		opacity: $backdrop-opacity;
+	}
+
+	// VARIANTS
+	@include parameter("inverse") {
+		#{$class} {
+			&__bg {
+				background-color: $backdrop-bg-inverse;
+				opacity: $backdrop-opacity-inverse;
+			}
+		}
+	}
+}

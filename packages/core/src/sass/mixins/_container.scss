@@ -1,0 +1,15 @@
+@mixin container() {
+	display: block;
+	width: 100%;
+	max-width: calc($container-width + (2 * $container-padding));
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: $container-padding-mobile;
+	padding-left: $container-padding-mobile;
+
+	// MQ
+	@include mq($from: md) {
+		padding-right: $container-padding;
+		padding-left: $container-padding;
+	}
+}

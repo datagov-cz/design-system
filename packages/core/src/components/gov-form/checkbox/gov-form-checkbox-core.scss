@@ -1,0 +1,71 @@
+/*
+ *   Checkbox & Radio Shared Definitions
+ */
+
+%form-checkbox-core {
+	cursor: pointer;
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		appearance: none;
+	}
+	input + span {
+		position: relative;
+		display: block;
+		cursor: pointer;
+		&::before {
+			@include pseudo();
+			top: 0;
+			left: 0;
+			border: $form-checkbox-border;
+			background-color: $form-checkbox-background-color;
+			transition: $t linear border-color, $t linear background-color, $t linear outline-color;
+		}
+	}
+	.gov-form-label__label {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+	}
+
+	// STATES
+	input:focus-visible + span::before {
+		outline: $outline;
+	}
+	@include parameter("invalid") {
+		.gov-form-label__label {
+			color: $form-state-color-error;
+		}
+		input + span::before {
+			border-color: $form-state-color-error;
+		}
+	}
+	@include parameter("disabled") {
+		pointer-events: none;
+		.gov-form-label__label {
+			color: $form-state-color-disabled;
+		}
+		input + span::before {
+			border-color: $form-state-bg-disabled;
+		}
+	}
+
+	// VARIANTS
+	@each $size, $definitions in $form-checkbox-core-sizes {
+		&[size="#{$size}"] {
+			@include typography($size);
+			display: block;
+			min-width: get("indicator-size", $definitions);
+			min-height: get("indicator-size", $definitions);
+			.gov-form-label__label {
+				padding-top: calc((get("indicator-size", $definitions) - (var(--gov-text-#{$size}-font-size) * 1.5)) / 2);
+				padding-left: calc(get("indicator-size", $definitions) + get("gap", $definitions));
+			}
+			input + span::before {
+				width: get("indicator-size", $definitions);
+				height: get("indicator-size", $definitions);
+			}
+		}
+	}
+}

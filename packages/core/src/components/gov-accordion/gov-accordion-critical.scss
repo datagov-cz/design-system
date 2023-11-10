@@ -1,0 +1,76 @@
+gov-accordion:not(.hydrated) {
+	@include base();
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	width: 100%;
+	p:not([slot="annotation"]),
+	.gov-icon {
+		display: none;
+	}
+	*[slot="label"] {
+		margin-bottom: 0;
+	}
+	p {
+		color: color("secondary");
+	}
+
+	gov-accordion-item {
+		position: relative;
+		width: 100%;
+		&::before {
+			@include pseudo();
+			right: 0;
+			bottom: -1px;
+			left: 0;
+			height: 1px;
+			background-color: color("secondary.500");
+		}
+
+		@include parameter("is-expanded") {
+			p {
+				display: inline-block;
+			}
+		}
+	}
+
+	&[no-border] {
+		gov-accordion-item {
+			&::before {
+				background-color: transparent;
+			}
+		}
+	}
+
+	@each $size, $definitions in $accordion-sizes {
+		&[size="#{$size}"] {
+			gov-accordion-item {
+				gap: get("headline-gap", $definitions);
+				min-height: get("min-height", $definitions);
+				padding: get("padding-y", $definitions) get("padding-x", $definitions);
+				*[slot="label"] {
+					@include typography(get("font", $definitions));
+				}
+			}
+		}
+	}
+
+	@each $variant, $definitions in $accordion-variants {
+		&[variant="#{$variant}"] {
+			&::before {
+				background-color: get("separator", $definitions);
+			}
+			gov-accordion-item {
+				background-color: get("background", $definitions);
+				color: get("color", $definitions);
+			}
+		}
+
+		gov-accordion-item {
+			@include parameter("disabled") {
+				color: get("disabled-color", $definitions);
+			}
+		}
+	}
+}

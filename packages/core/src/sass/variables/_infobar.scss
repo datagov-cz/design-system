@@ -1,0 +1,35 @@
+/*
+ -  Variables - Infobar
+ */
+
+$infobar-border: make-var("infobar-border", rem-calc(1) solid color("secondary.400"));
+$infobar-inverse-bg: make-var("infobar-inverse-bg", color("neutral.white"));
+$infobar-inverse-color: make-var("infobar-inverse-color", color("secondary.800"));
+
+$infobar-variants: (
+	$variant-warning: (
+		"icon-color": make-var(infobar-warning-icon-color, color("secondary")),
+		"text-color": make-var(infobar-warning-text-color, color("secondary")),
+		"bg-color": make-var(infobar-warning-bg-color, color("warning")),
+	),
+	$variant-error: (
+		"icon-color": make-var(infobar-error-icon-color, color("neutral.white")),
+		"text-color": make-var(infobar-error-text-color, color("neutral.white")),
+		"bg-color": make-var(infobar-error-bg-color, color("error")),
+	),
+	$variant-secondary: (
+		"icon-color": make-var(infobar-secondary-icon-color, color("neutral.white")),
+		"text-color": make-var(infobar-secondary-text-color, color("neutral.white")),
+		"bg-color": make-var(infobar-secondary-bg-color, color("secondary")),
+	),
+	$variant-success: (
+		"icon-color": make-var(infobar-success-icon-color, color("neutral.white")),
+		"text-color": make-var(infobar-success-text-color, color("neutral.white")),
+		"bg-color": make-var(infobar-success-bg-color, color("success.500")),
+	),
+	$variant-primary: (
+		"icon-color": make-var(infobar-primary-icon-color, color("neutral.white")),
+		"text-color": make-var(infobar-primary-text-color, color("neutral.white")),
+		"bg-color": make-var(infobar-primary-bg-color, color("primary")),
+	),
+);

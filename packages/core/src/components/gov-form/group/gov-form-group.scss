@@ -1,0 +1,25 @@
+$class: ".gov-form-group";
+
+#{$class} {
+	@include base(flex);
+	flex-direction: column;
+	align-items: flex-start;
+	.gov-form-label__label {
+		margin: 0;
+	}
+
+	&[orientation="horizontal"] {
+		flex-direction: row;
+		flex-wrap: wrap;
+		.gov-form-label__label {
+			white-space: nowrap;
+		}
+	}
+
+	// VARIANTS
+	@each $gap, $definitions in $form-group-gaps {
+		&[gap="#{$gap}"] {
+			gap: get($gap, $sizes);
+		}
+	}
+}

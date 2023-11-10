@@ -1,0 +1,16 @@
+/*
+ *   Tooltip
+ */
+
+$class: ".gov-tooltip";
+
+#{$class} {
+	display: inline-block;
+	border-bottom: 1px dashed currentcolor;
+	color: color("primary");
+	cursor: help;
+
+	@include parameter("icon") {
+		border-bottom: 0;
+	}
+}

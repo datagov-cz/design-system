@@ -1,0 +1,9 @@
+/*
+ -  Variables - Modal & Prompt
+ */
+
+$modal-max-width: make-var("modal-max-width", rem-calc(840));
+$modal-prompt-max-width: make-var("modal-prompt-max-width", rem-calc(530));
+$modal-bg: make-var("modal-bg", color("neutral.white"));
+$modal-border: make-var("modal-border-color", rem-calc(1) solid color("secondary.500"));
+$modal-text-color: make-var("modal-text-color", color("secondary.700"));

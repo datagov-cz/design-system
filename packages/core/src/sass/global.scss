@@ -1,0 +1,67 @@
+// $gov-font-path: "/storybook/build/assets/fonts";
+// $gov-font-path: "/build/assets/fonts";
+// $version: "0.0.1";
+// @import "../../../fonts/lib/roboto";
+
+//  core
+@import "core";
+
+@import "typography";
+
+//  styles
+@import "styles/shadow";
+@import "styles/color";
+@import "styles/display";
+
+// Abstract
+@import "abstracts/theme";
+
+@import "content";
+
+html {
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body,
+:host {
+	@include typography($font-size-m);
+	min-width: $layout-min-width;
+	margin: 0;
+	padding: 0;
+	color: color("secondary");
+	font-family: $font-family-primary;
+
+	&.body-fixed {
+		overflow: hidden;
+	}
+}
+
+:first-child {
+	margin-top: 0;
+}
+
+hr {
+	height: 0;
+	border: 0 none;
+	border-top: 1px solid gainsboro;
+	font-size: 0;
+}
+
+legend {
+	@include typography($font-size-l);
+	margin-bottom: 1rem;
+	padding: 0;
+	color: $form-legend-color;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+}

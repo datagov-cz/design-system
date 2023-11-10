@@ -1,0 +1,15 @@
+/*
+ *   Accordion
+ */
+
+$class: ".gov-accordion";
+
+#{$class} {
+	@include base();
+
+	&[no-border] {
+		.gov-accordion-item::before {
+			background-color: transparent !important;
+		}
+	}
+}

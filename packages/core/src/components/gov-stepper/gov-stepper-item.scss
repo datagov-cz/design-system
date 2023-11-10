@@ -1,0 +1,60 @@
+/*
+ *   Stepper - Item
+ */
+
+@import "../gov-wizard/gov-wizard-item-core.scss";
+$class: ".gov-stepper-item";
+
+#{$class} {
+	@include wizard-item-core;
+	&::before {
+		@include pseudo();
+		width: rem-calc(2);
+	}
+	&:last-child::before {
+		content: none;
+	}
+
+	// VARIANTS
+	@each $variant, $definitions in $wizard-core-variants {
+		&[variant="#{$variant}"] {
+			&::before {
+				background: get("indicator-bg", $definitions);
+			}
+		}
+	}
+	@each $size, $definitions in $stepper-sizes {
+		$connect-gap: get("connect-gap", $definitions);
+		&[size="#{$size}"] {
+			min-height: calc(get("indicator-size", $definitions) + 3 * $connect-gap);
+			&::before {
+				top: calc(get("indicator-size", $definitions) + $connect-gap);
+				bottom: $connect-gap;
+				left: calc((get("indicator-size", $definitions) - rem-calc(2)) / 2);
+			}
+			&:last-child {
+				min-height: 0;
+			}
+			#{$class} {
+				&__title {
+					@include typography(get("font-size", $definitions));
+				}
+				&__annot {
+					@include typography(get("font-size-annot", $definitions));
+				}
+				&__prefix {
+					@include typography(get("font-size-indicator", $definitions));
+					width: get("indicator-size", $definitions);
+					height: get("indicator-size", $definitions);
+					box-shadow: 0 0 0 $connect-gap color("neutral.white");
+				}
+				&__content {
+					padding: get("content-padding", $definitions);
+				}
+			}
+		}
+		&--w-annot[size="#{$size}"] {
+			min-height: calc(get("indicator-size", $definitions) * 1.5 + 3 * $connect-gap);
+		}
+	}
+}

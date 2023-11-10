@@ -1,0 +1,70 @@
+/*
+ -  Variables - Wizard
+ */
+
+$wizard-bg-color: make-var("wizard-bg-color", color("neutral.white"));
+$wizard-content-padding: make-var("wizard-content-padding", rem-calc(0 16 16 16));
+$wizard-title-font-weight: make-var("wizard-title-font-weight", 700);
+
+$wizard-sizes: (
+	$size-xs: (
+		"font-size": $font-size-m,
+		"font-size-annot": $font-size-s,
+		"font-size-indicator": $font-size-m,
+		"indicator-size": make-var(wizard-xs-indicator-size, rem-calc(24)),
+		"content-padding": make-var(wizard-xs-content-padding, rem-calc(0 16 16 56)),
+		"header-padding": make-var(wizard-xs-header-padding, rem-calc(16 16 16 56)),
+		"top": make-var(wizard-xs-top, rem-calc(16)),
+	),
+	$size-s: (
+		"font-size": $font-size-l,
+		"font-size-annot": $font-size-m,
+		"font-size-indicator": $font-size-xl,
+		"indicator-size": make-var(wizard-s-indicator-size, rem-calc(32)),
+		"content-padding": make-var(wizard-s-content-padding, rem-calc(0 16 16 64)),
+		"header-padding": make-var(wizard-s-header-padding, rem-calc(16 16 16 64)),
+		"top": make-var(wizard-s-top, rem-calc(13)),
+	),
+	$size-m: (
+		"font-size": $font-size-l,
+		"font-size-annot": $font-size-m,
+		"font-size-indicator": $font-size-xl,
+		"indicator-size": make-var(wizard-m-indicator-size, rem-calc(40)),
+		"content-padding": make-var(wizard-m-content-padding, rem-calc(0 16 16 72)),
+		"header-padding": make-var(wizard-m-header-padding, rem-calc(16 16 16 72)),
+		"top": make-var(wizard-m-top, rem-calc(9)),
+	),
+);
+
+$wizard-core-variants: (
+	$variant-primary: (
+		"color": make-var(wizard-primary-color, color("primary.800")),
+		"indicator-color": make-var(wizard-primary-indicator-color, color("primary.800")),
+		"indicator-bg": make-var(wizard-primary-indicator-bg, color("primary.300")),
+		"hover-color": make-var(wizard-primary-hover-color, color("primary.900")),
+	),
+	$variant-secondary: (
+		"color": make-var(wizard-secondary-color, color("secondary.700")),
+		"indicator-color": make-var(wizard-secondary-indicator-color, color("secondary.700")),
+		"indicator-bg": make-var(wizard-secondary-indicator-bg, color("secondary.400")),
+		"hover-color": make-var(wizard-secondary-hover-color, color("secondary.800")),
+	),
+	$variant-success: (
+		"color": make-var(wizard-success-color, color("success.500")),
+		"indicator-color": make-var(wizard-success-indicator-color, color("neutral.white")),
+		"indicator-bg": make-var(wizard-success-indicator-bg, color("success")),
+		"hover-color": make-var(wizard-success-hover-color, color("success.600")),
+	),
+	$variant-error: (
+		"color": make-var(wizard-error-color, color("error.500")),
+		"indicator-color": make-var(wizard-error-indicator-color, color("neutral.white")),
+		"indicator-bg": make-var(wizard-error-indicator-bg, color("error")),
+		"hover-color": make-var(wizard-error-hover-color, color("error.600")),
+	),
+	$variant-warning: (
+		"color": make-var(wizard-warning-color, color("warning.500")),
+		"indicator-color": make-var(wizard-warning-indicator-color, color("neutral.white")),
+		"indicator-bg": make-var(wizard-warning-indicator-bg, color("warning")),
+		"hover-color": make-var(wizard-warning-hover-color, color("warning.600")),
+	),
+);

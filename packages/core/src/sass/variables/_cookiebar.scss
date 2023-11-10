@@ -1,0 +1,7 @@
+/*
+ -  Variables - Cookiebar
+ */
+
+$cookiebar-bg: make-var("cookiebar-bg", color("neutral.white"));
+$cookiebar-color: make-var("cookiebar-color", color("secondary.700"));
+$cookiebar-box-shadow: make-var("cookiebar-box-shadow", 0 rem-calc(1) rem-calc(40) rgba(color-rgb("secondary.800"), 0.45));

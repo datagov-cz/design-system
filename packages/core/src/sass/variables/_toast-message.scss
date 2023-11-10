@@ -1,0 +1,37 @@
+/*
+ -  Variables - Toast Message
+ */
+
+$toast-message-bg: make-var("toast-message-bg", color("neutral.white"));
+$toast-message-variants: (
+	$variant-warning: (
+		"decor-color": make-var(toast-warning-codecor-lor, color("warning")),
+		"color": make-var(toast-warning-color, color("secondary")),
+		"background": make-var(toast-warning-background, color("warning")),
+		"timer-background": make-var(toast-warning-timer-background, rgba(color-rgb("warning.500"), 0.3)),
+	),
+	$variant-error: (
+		"decor-color": make-var(toast-error-colodecor-r, color("error")),
+		"color": make-var(toast-error-color, color("neutral.white")),
+		"background": make-var(toast-error-background, color("error")),
+		"timer-background": make-var(toast-error-timer-background, rgba(color-rgb("error.500"), 0.5)),
+	),
+	$variant-success: (
+		"decor-color": make-var(toast-success-codecor-lor, color("success")),
+		"color": make-var(toast-success-color, color("neutral.white")),
+		"background": make-var(toast-success-background, color("success.500")),
+		"timer-background": make-var(toast-success-timer-background, rgba(color-rgb("success.600"), 0.5)),
+	),
+	$variant-primary: (
+		"decor-color": make-var(toast-primary-codecor-lor, color("primary")),
+		"color": make-var(toast-primary-color, color("neutral.white")),
+		"background": make-var(toast-primary-background, color("primary")),
+		"timer-background": make-var(toast-primary-timer-background, rgba(color-rgb("primary.700"), 0.5)),
+	),
+	$variant-secondary: (
+		"decor-color": make-var(toast-secondary-decor-color, color("secondary")),
+		"color": make-var(toast-secondary-color, color("neutral.white")),
+		"background": make-var(toast-secondary-background, color("secondary")),
+		"timer-background": make-var(toast-secondary-timer-background, rgba(color-rgb("secondary.900"), 0.5)),
+	),
+);

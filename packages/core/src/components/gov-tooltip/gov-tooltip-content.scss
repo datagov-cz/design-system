@@ -1,0 +1,87 @@
+/*
+ *   Tooltip - Content
+ */
+
+$class: ".gov-tooltip-content";
+
+#{$class} {
+    @include z-index("bar", 1);
+    @include typography($font-size-m);
+    position: absolute;
+    display: block;
+    width: max-content;
+
+    max-width: $tooltip-content-max-width;
+    padding: rem-calc(16);
+    border-radius: rem-calc(3);
+    background-color: $tooltip-content-bg-color;
+    color: $tooltip-content-text-color;
+    letter-spacing: rem-calc(0.2);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+
+    &::before {
+        @include pseudo();
+        width: 0;
+        height: 0;
+        border: rem-calc(10) solid transparent;
+    }
+
+    & gov-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    @include parameter("persist") {
+        padding-right: rem-calc(52);
+    }
+
+    // STATES
+    @include parameter("is-visible") {
+        opacity: 1;
+    }
+
+    // VARIANTS
+    @each $variant, $definitions in $tooltip-content-variants {
+        &[variant="#{$variant}"] {
+            --#{$prefix}tooltip-content-bg-color: #{get("bg-color", $definitions)};
+            --#{$prefix}tooltip-content-text-color: #{get("text-color", $definitions)};
+
+            // STATES
+            @include parameter("inverse") {
+                --#{$prefix}tooltip-content-bg-color: #{color("neutral.white")};
+                --#{$prefix}tooltip-content-text-color: #{get("text-color-inverse", $definitions)};
+            }
+        }
+    }
+    @each $size, $definitions in $tooltip-content-sizes {
+        &[size="#{$size}"] {
+            --#{$prefix}tooltip-content-padding: #{get("padding", $definitions)};
+            --#{$prefix}tooltip-content-arrow-size: #{get("arrow-size", $definitions)};
+            --#{$prefix}tooltip-content-letter-spacing: #{get("letter-spacing", $definitions)};
+            @include typography(get("typography", $definitions));
+
+            &[persist="true" i] {
+                padding-right: #{get("persist-space", $definitions)};
+            }
+        }
+    }
+    @each $position, $definitions in $tooltip-content-positions {
+        $oppositeProperty: get("oppositeProperty", $definitions);
+
+        &[position="#{$position}"] {
+            &::before {
+                #{get("directionProperty", $definitions)}: 50%;
+                transform: #{get("transformFn", $definitions) }(-50%);
+            }
+
+            &::before {
+                #{$position}: 100%;
+                border-#{$oppositeProperty}-width: 0;
+                border-#{$position}-color: $tooltip-content-bg-color;
+            }
+        }
+    }
+}

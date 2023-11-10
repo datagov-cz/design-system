@@ -1,0 +1,38 @@
+/*
+ *   Pagination
+ */
+
+$class: ".gov-breadcrumbs";
+
+#{$class} {
+	ul {
+		@extend %reset-ul;
+		@include base(flex);
+		padding-bottom: rem-calc(5);
+		overflow-x: auto;
+	}
+	li {
+		@extend %reset-ul-li;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		white-space: nowrap;
+	}
+	button {
+		@include typography($font-size-m);
+		padding: 0;
+		border: none;
+		background: none;
+		color: $breadcrumbs-link-color;
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	& .gov-icon {
+		width: rem-calc(10);
+		height: rem-calc(10);
+		margin: rem-calc(0 16px);
+		color: $breadcrumbs-arrow-color;
+	}
+}

@@ -1,0 +1,56 @@
+@import "core";
+
+// Components critical scss
+@import "../components/gov-accordion/gov-accordion-critical";
+@import "../components/gov-chip/gov-chip-critical";
+@import "../components/gov-breadcrumbs/gov-breadcrumbs-critical";
+@import "../components/gov-button/button/gov-button-critical";
+@import "../components/gov-card/gov-card-critical";
+@import "../components/gov-container/gov-container-critical";
+@import "../components/gov-control-group/gov-control-group-critical";
+@import "../components/gov-empty/gov-empty-critical";
+@import "../components/gov-error-code/gov-error-code-critical";
+@import "../components/gov-form/autocomplete/gov-form-autocomplete-critical";
+@import "../components/gov-form/file/gov-form-file-critical";
+@import "../components/gov-form/checkbox/gov-form-checkbox-critical";
+@import "../components/gov-form/input/gov-form-input-critical";
+@import "../components/gov-form/label/gov-form-label-critical";
+@import "../components/gov-form/multiselect/gov-form-multi-select-critical";
+@import "../components/gov-form/radio/gov-form-radio-critical";
+@import "../components/gov-form/search/gov-form-search-critical";
+@import "../components/gov-form/select/gov-form-select-critical";
+@import "../components/gov-form/switch/gov-form-switch-critical";
+@import "../components/gov-grid/gov-grid-critical";
+@import "../components/gov-icon/gov-icon-critical";
+@import "../components/gov-infobar/gov-infobar-critical";
+@import "../components/gov-layout/gov-layout-critical";
+@import "../components/gov-message/gov-message-critical";
+@import "../components/gov-nav/gov-nav-critical";
+@import "../components/gov-side-nav/gov-side-nav-critical";
+@import "../components/gov-spacer/gov-spacer-critical";
+@import "../components/gov-statsbar/gov-statsbar-critical";
+@import "../components/gov-stepper/gov-stepper-critical";
+@import "../components/gov-tabs/gov-tabs-critical";
+@import "../components/gov-tile/container/gov-tiles-critical.scss";
+@import "../components/gov-tile/gov-tile-critical.scss";
+@import "../components/gov-wizard/gov-wizard-critical";
+
+gov-attachments,
+gov-attachments-item,
+gov-backdrop,
+gov-cookiebar,
+gov-form-message,
+gov-form-password-power,
+gov-loading,
+gov-modal,
+gov-pagination,
+gov-prompt,
+gov-skeleton,
+gov-toast,
+gov-tooltip {
+	visibility: hidden;
+
+	&.hydrated {
+		visibility: inherit;
+	}
+}

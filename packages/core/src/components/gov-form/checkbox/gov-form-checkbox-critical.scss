@@ -1,0 +1,31 @@
+gov-form-checkbox:not(.hydrated) {
+	display: block;
+	border: $form-checkbox-border;
+	background-color: $form-checkbox-background-color;
+	transition: $t linear border-color, $t linear background-color, $t linear outline-color;
+
+	gov-form-label {
+		width: 100%;
+	}
+
+	// VARIANTS
+	@each $size, $definitions in $form-checkbox-core-sizes {
+		&[size="#{$size}"] {
+			@include typography($size);
+			width: get("indicator-size", $definitions);
+			height: get("indicator-size", $definitions);
+			gov-form-label {
+				padding-top: calc((get("indicator-size", $definitions) - (var(--gov-text-#{$size}-font-size) * 1.5)) / 2);
+				padding-left: calc(get("indicator-size", $definitions) + get("gap", $definitions));
+			}
+		}
+	}
+
+	@include parameter("disabled") {
+		pointer-events: none;
+		border-color: $form-state-bg-disabled;
+	  gov-form-label {
+			color: $form-state-color-disabled;
+		}
+	}
+}

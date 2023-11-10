@@ -1,0 +1,21 @@
+/*
+ -  Variables - General
+ */
+
+$view-none: "none";
+$view-mobile: "sm";
+$view-tablet: "md";
+$view-desktop: "lg";
+
+$layout-min-width: make-var("layout-min-width", rem-calc(320));
+
+$border-radius: make-var("border-radius", rem-calc(3));
+$outline-width: make-var("outline-width", rem-calc(2));
+$outline: $outline-width solid color("focus.base");
+$outline-offset: rem-calc(1);
+
+// Fonts
+$font-family-primary: make-var("font-family", ("Roboto", sans-serif));
+
+// Animations
+$t: 150ms;

@@ -1,0 +1,41 @@
+{
+	"name": "@gov-design-system-ce/angular",
+	"version": "0.0.26",
+	"author": "Zdeněk Vítek",
+	"license": "EUPL v1.2 Licensed",
+	"sideEffects": false,
+	"main": "./commonjs/index.js",
+	"module": "./commonjs/index.js",
+	"types": "./commonjs/index.d.ts",
+	"scripts": {
+		"build": "npm run use-loader && npm run build.ng",
+		"build.ng": "ng-packagr -p ng-package.json -c tsconfig.json",
+		"use-loader": "node scripts/use-loader.js"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@gov-design-system-ce/components": "^0.0.70"
+	},
+	"peerDependencies": {
+		"@angular/common": ">= 12.0.0",
+		"@angular/core": ">= 12.0.0",
+		"rxjs": "^7.8.1"
+	},
+	"devDependencies": {
+		"@angular-devkit/build-angular": "~16.2.0",
+		"@angular-devkit/core": "~16.2.0",
+		"@angular-devkit/schematics": "~16.2.0",
+		"@angular-eslint/template-parser": "~16.0.0",
+		"@angular/cli": "~16.2.0",
+		"@angular/common": "^16.2.5",
+		"@angular/compiler": "^16.2.5",
+		"@angular/compiler-cli": "~16.2.0",
+		"@angular/core": "^16.2.5",
+		"@angular/forms": "^16.2.5",
+		"@angular/language-service": "~16.2.0",
+		"@schematics/angular": "~16.2.0",
+		"ng-packagr": "^16.2.3"
+	}
+}

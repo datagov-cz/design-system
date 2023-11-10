@@ -1,0 +1,18 @@
+{
+    "compilerOptions" : {
+        "rootDir": "./lib",
+        "outDir": "./commonjs",
+        "lib": ["dom", "es2020"],
+        "module": "es2015",
+        "moduleResolution": "node",
+        "target": "es2017",
+        "skipLibCheck": true
+    },
+    "include" : [
+        "lib"
+    ],
+    "exclude" : [
+        "node_modules"
+    ],
+    "extends" : "../../tsconfig.json"
+}

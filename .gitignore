@@ -1,0 +1,61 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+dist
+tmp
+/out-tsc
+/www
+/loader
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+packages/core-react/lib
+packages/core-react/commonjs
+
+packages/core-angular/lib
+packages/core-angular/commonjs
+
+packages/core-vue/lib/*
+!packages/core-vue/lib/plugin.ts
+packages/core-vue/commonjs
+
+packages/styles/lib
+packages/docs/public/assets/icons/*
+!packages/docs/public/assets/icons/custom
+packages/docs/public/assets/fonts/*
+packages/docs/komponenty/dokumentace/*
+
+_/*
+
+/packages/docs/.vitepress/cache

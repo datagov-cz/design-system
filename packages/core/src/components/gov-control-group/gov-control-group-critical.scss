@@ -1,0 +1,30 @@
+gov-control-group:not(.hydrated) {
+	@include base(flex);
+	align-items: center;
+	border-radius: $control-group-border-radius;
+	* {
+		border: none !important;
+		border-radius: 0;
+	}
+
+	// VARIANTS
+	@each $variant, $definitions in $control-group-variants {
+		&[variant="#{$variant}"] {
+			border: get("border", $definitions);
+			> * {
+				border-right: get("border", $definitions) !important;
+			}
+		}
+	}
+
+	> * {
+		&:last-child {
+			border-right: none !important;
+		}
+	}
+	@include parameter("no-border") {
+		> * {
+			border-right: none !important;
+		}
+	}
+}

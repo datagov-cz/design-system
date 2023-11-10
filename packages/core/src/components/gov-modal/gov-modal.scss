@@ -1,0 +1,142 @@
+/*
+ *   Modal
+ */
+
+$class: ".gov-modal";
+
+#{$class} {
+	display: none;
+
+	&__dialog {
+		@include z-index("modal", 1);
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		max-width: $modal-max-width;
+		height: 100%;
+		padding: rem-calc(8);
+		border: none;
+		background: transparent;
+		transform: translate(-50%, -50%);
+		pointer-events: none;
+	}
+
+	&__inner {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-height: 100%;
+		border-radius: $border-radius;
+		background: $modal-bg;
+		overflow: hidden;
+		pointer-events: auto;
+		box-shadow: get($shadow-l, $shadows);
+	}
+
+	&__header {
+		display: flex;
+		gap: rem-calc(16);
+		align-items: flex-start;
+		padding: rem-calc(24 16);
+		border-bottom: $modal-border;
+	}
+
+	&__icon {
+		flex: 0 0 auto;
+		padding-top: calc(((var(--gov-text-#{$font-size-3xl}-font-size) * 1.5) - rem-calc(24)) / 2);
+
+		& > * {
+			width: rem-calc(24);
+			height: rem-calc(24);
+		}
+	}
+
+	&__title {
+		@include typography($font-size-3xl);
+		margin: 0;
+	}
+
+	&__close {
+		flex: 0 0 auto;
+		margin-left: auto;
+	}
+
+	&__content {
+		@include reset-last-margin();
+		height: 100%;
+		padding: rem-calc(24 16);
+		color: $modal-text-color;
+		overflow: auto;
+	}
+
+	&__footer,
+	&__actions {
+		padding: rem-calc(24 16);
+		border-top: $modal-border;
+	}
+
+	&__actions {
+		display: flex;
+		gap: rem-calc(8 16);
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	}
+
+	// STATES
+	&__dialog:focus &__inner {
+		outline: $outline;
+	}
+
+	@include parameter("open") {
+		display: block;
+	}
+
+	// MQ
+	@include mq($from: sm) {
+		&__dialog {
+			max-width: calc($modal-max-width + 2 * rem-calc(24));
+			padding: rem-calc(24);
+
+			&:focus {
+				outline-offset: rem-calc(-24);
+			}
+		}
+		&__inner {
+			box-shadow: get($shadow-xl, $shadows);
+		}
+
+		// VARIANTS
+		&--prompt &__dialog {
+			max-width: calc($modal-prompt-max-width + 2 * rem-calc(24));
+		}
+	}
+	@include mq($from: md) {
+		&__header {
+			gap: rem-calc(20);
+			padding: rem-calc(32 40 32 48);
+		}
+		&__content {
+			padding: rem-calc(32 48);
+		}
+		&__footer {
+			padding: rem-calc(16 48);
+		}
+
+		// VARIANTS
+		&--prompt {
+			#{$class} {
+				&__header,
+				&__content,
+				&__footer,
+				&__actions {
+					padding: rem-calc(24);
+				}
+			}
+		}
+	}
+}

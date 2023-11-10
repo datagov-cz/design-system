@@ -1,0 +1,18 @@
+/*
+ -  Variables - shadows
+ */
+/* "Constants" for general usage */
+
+$shadow-unset: "unset";
+$shadow-s: "s";
+$shadow-m: "m";
+$shadow-l: "l";
+$shadow-xl: "xl";
+
+$shadows: (
+	$shadow-unset: none,
+	$shadow-s: 0 0 rem-calc(12) rgba(var(--#{$prefix}color-secondary-800-rgb), 0.16),
+	$shadow-m: 0 0 rem-calc(20) rgba(var(--#{$prefix}color-secondary-800-rgb), 0.2),
+	$shadow-l: 0 0 rem-calc(24) rgba(var(--#{$prefix}color-secondary-800-rgb), 0.24),
+	$shadow-xl: 0 0 rem-calc(32) rgba(var(--#{$prefix}color-secondary-800-rgb), 0.32),
+);

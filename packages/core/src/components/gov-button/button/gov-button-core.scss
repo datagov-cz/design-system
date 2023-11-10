@@ -1,0 +1,139 @@
+/*
+ *   Button & Chip Shared Definitions
+ */
+
+%button-core {
+	.element {
+		@include general();
+		@include button-core();
+		border: $button-border-width solid transparent;
+		transition: background-color $t ease-in-out, border-color $t ease-in-out, color $t ease-in-out;
+		cursor: inherit;
+		will-change: background-color, border-color;
+		.gov-icon {
+			flex: 0 0 auto;
+			color: inherit;
+		}
+		// Fix for slotted content
+		& > * {
+			display: flex;
+		}
+	}
+
+	// STATES
+	&[hoverable] {
+		.element {
+			@include focus-outline($border-radius, $outline-offset);
+			cursor: pointer;
+		}
+		&[type="outlined"],
+		&[type="base"] {
+			.element:focus-visible {
+				outline-offset: 0;
+			}
+		}
+		@include parameter("disabled") {
+			cursor: not-allowed;
+			.element {
+				pointer-events: none;
+			}
+		}
+	}
+
+	// VARIANTS
+	@include parameter("expanded") {
+		display: block;
+		.element {
+			@include button-expand();
+		}
+	}
+	@each $variant, $types in $button-variants {
+		@each $type, $definitions in $types {
+			&[type="#{$type}"][variant="#{$variant}"] {
+				.element {
+					background-color: deep-map-get($button-variants, $variant, $type, "bg");
+					color: deep-map-get($button-variants, $variant, $type, "color");
+					@if deep-map-get($button-variants, $variant, $type, "border") {
+						border-color: deep-map-get($button-variants, $variant, $type, "border");
+					}
+				}
+
+				// STATES
+				@include parameter("inverse") {
+					.element {
+						color: deep-map-get($button-variants, $variant, $type, "inverse-color");
+
+						&:focus-visible {
+							background-color: deep-map-get($button-variants, $variant, $type, "inverse-focus-bg");
+						}
+
+						@if deep-map-get($button-variants, $variant, $type, "inverse-bg") {
+							background-color: deep-map-get($button-variants, $variant, $type, "inverse-bg");
+						}
+						@if deep-map-get($button-variants, $variant, $type, "inverse-border") {
+							border-color: deep-map-get($button-variants, $variant, $type, "inverse-border");
+						}
+					}
+				}
+				@include parameter("disabled") {
+					.element {
+						background-color: deep-map-get($button-variants, $variant, $type, "disabled-bg");
+						color: deep-map-get($button-variants, $variant, $type, "disabled-color");
+						@if deep-map-get($button-variants, $variant, $type, "border") {
+							border-color: deep-map-get($button-variants, $variant, $type, "disabled-border");
+						}
+					}
+					@include parameter("inverse") {
+						.element {
+							background-color: deep-map-get($button-variants, $variant, $type, "inverse-disabled-bg");
+							color: deep-map-get($button-variants, $variant, $type, "inverse-disabled-color");
+							@if deep-map-get($button-variants, $variant, $type, "inverse-disabled-border-color") {
+								border-color: deep-map-get($button-variants, $variant, $type, "inverse-disabled-border-color");
+							}
+						}
+					}
+				}
+			}
+
+			// HOVERS
+			&[type="#{$type}"][variant="#{$variant}"][hoverable] {
+				.element {
+					@include hover() {
+						background-color: deep-map-get($button-variants, $variant, $type, "hover-bg");
+						color: deep-map-get($button-variants, $variant, $type, "hover-color");
+						&:active {
+							background-color: deep-map-get($button-variants, $variant, $type, "active-bg");
+							color: deep-map-get($button-variants, $variant, $type, "active-color");
+						}
+					}
+				}
+				@include parameter("inverse") {
+					.element {
+						@include hover() {
+							background-color: deep-map-get($button-variants, $variant, $type, "inverse-hover-bg");
+							color: deep-map-get($button-variants, $variant, $type, "inverse-hover-color");
+							&:active {
+								background-color: deep-map-get($button-variants, $variant, $type, "inverse-active-bg");
+								color: deep-map-get($button-variants, $variant, $type, "inverse-active-color");
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	@each $size, $definitions in $button-sizes {
+		&[size="#{$size}"] {
+			.element {
+				@include typography(map-get($definitions, "font"), false, button);
+				column-gap: map-get($definitions, "padding-x");
+				min-height: map-get($definitions, "min-height");
+				padding: map-get($definitions, "padding-y") map-get($definitions, "padding-x");
+				.gov-icon {
+					width: map-get($definitions, "icon-size");
+					height: map-get($definitions, "icon-size");
+				}
+			}
+		}
+	}
+}

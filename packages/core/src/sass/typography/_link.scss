@@ -1,0 +1,45 @@
+/*
+ * Link
+ */
+
+a,
+#{$gov-class-link} {
+	@include focus-outline($border-radius, $outline-offset);
+	color: color("primary");
+	text-decoration: underline;
+	transition: color $t ease-in-out;
+	cursor: pointer;
+
+	& > * {
+		color: color("primary");
+	}
+
+	#{$gov-class-link}--icon-unset {
+		#{$gov-class-icon} {
+			display: none !important;
+		}
+	}
+
+	#{$gov-class-link}--external-unset:after {
+		display: none !important;
+	}
+
+	@include hover() {
+		text-decoration: none;
+	}
+
+	@each $viewport, $options in $font-sizes {
+		@each $fontName, $properties in map-get($options, "texts") {
+			#{$gov-class-link}--external.#{$prefix}text--#{$fontName},
+			&[target="_blank"].#{$prefix}text--#{$fontName} {
+				&::after {
+					@each $property, $value in $properties {
+						@if $property == "font-size" {
+							#{$property}: calc(var(--#{$prefix}text-#{$fontName}-#{$property}) * 1.4);
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+/*
+ *   Grid
+ */
+
+$class: ".gov-grid";
+
+#{$class} {
+	@include base(flex);
+	flex-wrap: wrap;
+
+	// VARIANTS
+	&[align-x="middle"] {
+		align-items: center;
+	}
+	&[align-x="bottom"] {
+		align-items: flex-end;
+	}
+	&[align-y="center"] {
+		justify-content: center;
+	}
+	&[align-y="right"] {
+		justify-content: flex-end;
+	}
+	&[align-y="space-between"] {
+		justify-content: space-between;
+	}
+	&[align-y="space-around"] {
+		justify-content: space-around;
+	}
+}

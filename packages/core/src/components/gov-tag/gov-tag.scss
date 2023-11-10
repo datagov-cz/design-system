@@ -1,0 +1,66 @@
+/*
+ *   Tag
+ */
+
+// Shared definitions - button & chip & tag
+@import "../gov-button/button/gov-button-core";
+
+.gov-tag {
+	@extend %button-core;
+	display: inline-flex;
+	a .gov-icon {
+		margin: 0;
+	}
+	.element {
+		padding: rem-calc(4 8);
+		font-family: $font-family-primary;
+		font-weight: 400;
+		letter-spacing: initial;
+	}
+	.gov-button {
+		.element {
+			border: none;
+		}
+	}
+
+	// VARIANTS
+	@each $size, $definitions in $button-sizes {
+		&[size="#{$size}"] {
+			.element {
+				border-radius: $tag-radius;
+				column-gap: $tag-gap;
+			}
+
+			// HOVERS
+			&[hoverable] .element {
+				@include focus-outline($tag-radius, $outline-offset);
+			}
+		}
+	}
+	@each $variant, $types in $tag-variants {
+		@each $type, $definitions in $types {
+			&[type="#{$type}"][variant="#{$variant}"] {
+				.element {
+					background-color: deep-map-get($tag-variants, $variant, $type, "bg");
+					color: deep-map-get($tag-variants, $variant, $type, "color");
+				}
+			}
+		}
+	}
+	@each $variant, $types in $chip-inverse-variants {
+		&[variant="#{$variant}"] {
+			@include parameter("inverse") {
+				.element,
+				.element .element {
+					border-width: rem-calc(1);
+					border-color: deep-map-get($chip-inverse-variants, $variant, "border-color");
+					background-color: deep-map-get($chip-inverse-variants, $variant, "bg");
+					color: deep-map-get($chip-inverse-variants, $variant, "color");
+					@include hover() {
+						border-color: deep-map-get($chip-inverse-variants, $variant, "border-color-hover");
+					}
+				}
+			}
+		}
+	}
+}

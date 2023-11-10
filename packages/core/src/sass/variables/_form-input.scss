@@ -1,0 +1,49 @@
+/*
+ -	Variables - Form input
+ */
+
+$form-input-core-sizes: (
+	$size-s: (
+		padding: make-var(form-input-core-s-padding, rem-calc(4 12)),
+		height: make-var(form-input-core-s-height, rem-calc(32)),
+		icon-size: make-var(form-input-core-s-icon-size, rem-calc(16)),
+		icon-padding: make-var(form-input-core-s-icon-padding, rem-calc(32)),
+		font: $font-size-s,
+	),
+	$size-m: (
+		padding: make-var(form-input-core-m-padding, rem-calc(7 12)),
+		height: make-var(form-input-core-m-height, rem-calc(40)),
+		icon-size: make-var(form-input-core-m-icon-size, rem-calc(16)),
+		icon-padding: make-var(form-input-core-m-icon-padding, rem-calc(40)),
+		font: $font-size-m,
+	),
+	$size-l: (
+		padding: make-var(form-input-core-l-padding, rem-calc(11 12)),
+		height: make-var(form-input-core-l-height, rem-calc(48)),
+		icon-size: make-var(form-input-core-l-icon-size, rem-calc(16)),
+		icon-padding: make-var(form-input-core-l-icon-padding, rem-calc(40)),
+		font: $font-size-m,
+	),
+	$size-xl: (
+		padding: make-var(form-input-core-xl-padding, rem-calc(15 16 14)),
+		height: make-var(form-input-core-xl-height, rem-calc(56)),
+		icon-size: make-var(form-input-core-xl-icon-size, rem-calc(20)),
+		icon-padding: make-var(form-input-core-xl-icon-padding, rem-calc(48)),
+		font: $font-size-l,
+	),
+);
+
+$form-input-core-variants: (
+	$variant-primary: (
+		"color": make-var("form-input-color-primary", color("secondary.700")),
+		"border": make-var("form-input-border-primary", rem-calc(1) solid color("primary.600")),
+		"icon-color": make-var("form-input-icon-color-primary", color("primary")),
+	),
+	$variant-secondary: (
+		"color": make-var("form-input-color-secondary", color("secondary.700")),
+		"border": make-var("form-input-border-secondary", rem-calc(1) solid color("secondary.700")),
+		"icon-color": make-var("form-input-icon-color-secondary", color("primary")),
+	),
+);
+
+$form-textarea-padding: rem-calc(8 12);

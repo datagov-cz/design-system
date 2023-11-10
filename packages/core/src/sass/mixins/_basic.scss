@@ -1,0 +1,27 @@
+@mixin hover {
+	@media not all and (pointer: coarse) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+@mixin parameter($param) {
+	&[#{$param}=""],
+	&[#{$param}="true" i],
+	&[#{$param}="1"] {
+		@content;
+	}
+}
+
+@mixin base($display: block) {
+	position: relative;
+	display: $display;
+	width: 100%;
+}
+
+@mixin reset-last-margin() {
+	& > *:last-child {
+		margin-bottom: 0;
+	}
+}

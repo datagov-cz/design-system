@@ -1,0 +1,67 @@
+/*
+ * Generates list of utility classes for margin, padding
+ *
+ * Make sure $list of definitions is sorted so that last item is defined last
+ * So largest views are mentioned last.
+ */
+
+@use "sass:list";
+@import "../variables/sizes";
+@import "../variables/layout";
+@import "../variables/offsets";
+@import "./string";
+
+@mixin offset-content($host-wrapper, $list...) {
+	@each $item in $list {
+		$values: str-split($item, "--");
+		$base: str-split(list.nth($values, 1), "-");
+		$prop-modifier: #{list.nth($values, 2)};
+		$prop-key: #{str-replace(list.nth($base, 2), "-")};
+		$prop-value: str-slice($prop-modifier, 2, str-length($prop-modifier));
+		$prop-numeric-value: #{map-get($sizes, $prop-value)};
+		$prop-viewport: "";
+
+		// Has viewport
+		@if (length($base) > 2) {
+			$prop-viewport: #{str-replace(list.nth($base, 3), "-")};
+		}
+
+		@if $prop-viewport == "" {
+			@if $host-wrapper {
+				:host([class~="u-#{$prop-key}--#{$prop-value}"]) {
+					@media (min-width: 0) {
+						#{map-get($gov-offset-props, $prop-key)}: $prop-numeric-value !important;
+					}
+				}
+			} @else {
+				.u-#{$prop-key}--#{$prop-value} {
+					@media (min-width: 0) {
+						#{map-get($gov-offset-props, $prop-key)}: $prop-numeric-value !important;
+					}
+				}
+			}
+		} @else {
+			@if $host-wrapper {
+				:host([class~="u-#{$prop-key}-#{$prop-viewport}--#{$prop-value}"]) {
+					@media (min-width: #{map-get($font-viewport-breakpoints, $prop-viewport)}) {
+						#{map-get($gov-offset-props, $prop-key)}: $prop-numeric-value !important;
+					}
+				}
+			} @else {
+				.u-#{$prop-key}-#{$prop-viewport}--#{$prop-value} {
+					@media (min-width: #{map-get($font-viewport-breakpoints, $prop-viewport)}) {
+						#{map-get($gov-offset-props, $prop-key)}: $prop-numeric-value !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin offset($list...) {
+	@include offset-content(true, $list...);
+}
+
+@mixin offset-simple($list...) {
+	@include offset-content(false, $list...);
+}

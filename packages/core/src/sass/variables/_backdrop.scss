@@ -1,0 +1,8 @@
+/*
+ -  Variables - Backdrop
+ */
+
+$backdrop-opacity: make-var("backdrop-opacity", 0.45);
+$backdrop-bg: make-var("backdrop-bg", color("secondary"));
+$backdrop-opacity-inverse: make-var("backdrop-opacity", 0.8);
+$backdrop-bg-inverse: make-var("backdrop-bg-inverse", color("neutral.white"));

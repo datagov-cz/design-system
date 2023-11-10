@@ -1,0 +1,7 @@
+/*
+ * Converts hex value to rgb colors value
+ */
+
+@function hexToRGB($hex) {
+	@return red($hex), green($hex), blue($hex);
+}

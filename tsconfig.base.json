@@ -1,0 +1,40 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"rootDir": ".",
+		"sourceMap": true,
+		"declaration": false,
+		"moduleResolution": "node",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"target": "es2017",
+		"module": "esnext",
+		"lib": ["es2017", "dom"],
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"baseUrl": ".",
+		"paths": {
+			"@gov-design-system-ce/components": ["dist/packages/core"],
+			"@gov-design-system-ce/components/*": ["dist/packages/core/dist/components/*"],
+			"@gov-design-system-ce/components/loader": ["dist/packages/core/loader"],
+			"@gov-design-system-ce/core": ["dist/packages/core"],
+			"@gov-design-system-ce/core/*": ["dist/packages/core/dist/components/*"],
+			"@gov-design-system-ce/core/loader": ["dist/packages/core/loader"],
+			"@gov-design-system-ce/fonts": ["dist/packages/fonts"],
+			"@gov-design-system-ce/icons": ["dist/packages/icons"],
+			"@gov-design-system-ce/styles": ["dist/packages/styles"],
+			"@undefined/storybook": ["dist/libs/storybook"],
+			"@undefined/storybook/*": ["dist/libs/storybook/dist/components/*"],
+			"@undefined/storybook/loader": ["dist/libs/storybook/loader"],
+			"angular-lib": ["packages/angular-lib/src/index.ts"],
+			"test": ["packages/test/src/index.ts"]
+		}
+	},
+	"exclude": ["node_modules", "tmp"],
+	"references": [
+		{
+			"path": "./.storybook/tsconfig.json"
+		}
+	]
+}

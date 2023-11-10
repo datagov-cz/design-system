@@ -1,0 +1,71 @@
+/*
+ *   Form Control
+ */
+
+$class: ".gov-form-control";
+
+#{$class} {
+	&__holder {
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+		border: none;
+	}
+	&__bottom {
+		@include reset-last-margin();
+		> :first-child {
+			margin-top: rem-calc(4);
+		}
+	}
+
+	// VARIANTS
+	.gov-form-label .gov-form-label__label {
+		margin: rem-calc(0 0 4);
+	}
+	&[type="file"] {
+		.gov-form-label[slot="top"] .gov-form-label__label {
+			margin: rem-calc(0 0 8);
+		}
+		#{$class}__bottom > :first-child {
+			margin-top: rem-calc(8);
+		}
+	}
+	// Checkbox, radio
+	@each $size, $definitions in $form-checkbox-core-sizes {
+		&[size="#{$size}"][type="checkbox"],
+		&[size="#{$size}"][type="radio"] {
+			#{$class} {
+				$indicator-width: get("indicator-size", $definitions);
+				&__holder > #{$class}__bottom > :first-child {
+					margin-top: get("message-gap", $definitions);
+					margin-left: calc($indicator-width + get("gap", $definitions));
+				}
+			}
+		}
+	}
+	// Switch
+	@each $size, $definitions in $form-switch-sizes {
+		&[size="#{$size}"][type="switch"] {
+			#{$class} {
+				$indicator-ratio: calc(5 / 3);
+				$indicator-width: calc(get("indicator-height", $definitions) * $indicator-ratio);
+				&__bottom > :first-child {
+					margin-top: get("message-gap", $definitions);
+					margin-left: calc($indicator-width + get("gap", $definitions));
+				}
+			}
+		}
+	}
+
+	// STATES
+	@include parameter("invalid") {
+		.gov-form-label[slot="top"] .gov-form-label__label {
+			color: $form-state-color-error;
+		}
+	}
+	@include parameter("disabled") {
+		.gov-form-label__label {
+			pointer-events: none;
+		}
+	}
+}

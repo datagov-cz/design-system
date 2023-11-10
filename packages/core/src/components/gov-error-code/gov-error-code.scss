@@ -1,0 +1,44 @@
+/*
+ *   Alert
+ */
+
+$class: ".gov-error-code";
+
+#{$class} {
+	@include base();
+	&__holder {
+		margin: 0 auto;
+		text-align: center;
+	}
+	&__content {
+		@include reset-last-margin();
+	}
+	&__icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: rem-calc(150);
+		height: rem-calc(150);
+		margin: 0 auto rem-calc(24);
+		border-radius: 50%;
+		background: $error-icon-circle-bg;
+		color: $error-icon-color;
+		& > * {
+			width: rem-calc(105);
+			height: rem-calc(105);
+		}
+	}
+
+	// MQ
+	@include mq($from: md) {
+		&__icon {
+			width: rem-calc(200);
+			height: rem-calc(200);
+			margin: 0 auto rem-calc(32);
+			& > * {
+				width: rem-calc(140);
+				height: rem-calc(140);
+			}
+		}
+	}
+}

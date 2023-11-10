@@ -1,0 +1,78 @@
+/*
+ *   Tile
+ */
+
+$class: ".gov-tile";
+
+#{$class} {
+	@include base();
+	padding: rem-calc(12);
+	transition: background-color $t;
+	&__icon {
+		display: block;
+		margin: rem-calc(0 0 24);
+		color: $tile-main-color;
+		.gov-icon {
+			width: rem-calc(40);
+			height: rem-calc(40);
+		}
+	}
+	&__title {
+		@extend %link-mask;
+		display: flex;
+		gap: rem-calc(8);
+		justify-content: space-between;
+		align-items: flex-start;
+		color: $tile-main-color;
+		text-decoration: none;
+		margin-bottom: rem-calc(8);
+		& [slot="title"] {
+			@include typography($font-size-xl);
+			margin: 0;
+		}
+	}
+	&__arrow {
+		flex: 0 0 auto;
+		width: rem-calc(20);
+		height: rem-calc(20);
+		position: relative;
+		top: rem-calc(5);
+		color: inherit;
+	}
+	&__content {
+		@include reset-last-margin();
+		color: $tile-text-color;
+		a {
+			position: relative;
+			z-index: 1;
+		}
+	}
+	&__link {
+		display: block;
+		text-decoration: none;
+	}
+
+	// HOVERS
+	&[href] {
+		@include hover() {
+			background: $tile-hover-bg;
+			#{$class} {
+				&__title {
+					color: $tile-main-color;
+				}
+			}
+		}
+	}
+
+	// MQ
+	@include mq($from: md) {
+		padding: rem-calc(24);
+		&__icon {
+			margin: rem-calc(0 0 24);
+			.gov-icon {
+				width: rem-calc(48);
+				height: rem-calc(48);
+			}
+		}
+	}
+}

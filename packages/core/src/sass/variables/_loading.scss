@@ -1,0 +1,37 @@
+/*
+ -  Variables - Loading
+ */
+
+$loading-color: make-var("loading-color", color("primary"));
+$loading-bg: make-var("loading-bg", rgba(color-rgb("secondary.400"), 0.8));
+
+$skeleton-width: make-var("skeleton-width", 100%);
+$skeleton-height: make-var("skeleton-height", 20px);
+$skeleton-margin-top: make-var("skeleton-margin-top", 8px);
+$skeleton-border-radius: make-var("skeleton-border-radius", $border-radius);
+$skeleton-circle-size: make-var("skeleton-circle-size", 60px);
+$skeleton-circle-radius: make-var("skeleton-circle-radius", 50%);
+$skeleton-rect-radius: make-var("skeleton-rect-radius", 0);
+
+$skeleton-variants: (
+	$variant-warning: (
+		"background": make-var(skeleton-warning-background, color("warning.100")),
+		"foreground": make-var(skeleton-warning-foreground, color("warning.200")),
+	),
+	$variant-error: (
+		"background": make-var(skeleton-error-background, color("error.100")),
+		"foreground": make-var(skeleton-error-foreground, color("error.200")),
+	),
+	$variant-secondary: (
+		"background": make-var(skeleton-secondary-background, color("secondary.300")),
+		"foreground": make-var(skeleton-secondary-foreground, color("secondary.100")),
+	),
+	$variant-success: (
+		"background": make-var(skeleton-success-background, color("success.100")),
+		"foreground": make-var(skeleton-success-foreground, color("success.200")),
+	),
+	$variant-primary: (
+		"background": make-var(skeleton-primary-background, color("primary.100")),
+		"foreground": make-var(skeleton-primary-foreground, color("primary.200")),
+	),
+);

@@ -1,0 +1,42 @@
+{
+	"tasksRunnerOptions": {
+		"default": {
+			"runner": "nx/tasks-runners/default",
+			"options": {
+				"cacheableOperations": ["lint", "test", "e2e", "build"]
+			}
+		}
+	},
+	"extends": "nx/presets/npm.json",
+	"$schema": "./node_modules/nx/schemas/nx-schema.json",
+	"targetDefaults": {
+		"test": {
+			"inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"]
+		},
+		"lint": {
+			"inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+		},
+		"build": {
+			"dependsOn": ["^build"]
+		}
+	},
+	"cli": {
+		"defaultCollection": "@nxext/stencil"
+	},
+	"generators": {
+		"@nx/react": {
+			"application": {
+				"babel": true
+			},
+			"library": {
+				"unitTestRunner": "jest"
+			}
+		},
+		"@nx/angular:component": {
+			"style": "scss"
+		}
+	},
+	"workspaceLayout": {
+		"projectNameAndRootFormat": "as-provided"
+	}
+}

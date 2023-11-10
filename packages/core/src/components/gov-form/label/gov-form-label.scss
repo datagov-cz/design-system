@@ -1,0 +1,24 @@
+/*
+ *   Label
+ */
+
+$class: ".gov-form-label";
+
+#{$class} {
+	@include base(flex);
+	&__label {
+		display: inline-block;
+		color: $form-label-color;
+		cursor: pointer;
+		box-sizing: border-box;
+	}
+
+	@include parameter("legend") {
+		#{$class}__label {
+			@include typography($font-size-l);
+			margin-bottom: 1rem;
+			padding: 0;
+			color: $form-legend-color;
+		}
+	}
+}

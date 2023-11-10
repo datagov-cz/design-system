@@ -1,0 +1,17 @@
+// Generator color classes
+@each $theme, $shades in $palette-colors {
+	@each $shade, $value in $shades {
+		.#{$prefix}bg--#{$theme}-#{$shade} {
+			background-color: var(--#{$prefix}color-#{$theme}-#{$shade});
+		}
+	}
+}
+
+// Generator color classes
+@each $theme, $shades in $palette-colors {
+	@each $shade, $value in $shades {
+		.#{$prefix}color--#{$theme}-#{$shade} {
+			color: var(--#{$prefix}color-#{$theme}-#{$shade});
+		}
+	}
+}

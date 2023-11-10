@@ -1,0 +1,96 @@
+/*
+ *   Tabs
+ */
+
+$class: ".gov-tabs";
+
+#{$class} {
+	@include base();
+	&__list {
+		@extend %reset-ul;
+		display: flex;
+		flex-wrap: wrap;
+		margin: rem-calc(0 0 20);
+	}
+	&__list > &__item {
+		@extend %reset-ul-li;
+		display: flex;
+		margin: 0;
+	}
+	&__btn {
+		@include typography($font-size-s);
+		@include button-core();
+		@include focus-outline();
+		margin: 0;
+		padding: rem-calc(12 0 10);
+		border-bottom: rem-calc(2) solid transparent;
+		font-weight: 700;
+		text-align: center;
+		transition: $t linear color, $t linear border-color;
+
+	}
+
+	// VARIANTS
+	@each $type, $definitions in $tabs-types {
+		&[type="#{$type}"] {
+			#{$class} {
+				&__list {
+					gap: get("item-spacing", $definitions);
+					@if deep-map-check($definitions, "border") {
+						border-bottom: $tabs-list-border;
+					}
+				}
+			}
+		}
+	}
+	@each $variant, $definitions in $tabs-variants {
+		&[variant="#{$variant}"][type="text"] {
+			#{$class} {
+				&__btn {
+					color: get("color", $definitions);
+					@include hover() {
+						color: get("color-hover", $definitions);
+					}
+				}
+				// STATES
+				&__btn[aria-selected="true"] {
+					border-bottom-color: get("color-active", $definitions);
+					color: get("color-active", $definitions);
+				}
+			}
+		}
+	}
+	&[orientation="vertical"] {
+		#{$class}__btn {
+			text-align: left;
+		}
+	}
+
+	// MQ
+	@include mq($from: xl) {
+		&[orientation="vertical"] {
+			display: flex;
+			flex-direction: row;
+
+			#{$class}__list {
+				flex-wrap: nowrap;
+				flex-direction: column;
+				width: max-content;
+				max-width: 30vw;
+				margin-right: rem-calc(20);
+				padding: rem-calc(0 8);
+				border-bottom: none;
+				border-right: $tabs-list-border;
+			}
+
+			#{$class}__item {
+				justify-content: flex-end;
+			}
+
+			#{$class}__btn {
+				padding: rem-calc(8 12);
+				text-align: right;
+			}
+		}
+	}
+}

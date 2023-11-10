@@ -1,0 +1,27 @@
+/*
+ *   Alert
+ */
+
+$class: ".gov-empty";
+
+#{$class} {
+	@include base();
+	&__icon {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: rem-calc(96);
+		height: rem-calc(96);
+		margin-bottom: calc(rem-calc(96) / 3);
+		border-radius: 50%;
+		background: $empty-icon-circle-bg;
+		color: $empty-icon-color;
+		& > * {
+			width: rem-calc(56);
+			height: rem-calc(56);
+		}
+	}
+	&__content {
+		@include reset-last-margin();
+	}
+}

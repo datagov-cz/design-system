@@ -1,0 +1,11 @@
+/*
+ *   Select
+ */
+
+@import "../select/gov-form-select-core.scss";
+
+$class: ".gov-form-select";
+
+#{$class} {
+	@extend %form-select-core;
+}

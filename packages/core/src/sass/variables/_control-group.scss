@@ -1,0 +1,27 @@
+/*
+ -	Variables - Control Group
+ */
+
+$control-group-border-radius: make-var("control-group-border-radius", rem-calc(4));
+$control-group-border-invalid: make-var("control-group-border-invalid", rem-calc(1) solid color("error.400"));
+$control-group-border-disabled: make-var("control-group-border-disabled", rem-calc(1) solid color("secondary.600"));
+$control-group-color-disabled: make-var("control-group-color-disabled", color("secondary.600"));
+$control-group-background-disabled: make-var("control-group-background-disabled", color("secondary.300"));
+
+$control-group-variants: (
+	$variant-primary: (
+		"border": make-var("control-group-border-primary", rem-calc(1) solid color("primary.600")),
+	),
+	$variant-secondary: (
+		"border": make-var("control-group-border-secondary", rem-calc(1) solid color("secondary.700")),
+	),
+	$variant-success: (
+		"border": make-var("control-group-border-success", rem-calc(1) solid color("success.500")),
+	),
+	$variant-warning: (
+		"border": make-var("control-group-border-warning", rem-calc(1) solid color("warning.500")),
+	),
+	$variant-error: (
+		"border": make-var("control-group-border-error", rem-calc(1) solid color("error.400")),
+	)
+);

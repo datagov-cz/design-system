@@ -1,0 +1,23 @@
+/*
+ -	Variables - Form label
+ */
+
+$form-label-color: make-var("form-label-color", color-val("secondary.700"));
+$form-legend-color: make-var("form-legend-color", color-val("secondary.800"));
+$form-label-sizes: (
+	$size-xs: (
+		margin-bottom: make-var(form-label-xs-margin-bottom, rem-calc(4)),
+	),
+	$size-s: (
+		margin-bottom: make-var(form-label-s-margin-bottom, rem-calc(8)),
+	),
+	$size-m: (
+		margin-bottom: make-var(form-label-m-margin-bottom, rem-calc(12)),
+	),
+	$size-l: (
+		margin-bottom: make-var(form-label-l-margin-bottom, rem-calc(4)),
+	),
+	$size-xl: (
+		margin-bottom: make-var(form-label-xl-margin-bottom, rem-calc(4)),
+	),
+);

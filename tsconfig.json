@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"jsx": "react",
+		"allowSyntheticDefaultImports": true
+	},
+	"extends": "./tsconfig.base.json",
+	"ts-node": {
+		"compilerOptions": {
+			"module": "commonjs"
+		}
+	}
+}

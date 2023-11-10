@@ -1,0 +1,44 @@
+table {
+    @apply mt-16 mb-16;
+}
+
+table th, table td {
+    @apply text-left align-top p-2 border border-secondary-300
+}
+
+
+code {
+    @apply bg-secondary-200 p-2 rounded whitespace-nowrap !text-s  inline-block
+}
+
+pre {
+    @apply !mb-8 !-mt-4
+}
+
+pre code {
+    @apply whitespace-break-spaces w-full p-4
+}
+
+.gov-content--documentation h4 {
+    @apply text-l
+}
+
+.mermaid, .mermaid + hr {
+    @apply mb-8
+}
+
+span.lang {
+    @apply hidden
+}
+
+.responsive-table {
+    @apply w-full overflow-x-auto
+}
+
+footer a {
+    @apply !gap-2 !text-neutral-white
+}
+
+footer a gov-icon {
+    @apply !text-neutral-white
+}

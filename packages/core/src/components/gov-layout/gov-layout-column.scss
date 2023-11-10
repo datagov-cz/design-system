@@ -1,0 +1,11 @@
+/*
+ *   Layout column
+ */
+
+$class: ".gov-layout-column";
+
+#{$class} {
+	position: relative;
+	display: block;
+	width: 100%;
+}

@@ -1,0 +1,10 @@
+/*
+ * General shadow
+ */
+
+// Generate shadow classes
+@each $name, $value in $shadows {
+	.#{$prefix}box-shadow--#{$name} {
+		box-shadow: #{$value};
+	}
+}

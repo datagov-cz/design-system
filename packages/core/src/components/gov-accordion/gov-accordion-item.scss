@@ -1,0 +1,162 @@
+/*
+ *   Accordion - Item
+ */
+
+$class: ".gov-accordion-item";
+
+#{$class} {
+	@include base();
+	&::before {
+		@include pseudo();
+		right: 0;
+		bottom: -1px;
+		left: 0;
+		height: 1px;
+		background-color: color("secondary.500");
+	}
+
+	&__header {
+		@include button-core();
+		@include focus-outline();
+		@include general;
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		width: 100%;
+		border-radius: 0;
+		text-align: left;
+		text-transform: none;
+		transition: background-color $t ease-in-out;
+
+		// STATES
+		&:focus-visible {
+			&::before {
+				display: none;
+			}
+		}
+		@include parameter("aria-expanded") {
+			#{$class} {
+				&__arrow .gov-icon:not([slot="toggle-icon"]) {
+					transform: scale(-1);
+				}
+			}
+		}
+	}
+	&__icon {
+		display: inline-flex;
+		vertical-align: middle;
+		flex: 0 0 auto;
+	}
+	&__title {
+		display: flex;
+		flex-direction: column;
+		margin-right: auto;
+	}
+	&__label * {
+		margin-bottom: 0;
+		display: inline-block;
+		transform: translateY(1px);
+	}
+	&__annotation * {
+		color: color("secondary");
+		margin-bottom: 0;
+	}
+	&__right {
+		display: flex;
+		flex-shrink: 0;
+		align-items: center;
+		margin-left: auto;
+	}
+	&__suffix {
+		display: inline-flex;
+		vertical-align: middle;
+		flex: 0 0 auto;
+		align-self: start;
+		line-height: initial;
+	}
+	&__arrow {
+		flex: 0 0 auto;
+	}
+	&__content {
+		@include reset-last-margin();
+	}
+
+	// VARIANTS
+	@each $size, $definitions in $accordion-sizes {
+		&[size="#{$size}"],
+		& #{$class}[size="#{$size}"] {
+			#{$class} {
+				&__header {
+					gap: get("headline-gap", $definitions);
+					min-height: get("min-height", $definitions);
+					padding: get("padding-y", $definitions) get("padding-x", $definitions);
+				}
+				&__icon {
+					width: calc(get-font-size(get("font", $definitions)) * 1.2);
+					height: calc(get-font-size(get("font", $definitions)) * 1.2);
+					transform: translateY(get("icon-position", $definitions));
+				}
+				&__label * {
+					@include typography(get("font", $definitions));
+				}
+				&__annotation {
+					@include typography(get("font-annotation", $definitions));
+				}
+				&__right {
+					gap: get("headline-gap", $definitions);
+					transform: translateY(get("arrow-position", $definitions));
+					&:has(#{$class}__suffix) {
+						transform: translateY(get("icon-position", $definitions));
+					}
+				}
+				&__arrow {
+					width: get("icon-size", $definitions);
+					height: get("icon-size", $definitions);
+				}
+				&__content {
+					padding: get("padding-inner", $definitions);
+				}
+			}
+		}
+	}
+	@each $variant, $definitions in $accordion-variants {
+		&[variant="#{$variant}"] {
+			#{$class} {
+				&::before {
+					background-color: get("separator", $definitions);
+				}
+				&__header {
+					background-color: get("background", $definitions);
+					color: get("color", $definitions);
+					@include hover() {
+						background-color: get("background-hover", $definitions);
+					}
+				}
+			}
+
+			// STATES
+			@include parameter("disabled") {
+				#{$class} {
+					&__header {
+						color: get("disabled-color", $definitions);
+						@include hover() {
+							background: transparent;
+							cursor: not-allowed;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// MQ
+	@include mq($until: md) {
+		&__title {
+			flex-wrap: wrap;
+		}
+		&__label {
+			flex: 0 0 auto;
+		}
+	}
+}

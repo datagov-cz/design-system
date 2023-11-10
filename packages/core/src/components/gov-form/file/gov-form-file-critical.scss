@@ -1,0 +1,38 @@
+gov-form-file:not(.hydrated) {
+	@include parameter("disabled") {
+		gov-form-label {
+			pointer-events: none;
+			* {
+				color: $form-file-disabled-color;
+			}
+		}
+	}
+
+	// VARIANTS
+	@include parameter("expanded") {
+		position: relative;
+		width: 100%;
+		padding: rem-calc(32) rem-calc(22) rem-calc(22);
+		border: $form-file-border;
+		text-align: center;
+		gov-form-label {
+			width: 100%;
+			padding: rem-calc(22);
+			border: $form-file-border;
+			text-align: center;
+		}
+		@include parameter("disabled") {
+			pointer-events: none;
+			color: $form-file-disabled-color;
+		}
+	}
+
+	// MQ
+	@include mq($from: sm) {
+		@include parameter("expanded") {
+			gov-form-label {
+				padding: rem-calc(32);
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+{
+  "name": "@gov-design-system-ce/fonts",
+  "version": "0.0.3",
+  "description": "This package includes Gov Design System CE Fonts.",
+  "author": "Zdeněk Vítek",
+  "main": "lib/roboto.css",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "copyfiles --flat ./lib/* ../../dist/packages/fonts",
+    "serve": "copyfiles --flat ./lib/* ../../dist/packages/core/www/build/assets/fonts"
+  },
+  "devDependencies": {
+    "copyfiles": "2.4.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "EUPL v1.2 Licensed"
+}

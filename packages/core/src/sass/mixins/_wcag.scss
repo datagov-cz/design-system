@@ -1,0 +1,17 @@
+@mixin focus-outline($radius: $border-radius, $offset: 0, $focus-within: false) {
+	&:focus {
+		outline: none;
+	}
+	&:focus-visible {
+		border-radius: $radius;
+		outline: $outline;
+		outline-offset: $offset;
+	}
+	@if ($focus-within) {
+		&:focus-within {
+			border-radius: $radius;
+			outline: $outline;
+			outline-offset: $offset;
+		}
+	}
+}

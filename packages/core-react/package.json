@@ -1,0 +1,24 @@
+{
+	"name": "@gov-design-system-ce/react",
+	"version": "0.0.72",
+	"author": "Zdeněk Vítek",
+	"license": "EUPL v1.2 Licensed",
+	"sideEffects": false,
+	"main": "./commonjs/index.js",
+	"module": "./commonjs/index.js",
+	"types": "./commonjs/index.d.ts",
+	"files": [
+		"commonjs",
+		"lib"
+	],
+	"scripts": {
+		"build": "npm run tsc",
+		"tsc": "tsc -p ."
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@gov-design-system-ce/components": "0.0.70"
+	}
+}

@@ -1,0 +1,35 @@
+gov-breadcrumbs:not(.hydrated) {
+	ul {
+		@include base(flex);
+		margin: 0;
+		padding: 0;
+		padding-bottom: rem-calc(5);
+		overflow-x: auto;
+	}
+	li {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		margin: 0;
+		padding: 0;
+		background: none;
+		white-space: nowrap;
+		&::before {
+			display: none;
+		}
+	}
+	button {
+		@include typography($font-size-m);
+		padding: 0;
+		border: none;
+		background: none;
+		color: $breadcrumbs-link-color;
+		text-decoration: underline;
+	}
+	gov-icon {
+		width: rem-calc(10);
+		height: rem-calc(10);
+		margin: rem-calc(0 16px);
+		color: $breadcrumbs-arrow-color;
+	}
+}

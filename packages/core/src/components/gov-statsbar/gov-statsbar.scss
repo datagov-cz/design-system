@@ -1,0 +1,39 @@
+/*
+ *   Statsbar
+ */
+
+$class: ".gov-statsbar";
+
+#{$class} {
+	@include base();
+	padding: rem-calc(20) 0;
+	&__section {
+		@include container();
+	}
+
+	// VARIANTS
+	@each $variant, $definitions in $statsbar-variants {
+		&[variant="#{$variant}"] {
+			background-color: #{get("bg-color", $definitions)};
+			color: #{get("text-color", $definitions)};
+
+			// STATES
+			@include parameter("inverse") {
+				background: color("neutral.white");
+				color: #{get("text-color-inverse", $definitions)};
+			}
+		}
+	}
+
+	// MQ
+	@include mq($from: sm) {
+		&__section {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+	@include mq($from: md) {
+		padding: 0;
+	}
+}

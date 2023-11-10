@@ -1,0 +1,9 @@
+/*
+ -  Variables - Form Autocomplete
+ */
+
+$form-autocomplete-bg: make-var("autocomplete-bg", color("neutral.white"));
+$form-autocomplete-item-hover-bg: make-var("autocomplete-item-hover", color("primary.100"));
+$form-autocomplete-border: make-var("autocomplete-item-hover", rem-calc(1) solid color("secondary.500"));
+$form-autocomplete-item-select-bg: make-var("autocomplete-item-select", color("secondary.400"));
+$form-autocomplete-item-disable-color: make-var("autocomplete-item-disable-color", color("secondary.600"));

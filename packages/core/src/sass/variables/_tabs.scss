@@ -1,0 +1,44 @@
+/*
+ -  Variables - Tabs
+ */
+
+$tabs-list-border: make-var("tabs-list-border-width", rem-calc(1) solid color("secondary.500"));
+$tabs-text-color: make-var("tabs-text-color", color("secondary.700"));
+
+$tabs-types: (
+	"text": (
+		"item-spacing": rem-calc(8 32),
+		"border": true,
+	),
+	"chip": (
+		"item-spacing": rem-calc(8 16),
+	),
+);
+
+$tabs-variants: (
+	$variant-primary: (
+		"color": make-var(tabs-primary-color, color("primary")),
+		"color-hover": make-var(tabs-primary-color-hover, color("primary.800")),
+		"color-active": make-var(tabs-primary-color-active, color("primary.800")),
+	),
+	$variant-secondary: (
+		"color": make-var(tabs-secondary-color, color("secondary.700")),
+		"color-hover": make-var(tabs-secondary-color-hover, color("secondary.900")),
+		"color-active": make-var(tabs-secondary-color-active, color("secondary.900")),
+	),
+	$variant-success: (
+		"color": make-var(tabs-success-color, color("success.500")),
+		"color-hover": make-var(tabs-success-color-hover, color("success.700")),
+		"color-active": make-var(tabs-success-color-active, color("success.700")),
+	),
+	$variant-warning: (
+		"color": make-var(tabs-warning-color, color("warning.500")),
+		"color-hover": make-var(tabs-warning-color-hover, color("warning.700")),
+		"color-active": make-var(tabs-warning-color-active, color("warning.700")),
+	),
+	$variant-error: (
+		"color": make-var(tabs-error-color, color("error.400")),
+		"color-hover": make-var(tabs-error-color-hover, color("error.600")),
+		"color-active": make-var(tabs-error-color-active, color("error.600")),
+	),
+);

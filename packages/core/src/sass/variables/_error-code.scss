@@ -1,0 +1,6 @@
+/*
+ -  Variables - Error code
+ */
+
+$error-icon-circle-bg: make-var("error-icon-circle-bg", linear-gradient(to bottom, color("primary.200"), color("neutral.white")));
+$error-icon-color: make-var("error-icon-color", color("primary"));

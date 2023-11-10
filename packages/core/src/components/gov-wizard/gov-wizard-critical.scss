@@ -1,0 +1,96 @@
+gov-wizard:not(.hydrated) {
+	@include base();
+	@include reset-last-margin();
+
+	gov-wizard-item {
+		@include base();
+		gap: rem-calc(16);
+		margin-bottom: rem-calc(16);
+		padding: rem-calc(16);
+		background: $wizard-bg-color;
+
+		gov-icon, span {
+			align-items: center;
+			border-radius: 50%;
+		}
+
+		span[slot="prefix"] {
+			position: absolute;
+			left: rem-calc(16);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		p {
+			display: none;
+		}
+
+		@include parameter("is-expanded") {
+			p {
+				display: block;
+			}
+		}
+
+		&[size="#{$size-xs}"],
+		&[size="#{$size-s}"],
+		&[size="#{$size-m}"] {
+			min-height: calc(deep-map-get($wizard-sizes, $size-xs, "indicator-size") + 30px);
+			gov-icon, span {
+				@include typography(deep-map-get($wizard-sizes, $size-xs, "font-size-indicator"));
+				width: deep-map-get($wizard-sizes, $size-xs, "indicator-size");
+				height: deep-map-get($wizard-sizes, $size-xs, "indicator-size");
+			}
+			span[slot="prefix"] {
+				top: deep-map-get($wizard-sizes, $size-xs, "top");
+			}
+			p {
+				padding: $wizard-content-padding;
+			}
+		}
+
+		@each $variant, $definitions in $wizard-core-variants {
+			&[variant="#{$variant}"] {
+				gov-icon, span {
+					background: get("indicator-bg", $definitions);
+					color: get("indicator-color", $definitions);
+				}
+			}
+		}
+
+		@include mq($from: sm) {
+			&[size="#{$size-s}"],
+			&[size="#{$size-m}"] {
+				min-height: calc(deep-map-get($wizard-sizes, $size-s, "indicator-size") + 25px);
+				gov-icon, span {
+					@include typography(deep-map-get($wizard-sizes, $size-s, "font-size-indicator"));
+					width: deep-map-get($wizard-sizes, $size-s, "indicator-size");
+					height: deep-map-get($wizard-sizes, $size-s, "indicator-size");
+				}
+				span[slot="prefix"] {
+					top: deep-map-get($wizard-sizes, $size-s, "top");
+				}
+			}
+		}
+		@include mq($from: md) {
+			&[size="#{$size-m}"] {
+				min-height: calc(deep-map-get($wizard-sizes, $size-m, "indicator-size") + 20px);
+				gov-icon, span {
+					@include typography(deep-map-get($wizard-sizes, $size-m, "font-size-indicator"));
+					width: deep-map-get($wizard-sizes, $size-m, "indicator-size");
+					height: deep-map-get($wizard-sizes, $size-m, "indicator-size");
+				}
+				span[slot="prefix"] {
+					top: deep-map-get($wizard-sizes, $size-m, "top");
+				}
+			}
+			@each $size, $definitions in $wizard-sizes {
+				&[size="#{$size}"] {
+					p {
+						padding: get("content-padding", $definitions);
+					}
+				}
+			}
+		}
+	}
+}

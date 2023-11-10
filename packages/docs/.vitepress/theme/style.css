@@ -1,0 +1,19 @@
+@import './styles/sidebar.css';
+@import './styles/content.css';
+@import './styles/documentation.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    html,
+    body {
+        @apply bg-secondary-200
+    }
+
+    body.block-scroll {
+        @apply overflow-hidden
+    }
+}

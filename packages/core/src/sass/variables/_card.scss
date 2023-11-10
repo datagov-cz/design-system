@@ -1,0 +1,11 @@
+/*
+ -  Variables - Card
+ */
+
+$card-border: make-var("card-border-width", rem-calc(1) solid color("secondary.500"));
+$card-bg: make-var("card-bg", color("neutral.white"));
+$card-arrow-color: make-var("card-arrow-color", color("primary"));
+$card-title-color: make-var("card-title-color", color("secondary.800"));
+$card-icon-color: make-var("card-icon-color", color("primary"));
+$card-footer-bg: make-var("card-footer-bg", color("primary.100"));
+$card-header-hover-bg: make-var("card-header-hover-bg", color("primary.100"));

@@ -1,0 +1,7 @@
+/**
+* Generates CSS3 var with button value
+*/
+
+@function make-var($property, $value) {
+	@return var(--#{$prefix}#{$property}, $value);
+}

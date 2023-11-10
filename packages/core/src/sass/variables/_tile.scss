@@ -1,0 +1,8 @@
+/*
+ -  Variables - Grid & Tile
+ */
+
+$tile-hover-bg: make-var("tile-hover-bg", color("primary.200"));
+$tile-icon-color: make-var("tile-icon-color", color("secondary"));
+$tile-main-color: make-var("tile-main-color", color("primary"));
+$tile-text-color: make-var("tile-text-color", color("secondary.700"));

@@ -1,0 +1,12 @@
+/*
+ -	Variables - Forms
+ */
+
+$form-state-color-success: make-var("form-state-color-success", color("success"));
+$form-state-color-error: make-var("form-state-color-error", color("error"));
+$form-state-color-error-placeholder: make-var("form-state-color-error", color("error.300"));
+$form-state-color-disabled: make-var("form-state-color-disabled", color("secondary.600"));
+$form-state-bg-input-disabled: make-var("form-input-disabled-bg", color("secondary.300"));
+$form-state-bg-disabled: make-var("form-input-disabled-bg", color("primary.400"));
+$form-placeholder-color: make-var("form-placeholder-color", color("secondary.600"));
+$form-bg-color: make-var("form-bg-color", color("neutral.white"));

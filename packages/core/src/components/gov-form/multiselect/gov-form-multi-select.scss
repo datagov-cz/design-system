@@ -1,0 +1,33 @@
+/*
+ *   Multiselect
+ */
+
+@import "../select/gov-form-select-core.scss";
+$class: ".gov-form-multi-select";
+
+#{$class} {
+	@extend %form-select-core;
+	flex-wrap: wrap;
+	&__wrap {
+		display: flex;
+		gap: rem-calc(8);
+		width: 100%;
+	}
+	&__list {
+		@extend %reset-ul;
+		@include typography($font-size-xs);
+		display: flex;
+		gap: rem-calc(8);
+		flex-wrap: wrap;
+	}
+	&__list > &__item {
+		@extend %reset-ul-li;
+		position: relative;
+		display: flex;
+		flex: 0 0 auto;
+		align-items: center;
+		padding: rem-calc(0 0 0 8);
+		background: $form-multiselect-bg;
+		transition: $t linear background-color;
+	}
+}

@@ -1,0 +1,16 @@
+/*
+ *   Attachments
+ */
+
+$class: ".gov-attachments";
+
+#{$class} {
+	@include base();
+	&__label {
+		@include typography($font-size-s);
+		color: $form-label-color;
+	}
+	&__list {
+		@include reset-last-margin();
+	}
+}

@@ -1,0 +1,8 @@
+@mixin input-placeholder {
+	&.placeholder {
+		@content;
+	}
+	&::placeholder {
+		@content;
+	}
+}

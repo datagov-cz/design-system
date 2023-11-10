@@ -1,0 +1,17 @@
+/*
+ -  Variables - Pagination
+ */
+
+$pagination-bg-active: make-var("pagination-bg-active", color("primary.100"));
+$pagination-color-active: make-var("pagination-color", color("primary"));
+
+$pagination-sizes: (
+	$size-s: (
+		"font": $font-size-s,
+		"button-size": make-var(pagination-s-button-size, rem-calc(32)),
+	),
+	$size-m: (
+		"font": $font-size-m,
+		"button-size": make-var(pagination-m-button-size, rem-calc(40)),
+	),
+);

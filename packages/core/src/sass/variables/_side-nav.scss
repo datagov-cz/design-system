@@ -1,0 +1,10 @@
+/*
+ -  Variables - Side nav
+ */
+
+$side-nav-color: make-var("side-nav-color", color("secondary"));
+$side-nav-border: make-var("side-nav-border", rem-calc(1) solid color("secondary.500"));
+$side-nav-hover-bg: make-var("side-nav-hover-bg", color("primary.200"));
+$side-nav-arrow-color: make-var("side-nav-arrow-color", color("primary"));
+$side-nav-bg-level-2: make-var("side-nav-bg-level-2", color("secondary.300"));
+$side-nav-bg-level-2-inverse: make-var("side-nav-bg-level-2", color("neutral.white"));

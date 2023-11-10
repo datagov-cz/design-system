@@ -1,0 +1,72 @@
+/*
+ *   Statsbar - Item
+ */
+
+$class: ".gov-statsbar-item";
+
+#{$class} {
+	position: relative;
+	display: block;
+	padding: rem-calc(20);
+	&__icon,
+	&__number {
+		margin-bottom: rem-calc(16);
+	}
+	&__icon,
+	&__icon .gov-icon {
+		display: block;
+		width: rem-calc(32);
+		height: rem-calc(32);
+	}
+	&__number {
+		@include typography($font-size-5xl);
+	}
+	&__text {
+		@include typography($font-size-xl);
+		@include reset-last-margin();
+		letter-spacing: em-calc(0.2);
+	}
+
+	// VARIANTS
+	&[icon-position="left"] {
+		padding-left: rem-calc(48);
+
+		#{$class} {
+			&__icon {
+				position: absolute;
+				top: rem-calc(24);
+				left: 0;
+			}
+		}
+	}
+
+	// MQ
+	@include mq($from: sm) {
+		flex: 1 0 50%;
+		max-width: 50%;
+	}
+	@include mq($from: md) {
+		padding: rem-calc(40);
+
+		&__icon,
+		&__icon .gov-icon {
+			width: rem-calc(48);
+			height: rem-calc(48);
+		}
+
+		// VARIANTS
+		&[icon-position="left"] {
+			padding-left: rem-calc(64);
+
+			#{$class} {
+				&__icon {
+					top: rem-calc(44);
+				}
+			}
+		}
+	}
+	@include mq($from: lg) {
+		flex-basis: auto;
+		max-width: 25%;
+	}
+}

@@ -1,0 +1,9 @@
+/*
+ *   Side nav
+ */
+
+$class: ".gov-side-nav";
+
+#{$class} {
+	@include base();
+}

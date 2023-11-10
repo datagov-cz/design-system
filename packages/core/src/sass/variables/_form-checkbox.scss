@@ -1,0 +1,40 @@
+/*
+ -	Variables - Form checkbox & radio
+ */
+
+$form-checkbox-border: make-var("form-checkbox-border-size", rem-calc(2) solid color("primary"));
+$form-checkbox-background-color: make-var("form-checkbox-background-color", color("neutral.white"));
+$form-checkbox-check-color: make-var("form-checkbox-check-color", color("neutral.white"));
+$form-checkbox-indicator-bg: make-var("form-checkbox-indicator-bg", color("primary"));
+$form-checkbox-core-sizes: (
+	$size-xs: (
+		indicator-size: make-var(form-checkbox-core-xs-indicator-size, rem-calc(20)),
+		gap: make-var(form-checkbox-core-xs-gap, rem-calc(12)),
+		check-size: make-var(form-checkbox-core-xs-check-size, rem-calc(12)),
+		dot-size: make-var(form-checkbox-core-xs-dot-size, rem-calc(10)),
+		message-gap: make-var(form-checkbox-core-xs-message-gap, rem-calc(8)),
+	),
+	$size-s: (
+		indicator-size: make-var(form-checkbox-core-s-indicator-size, rem-calc(22)),
+		gap: make-var(form-checkbox-core-s-gap, rem-calc(12)),
+		check-size: make-var(form-checkbox-core-s-check-size, rem-calc(13.2)),
+		dot-size: make-var(form-checkbox-core-s-dot-size, rem-calc(11)),
+		message-gap: make-var(form-checkbox-core-s-message-gap, rem-calc(8)),
+	),
+	$size-m: (
+		indicator-size: make-var(form-checkbox-core-m-indicator-size, rem-calc(24)),
+		gap: make-var(form-checkbox-core-m-gap, rem-calc(16)),
+		check-size: make-var(form-checkbox-core-m-check-size, rem-calc(14.4)),
+		dot-size: make-var(form-checkbox-core-m-dot-size, rem-calc(12)),
+		message-gap: make-var(form-checkbox-core-m-message-gap, rem-calc(12)),
+	),
+	$size-l: (
+		indicator-size: make-var(form-checkbox-core-l-indicator-size, rem-calc(32)),
+		gap: make-var(form-checkbox-core-l-gap, rem-calc(16)),
+		check-size: make-var(form-checkbox-core-l-check-size, rem-calc(19.2)),
+		dot-size: make-var(form-checkbox-core-l-dot-size, rem-calc(16)),
+		message-gap: make-var(form-checkbox-core-l-message-gap, rem-calc(12)),
+	),
+);
+
+$form-radio-indicator-bg: make-var("form-radio-indicator-bg", color("primary"));

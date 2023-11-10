@@ -1,0 +1,86 @@
+/*
+ *   Pagination
+ */
+
+$class: ".gov-pagination";
+
+#{$class} {
+	@include base();
+	&__list {
+		@extend %reset-ul;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		font-weight: bold;
+		text-align: center;
+	}
+	&__list &__item {
+		@extend %reset-ul-li;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0;
+		padding: rem-calc(2);
+		border-radius: $border-radius;
+		overflow: hidden;
+		&--arrow {
+			display: flex;
+		}
+		&--select {
+			z-index: 1;
+			display: flex;
+			overflow: visible;
+			padding: rem-calc(0 16);
+		}
+	}
+	&__arrow {
+		margin: 0;
+	}
+	&__item--more {
+		.gov-form-select {
+			select {
+				border: none !important;
+				padding-right: rem-calc(12) !important;
+			}
+			.gov-icon {
+				display: none;
+			}
+		}
+	}
+	&__inner {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-self: stretch;
+		width: 100%;
+		text-decoration: none;
+		// Use hover styles from gov-button to active page button
+		&[wcag-current="true"] {
+			@each $variant, $types in $button-variants {
+				@each $type, $definitions in $types {
+					&[type="#{$type}"][variant="#{$variant}"] {
+						.element {
+							background-color: deep-map-get($button-variants, $variant, $type, "hover-bg");
+							color: deep-map-get($button-variants, $variant, $type, "hover-color");
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// VARIANTS
+	@each $size, $definitions in $pagination-sizes {
+		&[size="#{$size}"] {
+			#{$class} {
+				&__inner {
+					@include typography(get("font", $definitions));
+					font-weight: inherit;
+					.element {
+						min-width: get("button-size", $definitions);
+					}
+				}
+			}
+		}
+	}
+}

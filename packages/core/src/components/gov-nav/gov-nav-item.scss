@@ -1,0 +1,51 @@
+/*
+ *   Nav - Item
+ */
+
+$class: ".gov-nav-item";
+
+#{$class} {
+	display: block;
+	&__link {
+		@include focus-outline();
+		position: relative;
+		display: block;
+		padding: rem-calc(15 48 15 36);
+		color: $nav-color;
+		text-decoration: none;
+		&:focus {
+			outline-color: $nav-color;
+		}
+		@include hover() {
+			color: $nav-color;
+			text-decoration: underline;
+		}
+	}
+
+	// MQ
+	@include mq($from: md) {
+		&__link {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			padding: rem-calc(22 20 21);
+			&::before {
+				@include pseudo();
+				top: 0;
+				left: 50%;
+				width: 0;
+				height: rem-calc(2);
+				background: $nav-color;
+				transform: translate(-50%);
+				transition: width $t;
+			}
+			@include hover() {
+				text-decoration: none;
+				&::before {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

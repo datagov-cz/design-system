@@ -1,0 +1,13 @@
+/*
+ *   Grid Cell
+ */
+
+$class: ".gov-grid-item";
+
+#{$class} {
+	@include generateGridSize();
+	border: 0 solid transparent;
+
+	// hide the border in MS high contrast mode
+	border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E");
+}

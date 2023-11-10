@@ -1,0 +1,127 @@
+/*
+ *   Wizard - Item
+ */
+
+@import "../gov-wizard/gov-wizard-item-core.scss";
+$class: ".gov-wizard-item";
+
+#{$class} {
+	@include wizard-item-core;
+	margin-bottom: rem-calc(16);
+	background: $wizard-bg-color;
+	&__header {
+		@include focus-outline();
+		gap: rem-calc(16);
+		padding: rem-calc(16);
+		border-radius: 0;
+		text-align: left;
+		transition: $t linear color;
+	}
+	&__prefix {
+		position: absolute;
+		left: rem-calc(16);
+	}
+
+	// STATES
+	&__header[aria-expanded="true"] {
+		#{$class}__label {
+			.gov-icon {
+				transform: scale(-1);
+			}
+		}
+	}
+
+	// VARIANTS
+	&[size="#{$size-xs}"],
+	&[size="#{$size-s}"],
+	&[size="#{$size-m}"] {
+		#{$class} {
+			&__title {
+				@include typography(deep-map-get($wizard-sizes, $size-xs, "font-size"));
+			}
+			&__annot {
+				@include typography(deep-map-get($wizard-sizes, $size-xs, "font-size-annot"));
+			}
+			&__prefix {
+				@include typography(deep-map-get($wizard-sizes, $size-xs, "font-size-indicator"));
+				width: deep-map-get($wizard-sizes, $size-xs, "indicator-size");
+				height: deep-map-get($wizard-sizes, $size-xs, "indicator-size");
+				top: deep-map-get($wizard-sizes, $size-xs, "top");
+				+ #{$class}__header {
+					padding: deep-map-get($wizard-sizes, $size-xs, "header-padding");
+				}
+			}
+			&__content {
+				padding: $wizard-content-padding;
+			}
+		}
+	}
+	@each $variant, $definitions in $wizard-core-variants {
+		&[variant="#{$variant}"] {
+			@include parameter("collapsible") {
+				#{$class} {
+					&__header {
+						@include hover() {
+							color: get("hover-color", $definitions);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// HOVERS
+	@at-root button#{&}__header {
+		@include button-core();
+		justify-content: flex-start;
+		text-align: left;
+	}
+
+	// MQ
+	@include mq($from: sm) {
+		&[size="#{$size-s}"],
+		&[size="#{$size-m}"] {
+			#{$class} {
+				&__title {
+					@include typography(deep-map-get($wizard-sizes, $size-s, "font-size"));
+				}
+				&__prefix {
+					@include typography(deep-map-get($wizard-sizes, $size-s, "font-size-indicator"));
+					width: deep-map-get($wizard-sizes, $size-s, "indicator-size");
+					height: deep-map-get($wizard-sizes, $size-s, "indicator-size");
+					top: deep-map-get($wizard-sizes, $size-s, "top");
+					+ #{$class}__header {
+						padding: deep-map-get($wizard-sizes, $size-s, "header-padding");
+					}
+				}
+			}
+		}
+	}
+	@include mq($from: md) {
+		&[size="#{$size-m}"] {
+			#{$class} {
+				&__title {
+					@include typography(deep-map-get($wizard-sizes, $size-m, "font-size"));
+				}
+				&__prefix {
+					@include typography(deep-map-get($wizard-sizes, $size-m, "font-size-indicator"));
+					width: deep-map-get($wizard-sizes, $size-m, "indicator-size");
+					height: deep-map-get($wizard-sizes, $size-m, "indicator-size");
+					top: deep-map-get($wizard-sizes, $size-m, "top");
+					+ #{$class}__header {
+						padding: deep-map-get($wizard-sizes, $size-m, "header-padding");
+					}
+				}
+			}
+		}
+		@each $size, $definitions in $wizard-sizes {
+			&[size="#{$size}"] {
+				#{$class} {
+					&__content {
+						padding: get("content-padding", $definitions);
+					}
+				}
+			}
+		}
+	}
+}

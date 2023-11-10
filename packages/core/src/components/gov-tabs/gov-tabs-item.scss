@@ -1,0 +1,12 @@
+/*
+ *   Tabs - Item
+ */
+
+$class: ".gov-tabs-item";
+
+#{$class} {
+	color: $tabs-text-color;
+	&__inner {
+		@include reset-last-margin();
+	}
+}

@@ -1,0 +1,53 @@
+@import "core";
+
+$class: ".gov-content";
+
+#{$class} {
+	h1,
+	.h1 {
+		@include typography($font-size-6xl, true);
+	}
+
+	h2,
+	.h2 {
+		@include typography($font-size-5xl, true);
+	}
+
+	h3,
+	.h3 {
+		@include typography($font-size-4xl, true);
+	}
+
+	h4,
+	.h4 {
+		@include typography($font-size-3xl, true);
+	}
+
+	h5,
+	.h5 {
+		@include typography($font-size-2xl, true);
+	}
+
+	h6,
+	.h6 {
+		@include typography($font-size-xl, true);
+	}
+
+	p {
+		@include typography($font-size-m, true);
+	}
+
+	// Generate size classes
+	@each $size, $properties in map-get($font-sizes, $view-none, "texts") {
+		.#{$prefix}text--#{$size} {
+			@include typography($size, true);
+		}
+	}
+
+	& *:first-child {
+		margin-top: 0;
+	}
+	& *:last-child {
+		margin-bottom: 0;
+	}
+}

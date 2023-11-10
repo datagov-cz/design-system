@@ -1,0 +1,36 @@
+/*
+ *   Loading
+ */
+
+$class: ".gov-loading";
+
+#{$class} {
+	display: block;
+	&__content {
+		@include z-index("modal", 1);
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		display: flex;
+		gap: rem-calc(16);
+		flex-direction: column;
+		align-items: center;
+		min-width: rem-calc(155);
+		padding: rem-calc(24);
+		border-radius: rem-calc(8);
+		background: $loading-bg;
+		color: $loading-color;
+		text-align: center;
+		transform: translate(-50%, -50%);
+	}
+	&__icon {
+		width: rem-calc(64);
+		height: rem-calc(64);
+		line-height: 1;
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

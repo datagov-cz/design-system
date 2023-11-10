@@ -1,0 +1,23 @@
+/*
+ *   Nav
+ */
+
+$class: ".gov-nav";
+
+#{$class} {
+	@include base();
+	@include typography($font-size-s);
+	background: $nav-bg;
+	font-weight: bold;
+	letter-spacing: 0.0125em;
+	text-transform: uppercase;
+
+	// MQ
+	@include mq($from: md) {
+		text-align: center;
+		&__nav {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}

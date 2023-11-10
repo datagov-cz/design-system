@@ -1,0 +1,20 @@
+gov-spacer:not(.hydrated) {
+	@include base();
+
+	@each $name, $value in $sizes {
+		&[size="#{$name}"] {
+			height: #{$value};
+		}
+	}
+	@each $name, $value in $mq-breakpoints {
+		&[breakpoint="#{$name}"] {
+			display: none;
+
+			@if #{$value} != "0" {
+				@include mq($from: #{$name}) {
+					display: block;
+				}
+			}
+		}
+	}
+}

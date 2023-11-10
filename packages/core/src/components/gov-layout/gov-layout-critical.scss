@@ -1,0 +1,75 @@
+gov-layout:not(.hydrated) {
+	@mixin big() {
+		flex: 1 1 auto;
+		width: auto;
+	}
+
+	@mixin small() {
+		flex: 0 0 auto;
+		width: calc($container-width / 3 - $layout-gap);
+	}
+
+	@include base();
+	display: flex;
+	gap: $layout-gap;
+	flex-direction: column;
+
+	// MQ
+	@include mq($from: lg) {
+		flex-direction: row;
+
+		&[type="aside"][variant="right"] {
+			gov-layout-column:first-child {
+				@include big;
+			}
+
+			gov-layout-column:last-child {
+				@include small;
+			}
+		}
+
+		&[type="aside"][variant="left"] {
+			gov-layout-column:first-child {
+				@include small;
+			}
+
+			gov-layout-column:last-child {
+				@include big;
+			}
+		}
+
+		&[type="aside"][variant="right"] {
+			@include parameter("inverse") {
+				gov-layout-column:first-child {
+					order: 1;
+				}
+			}
+		}
+
+		&[type="aside"][variant="left"] {
+			@include parameter("inverse") {
+				gov-layout-column:first-child {
+					order: 2;
+				}
+			}
+		}
+
+		&[type="text"] {
+			width: $layout-content-width;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		&[type="text"][variant="left"] {
+			width: $layout-content-width;
+			margin-right: auto;
+			margin-left: 0;
+		}
+
+		&[type="text"][variant="right"] {
+			width: $layout-content-width;
+			margin-right: 0;
+			margin-left: auto;
+		}
+	}
+}

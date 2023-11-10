@@ -1,0 +1,135 @@
+/*
+ *   Switch
+ */
+
+$class: ".gov-form-switch";
+$indicator-ratio: calc(5 / 3);
+
+#{$class} {
+	position: relative;
+	display: flex;
+	&__holder {
+		display: inline-flex;
+	}
+	&__input {
+		position: relative;
+		z-index: 1;
+		appearance: none;
+		cursor: pointer;
+		flex-shrink: 0;
+	}
+	.gov-form-label__label {
+		position: relative;
+		z-index: 1;
+		margin-bottom: 0;
+		color: $form-switch-color;
+	}
+	&__indicator {
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: $form-switch-indicator-border;
+		background-color: $form-switch-indicator-bg;
+		transition: $t linear background-color;
+		&::before {
+			@include pseudo();
+			border-radius: 50%;
+			background-color: $form-switch-indicator-circle-bg;
+			transition: $t linear left;
+			box-shadow: $form-switch-indicator-circle-box-shadow;
+		}
+	}
+
+	// STATES
+	// focus
+	&__input:focus-visible ~ &__indicator {
+		outline: $outline;
+	}
+	// checked
+	&__input:checked + &__indicator {
+		border-color: $form-switch-indicator-bg-checked;
+		background-color: $form-switch-indicator-bg-checked;
+	}
+
+	// disabled
+	@include parameter("disabled") {
+		pointer-events: none;
+		.gov-form-label__label {
+			color: $form-state-color-disabled;
+		}
+		#{$class} {
+			&__indicator {
+				&::before {
+					background: $form-state-bg-input-disabled;
+				}
+			}
+			&__input:checked + #{$class}__indicator {
+				border-color: $form-state-bg-disabled;
+				background-color: $form-state-bg-disabled;
+			}
+		}
+	}
+
+	// invalid
+	@include parameter("invalid") {
+		.gov-form-label__label {
+			color: $form-state-color-error;
+		}
+		#{$class} {
+			&__indicator {
+				border-color: $form-state-color-error;
+			}
+			&__input:checked + #{$class}__indicator {
+				background-color: $form-state-color-error;
+			}
+		}
+	}
+
+	// sizes
+	@each $size, $definitions in $form-switch-sizes {
+		$indicator-width: calc(get("indicator-height", $definitions) * $indicator-ratio);
+		$indicator-height: get("indicator-height", $definitions);
+		$border-offset: calc(get("toggle-offset", $definitions) - rem-calc(1));
+
+		&[size="#{$size}"] {
+			.gov-form-label__label {
+				@include typography($size);
+				margin-bottom: 0;
+			}
+			#{$class} {
+				&__holder {
+					gap: get("gap", $definitions);
+				}
+				&__input {
+					width: $indicator-width;
+					height: $indicator-height;
+				}
+				&__indicator {
+					display: block;
+					width: $indicator-width;
+					height: $indicator-height;
+					border-radius: calc($indicator-height * 0.5);
+					&::before {
+						top: $border-offset;
+						left: $border-offset;
+						width: calc($indicator-height - (2 * get("toggle-offset", $definitions)));
+						height: calc($indicator-height - (2 * get("toggle-offset", $definitions)));
+					}
+				}
+
+				// STATES
+				&__input[aria-checked] + #{$class}__indicator {
+					&::before {
+						left: calc($indicator-width - $indicator-height + $border-offset);
+					}
+				}
+			}
+			label {
+				display: inline-flex;
+				#{$class}__input {
+					width: $indicator-width;
+				}
+			}
+		}
+	}
+}

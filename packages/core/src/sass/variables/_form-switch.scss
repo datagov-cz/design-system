@@ -1,0 +1,41 @@
+/*
+ -	Variables - Form switch
+ */
+
+$form-switch-color: make-var("form-switch-color", color("secondary.800"));
+$form-switch-indicator-border: make-var("form-switch-indicator-border", rem-calc(1) solid color("secondary.500"));
+$form-switch-indicator-bg: make-var("form-switch-indicator-bg", color("secondary.300"));
+$form-switch-indicator-circle-bg: make-var("form-switch-indicator-circle-bg", color("neutral.white"));
+$form-switch-indicator-circle-box-shadow: make-var("form-switch-indicator-circle-box-shadow", 0 rem-calc(2) rem-calc(4) rgba(0, 0, 0, 0.35));
+$form-switch-indicator-bg-checked: make-var("form-switch-indicator-bg-checked", color("primary"));
+
+$form-switch-sizes: (
+	$size-xs: (
+		gap: make-var(form-switch-xs-gap, rem-calc(12)),
+		message-gap: make-var(form-switch-xs-message-gap, rem-calc(8)),
+		indicator-height: make-var(form-switch-xs-indicator-height, rem-calc(20)),
+		toggle-offset: make-var(form-switch-xs-toggle-offset, rem-calc(0.83)),
+		label-font: $font-size-s,
+	),
+	$size-s: (
+		gap: make-var(form-switch-s-gap, rem-calc(12)),
+		message-gap: make-var(form-switch-s-message-gap, rem-calc(8)),
+		indicator-height: make-var(form-switch-s-indicator-height, rem-calc(22)),
+		toggle-offset: make-var(form-switch-s-toggle-offset, rem-calc(0.92)),
+		label-font: $font-size-s,
+	),
+	$size-m: (
+		gap: make-var(form-switch-m-gap, rem-calc(16)),
+		message-gap: make-var(form-switch-m-message-gap, rem-calc(12)),
+		indicator-height: make-var(form-switch-m-indicator-height, rem-calc(24)),
+		toggle-offset: make-var(form-switch-m-toggle-offset, rem-calc(1)),
+		label-font: $font-size-m,
+	),
+	$size-l: (
+		gap: make-var(form-switch-l-gap, rem-calc(16)),
+		message-gap: make-var(form-switch-l-message-gap, rem-calc(12)),
+		indicator-height: make-var(form-switch-l-indicator-height, rem-calc(32)),
+		toggle-offset: make-var(form-switch-l-toggle-offset, rem-calc(1.33)),
+		label-font: $font-size-m,
+	),
+);

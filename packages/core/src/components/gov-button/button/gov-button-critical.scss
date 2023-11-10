@@ -1,0 +1,42 @@
+gov-button:not(.hydrated) {
+	@include general();
+	display: inline-flex;
+	border: $button-border-width solid transparent;
+	border-radius: #{$border-radius};
+	gov-icon:not(.hydrated) {
+		flex: 0 0 auto;
+		color: inherit;
+	}
+	&[type="link"] {
+		min-height: inherit;
+		padding: 0 !important;
+		line-height: inherit;
+		text-decoration: underline;
+	}
+	@each $variant, $types in $button-variants {
+		@each $type, $definitions in $types {
+			&[type="#{$type}"][variant="#{$variant}"] {
+				background-color: deep-map-get($button-variants, $variant, $type, "bg");
+				color: deep-map-get($button-variants, $variant, $type, "color");
+				@if deep-map-get($button-variants, $variant, $type, "border") {
+					border-color: deep-map-get($button-variants, $variant, $type, "border");
+				} @else {
+					border-width: 0;
+				}
+			}
+		}
+	}
+	@each $size, $definitions in $button-sizes {
+		&[size="#{$size}"] {
+			@include typography($size, false, button);
+			column-gap: map-get($definitions, "padding-x");
+			min-height: map-get($definitions, "min-height");
+			padding: map-get($definitions, "padding-y") map-get($definitions, "padding-x");
+			font-weight: map-get($definitions, "font-weight");
+			gov-icon:not(.hydrated) {
+				width: map-get($definitions, "icon-size");
+				height: map-get($definitions, "icon-size");
+			}
+		}
+	}
+}

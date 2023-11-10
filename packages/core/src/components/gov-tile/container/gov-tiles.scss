@@ -1,0 +1,65 @@
+/*
+ *   Tiles
+ */
+
+$class: ".gov-tiles";
+$line-width: rem-calc(1);
+
+@mixin grid-lines($i) {
+	grid-template-columns: repeat(#{$i}, 1fr);
+	& > * {
+		border-width: $line-width $line-width $line-width 0;
+		&:nth-child(-n + #{$i + 1}) {
+			border-top-width: 0;
+		}
+		&:nth-child(#{$i}n + #{$i}) {
+			border-right-width: 0;
+		}
+	}
+}
+
+#{$class} {
+	overflow: hidden;
+	& > * {
+		margin: 0 calc($line-width * -1) calc($line-width * -1) 0;
+		border: $line-width solid $tiles-border-color;
+		border-width: 0 0 $line-width;
+		&:last-child {
+			border-bottom-width: 0;
+		}
+	}
+	&[no-border] {
+		& > * {
+			border: none;
+		}
+	}
+
+	// VARIANTS
+	@include mq($from: md) {
+		display: grid;
+		&--x2 {
+			@include grid-lines(2);
+		}
+		@include mq($until: lg) {
+			&--x3,
+			&--x4 {
+				@include grid-lines(2);
+			}
+		}
+	}
+	@include mq($from: lg) {
+		&--x3 {
+			@include grid-lines(3);
+		}
+		@include mq($until: xl) {
+			&--x4 {
+				@include grid-lines(3);
+			}
+		}
+	}
+	@include mq($from: xl) {
+		&--x4 {
+			@include grid-lines(4);
+		}
+	}
+}

@@ -1,0 +1,36 @@
+.sample-content {
+    @apply mt-8 mb-8 pt-2 pb-2;
+}
+figure {
+    @apply !mt-8 !mb-8
+}
+figcaption {
+    @apply mt-2 italic
+}
+
+ul, ol {
+    @apply !mb-6
+}
+ol {
+    @apply !list-decimal !ml-5
+}
+
+.gov-content h1 {
+    @apply text-5xl
+}
+.gov-content h2 {
+    @apply text-3xl
+}
+.gov-content h3 {
+    @apply text-2xl
+}
+.gov-content h4 {
+    @apply text-xl
+}
+.gov-content ul, .gov-content ol {
+    @apply ml-4
+}
+
+.gov-link {
+    @apply inline-flex gap-2 items-center
+}

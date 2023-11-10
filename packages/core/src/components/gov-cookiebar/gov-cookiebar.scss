@@ -1,0 +1,53 @@
+/*
+ *   Cookiebar
+ */
+
+$class: ".gov-cookiebar";
+
+#{$class} {
+	@include z-index("bar", 1);
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: $cookiebar-bg;
+	box-shadow: $cookiebar-box-shadow;
+	&__holder {
+		@include container();
+		@include space(32);
+		padding-top: rem-calc(20);
+		padding-bottom: rem-calc(20);
+	}
+	&__content {
+		@include space(12);
+		p {
+			color: $cookiebar-color;
+			letter-spacing: em-calc(0.2);
+		}
+	}
+	&__actions {
+		&,
+		&-primary,
+		&-secondary {
+			display: flex;
+			gap: rem-calc(10);
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+	}
+
+	// MQ
+	@include mq($from: md) {
+		&__holder {
+			padding-top: rem-calc(32);
+			padding-bottom: rem-calc(32);
+		}
+		&__actions {
+			&,
+			&-primary,
+			&-secondary {
+				gap: rem-calc(16);
+			}
+		}
+	}
+}

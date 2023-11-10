@@ -1,0 +1,53 @@
+/*
+ *   Radio
+ */
+
+@import "../checkbox/gov-form-checkbox-core.scss";
+$class: ".gov-form-radio";
+
+#{$class} {
+	@extend %form-checkbox-core;
+	input + span {
+		&::before {
+			border-radius: 50%;
+		}
+		&::after {
+			@include pseudo();
+			border-radius: 50%;
+			background: $form-radio-indicator-bg;
+			opacity: 0;
+			transition: $t linear opacity;
+		}
+	}
+
+	&__label {
+		position: relative;
+	}
+
+	// STATES
+	input:checked + span::after {
+		opacity: 1;
+	}
+	@include parameter("invalid") {
+		input + span::after {
+			background: $form-state-color-error;
+		}
+	}
+	@include parameter("disabled") {
+		input:checked + span::after {
+			background-color: $form-state-bg-disabled;
+		}
+	}
+
+	// VARIANTS
+	@each $size, $definitions in $form-checkbox-core-sizes {
+		&[size="#{$size}"] {
+			input + span::after {
+				top: calc((get("indicator-size", $definitions) - get("dot-size", $definitions)) / 2);
+				left: calc((get("indicator-size", $definitions) - get("dot-size", $definitions)) / 2);
+				width: get("dot-size", $definitions);
+				height: get("dot-size", $definitions);
+			}
+		}
+	}
+}

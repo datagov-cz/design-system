@@ -1,0 +1,58 @@
+/*
+ * Lists
+ */
+
+ol,
+#{$gov-class-ordered-list} {
+	margin: 0;
+
+	& > li,
+	& > #{$gov-class-ordered-list}__item {
+		margin-bottom: rem-calc(4);
+	}
+}
+
+ul,
+#{$gov-class-list} {
+	@include reset-last-margin();
+	margin: 0;
+	list-style: none;
+
+	&--plain {
+		padding-left: 0;
+
+		& > li,
+		& > #{$gov-class-list}__item {
+			margin-bottom: rem-calc(4);
+
+			&::before {
+				display: none;
+			}
+		}
+	}
+
+	&--inline {
+		& > li,
+		& > #{$gov-class-list}__item {
+			display: inline-block;
+			margin-right: rem-calc(12);
+		}
+	}
+}
+
+ul > li,
+#{$gov-class-list} > li,
+#{$gov-class-list}__item {
+	position: relative;
+	margin-bottom: rem-calc(8);
+
+	&::before {
+		@include pseudo();
+		top: rem-calc(10);
+		left: rem-calc(14) * -1;
+		width: $list-bullet-size;
+		height: $list-bullet-size;
+		border-radius: 100%;
+		background-color: color("primary");
+	}
+}

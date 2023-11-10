@@ -1,0 +1,46 @@
+@layer base {
+    .main-nav h2, .main-nav h3, .main-nav a, .main-nav p {
+        @apply !text-secondary-800
+    }
+    .main-nav .collapsed ul {
+        @apply hidden;
+    }
+    .main-nav section:not(.collapsed) .gov-icon.icon-right {
+        @apply rotate-180 transition-transform;
+    }
+    .main-nav .collapsible > div {
+        @apply py-3 px-2
+        border-b
+        border-secondary-500
+
+        hover:bg-primary-200;
+    }
+    .main-nav .has-active h2 {
+        @apply font-bold;
+    }
+    .main-nav .is-active > div a {
+        @apply bg-primary-600
+        hover:bg-primary-600
+    }
+    .main-nav .is-active > div a h3 {
+        @apply !text-neutral-white
+    }
+    .main-nav .is-active > div p, .main-nav .is-active > div a {
+        @apply !text-neutral-white;
+    }
+
+    ul ul ul li div a p {
+        @apply !font-medium
+    }
+
+    .sidebar-backdrop {
+        z-index: 100;
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        width: 100vw;
+        bottom: 0;
+        background-color: var(--gov-backdrop-bg, var(--gov-color-secondary));
+        opacity: 0;
+    }
+}

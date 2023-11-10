@@ -1,0 +1,6 @@
+gov-form-label:not(.hydrated) {
+	display: inline-block;
+	width: 100%;
+	color: $form-label-color;
+	box-sizing: border-box;
+}

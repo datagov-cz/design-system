@@ -1,0 +1,21 @@
+{
+    "scripts": {
+        "docs:dev": "npm run assets && vitepress dev",
+        "docs:build": "npm run assets && vitepress build",
+        "docs:preview": "vitepress preview",
+        "assets": "npm run assets:copy-icons && npm run assets:copy-fonts",
+        "assets:copy-icons": "copyfiles --flat ../icons/lib/basic/* ./public/assets/icons/basic && copyfiles --flat ../icons/lib/complex/* ./public/assets/icons/complex",
+        "assets:copy-fonts": "copyfiles --flat ../fonts/lib/* ./public/assets/fonts",
+        "assets:copy-readmes": "node scripts/copy-readmes.js"
+    },
+    "postcss": {
+        "plugins": {
+            "tailwindcss": {},
+            "autoprefixer": {}
+        }
+    },
+    "dependencies": {
+        "fast-glob": "^3.3.1",
+        "rimraf": "^5.0.5"
+    }
+}

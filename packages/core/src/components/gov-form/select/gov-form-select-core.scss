@@ -1,0 +1,59 @@
+/*
+ *   Select & Multiselect Shared Definitions
+ */
+
+@import "../input/gov-form-input-core.scss";
+
+%form-select-core {
+	@extend %form-input-core;
+	background: none;
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		&::-ms-expand {
+			display: none;
+		}
+	}
+
+	// VARIANTS
+	@each $size, $definitions in $form-select-sizes {
+		&[size="#{$size}"] {
+			*[slot="right-icon"] {
+				right: get("arrow-right-position", $definitions);
+				width: get("arrow-size", $definitions);
+				height: get("arrow-size", $definitions);
+			}
+			@include parameter("invalid") {
+				.icon-arrow {
+					right: calc(3 * (get("arrow-right-position", $definitions)));
+				}
+			}
+			@include parameter("success") {
+				.icon-arrow {
+					right: calc(3 * (get("arrow-right-position", $definitions)));
+				}
+			}
+		}
+	}
+
+	@each $size, $definitions in $form-input-core-sizes {
+		&[size="#{$size}"] {
+			@include parameter("invalid") {
+				*[slot="right-icon"] {
+					& ~ select,
+					& ~ input {
+						padding-right: calc(2 * (get("icon-padding", $definitions)));
+					}
+				}
+			}
+			@include parameter("success") {
+				*[slot="right-icon"] {
+					& ~ select,
+					& ~ input {
+						padding-right: calc(2 * (get("icon-padding", $definitions)));
+					}
+				}
+			}
+		}
+	}
+}

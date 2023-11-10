@@ -1,0 +1,30 @@
+/* [Core] - Buttons
+------------------------------------------------------------------ */
+
+@mixin button-expand($expand: true) {
+	@if $expand {
+		display: flex;
+		width: 100%;
+		margin-right: 0;
+		margin-left: 0;
+	} @else {
+		display: inline-flex;
+		width: auto;
+	}
+}
+
+@mixin button-core() {
+	display: inline-flex;
+	vertical-align: middle;
+	justify-content: center;
+	align-items: center;
+	border: 0;
+	background-color: transparent;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	appearance: none;
+	&:focus {
+		outline: none;
+	}
+}

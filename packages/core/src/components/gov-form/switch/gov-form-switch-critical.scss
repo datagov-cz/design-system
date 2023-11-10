@@ -1,0 +1,35 @@
+gov-form-switch:not(.hydrated) {
+	border-color: $form-switch-indicator-bg-checked;
+	background-color: $form-switch-indicator-bg-checked;
+
+	gov-form-label {
+		color: $form-switch-color;
+	}
+
+	@each $size, $definitions in $form-switch-sizes {
+		$indicator-width: calc(get("indicator-height", $definitions) * calc(5 / 3));
+		$indicator-height: get("indicator-height", $definitions);
+		$border-offset: calc(get("toggle-offset", $definitions) - rem-calc(1));
+
+		&[size="#{$size}"] {
+			display: block;
+			width: $indicator-width;
+			height: $indicator-height;
+			border-radius: calc($indicator-height * 0.5);
+			gov-form-label {
+				@include typography($size);
+				padding-top: calc(($indicator-height - (var(--gov-text-#{$size}-font-size) * 1.5)) / 2);
+				padding-left: calc(($indicator-width + get("gap", $definitions)));
+			}
+		}
+	}
+
+	@include parameter("disabled") {
+		pointer-events: none;
+		border-color: $form-state-bg-disabled;
+		background-color: $form-state-bg-disabled;
+		gov-form-label {
+			color: $form-state-color-disabled;
+		}
+	}
+}

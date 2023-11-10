@@ -1,0 +1,31 @@
+gov-nav:not(.hydrated) {
+	@include base();
+	@include typography($font-size-s);
+	background: $nav-bg;
+	font-weight: bold;
+	letter-spacing: 0.0125em;
+	text-transform: uppercase;
+
+	gov-nav-item {
+		position: relative;
+		display: block;
+		padding: rem-calc(15 48 15 36);
+		color: $nav-color;
+		text-decoration: none;
+	}
+
+	// MQ
+	@include mq($from: md) {
+		text-align: center;
+		display: flex;
+		justify-content: space-between;
+
+		gov-nav-item {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			padding: rem-calc(22 20 21);
+		}
+	}
+}

@@ -1,0 +1,6 @@
+/*
+ -  Variables - Dropdown
+ */
+
+$dropdown-bg-color: make-var("dropdown-bg-color", color("neutral.white"));
+$dropdown-box-shadow: make-var("dropdown-box-shadow", 0 rem-calc(4) rem-calc(20) rgba(0, 0, 0, 0.1));

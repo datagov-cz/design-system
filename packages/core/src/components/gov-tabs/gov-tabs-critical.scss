@@ -1,0 +1,36 @@
+gov-tabs:not(.hydrated) {
+	gov-tabs-item {
+		display: none;
+		color: $tabs-text-color;
+
+		@include parameter("default") {
+			display: block;
+			padding-top: rem-calc(20);
+			margin-top: rem-calc(40);
+		}
+	}
+
+	&:not([type="chip"]) {
+		gov-tabs-item {
+			@include parameter("default") {
+				border-top: $tabs-list-border;
+				margin-top: rem-calc(46);
+			}
+		}
+	}
+
+	@include mq($from: xl) {
+		&[orientation="vertical"] {
+			gov-tabs-item {
+				@include parameter("default") {
+					padding-top: 0;
+					margin-top: 0;
+					border-top: none;
+					padding-left: rem-calc(20);
+					margin-left: rem-calc(100);
+					border-left: $tabs-list-border;
+				}
+			}
+		}
+	}
+}

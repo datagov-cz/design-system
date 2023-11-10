@@ -1,0 +1,70 @@
+/*
+ -  Variables - Accordion
+ */
+$accordion-sizes: (
+	$size-xs: (
+		"padding-x": make-var(accordion-xs-padding-x, rem-calc(8)),
+		"padding-y": make-var(accordion-xs-padding-y, rem-calc(12)),
+		"padding-inner": make-var(accordion-xs-padding-inner, rem-calc(16 8)),
+		"min-height": make-var(accordion-xs-min-height, rem-calc(48)),
+		"headline-gap": make-var(accordion-xs-headline-gap, rem-calc(8)),
+		"icon-size": make-var(accordion-xs-icon-size, rem-calc(16)),
+		"icon-position": make-var(accordion-xs-icon-position, rem-calc(3)),
+		"arrow-position": make-var(accordion-xs-arrow-position, rem-calc(3)),
+		"font": $font-size-m,
+		"font-annotation": $font-size-s,
+	),
+	$size-s: (
+		"padding-x": make-var(accordion-s-padding-x, rem-calc(8)),
+		"padding-y": make-var(accordion-s-padding-y, rem-calc(18)),
+		"padding-inner": make-var(accordion-s-padding-inner, rem-calc(16 8)),
+		"min-height": make-var(accordion-s-min-height, rem-calc(48)),
+		"headline-gap": make-var(accordion-s-headline-gap, rem-calc(8)),
+		"icon-size": make-var(accordion-s-icon-size, rem-calc(16)),
+		"icon-position": make-var(accordion-s-icon-position, rem-calc(3)),
+		"arrow-position": make-var(accordion-s-arrow-position, rem-calc(7)),
+		"font": $font-size-xl,
+		"font-annotation": $font-size-m,
+	),
+	$size-m: (
+		"padding-x": make-var(accordion-m-padding-x, rem-calc(8)),
+		"padding-y": make-var(accordion-m-padding-y, rem-calc(20)),
+		"padding-inner": make-var(accordion-m-padding-inner, rem-calc(20 8)),
+		"min-height": make-var(accordion-m-min-height, rem-calc(72)),
+		"headline-gap": make-var(accordion-m-headline-gap, rem-calc(16)),
+		"icon-size": make-var(accordion-m-icon-size, rem-calc(24)),
+		"icon-position": make-var(accordion-m-icon-position, rem-calc(4)),
+		"arrow-position": make-var(accordion-m-arrow-position, rem-calc(4)),
+		"font": $font-size-2xl,
+		"font-annotation": $font-size-m,
+	),
+	$size-l: (
+		"padding-x": make-var(accordion-l-padding-x, rem-calc(8)),
+		"padding-y": make-var(accordion-l-padding-y, rem-calc(22)),
+		"padding-inner": make-var(accordion-l-padding-inner, rem-calc(20 8)),
+		"min-height": make-var(accordion-l-min-height, rem-calc(88)),
+		"headline-gap": make-var(accordion-l-headline-gap, rem-calc(16)),
+		"icon-size": make-var(accordion-l-icon-size, rem-calc(24)),
+		"icon-position": make-var(accordion-l-icon-position, rem-calc(5)),
+		"arrow-position": make-var(accordion-l-arrow-position, rem-calc(10)),
+		"font": $font-size-3xl,
+		"font-annotation": $font-size-m,
+	),
+);
+
+$accordion-variants: (
+	$variant-primary: (
+		"background": make-var(accordion-primary-background, transparent),
+		"separator": make-var(accordion-primary-separator, color("secondary.500")),
+		"color": make-var(accordion-primary-color, color("primary")),
+		"background-hover": make-var(accordion-primary-background-hover, color("primary.200")),
+		"disabled-color": make-var(accordion-primary-disabled-color, color("primary.400")),
+	),
+	$variant-secondary: (
+		"background": make-var(accordion-secondary-background, transparent),
+		"separator": make-var(accordion-secondary-separator, color("secondary.500")),
+		"color": make-var(accordion-secondary-color, color("secondary")),
+		"background-hover": make-var(accordion-secondary-background-hover, color("secondary.200")),
+		"disabled-color": make-var(accordion-secondary-disabled-color, color("secondary.600")),
+	),
+);

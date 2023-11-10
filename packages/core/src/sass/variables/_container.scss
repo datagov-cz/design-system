@@ -1,0 +1,7 @@
+/*
+ -  Variables - Container
+ */
+
+$container-width: make-var("container-width", rem-calc(1180));
+$container-padding: make-var("container-padding", rem-calc(40));
+$container-padding-mobile: make-var("container-padding-mobile", rem-calc(20));

@@ -1,0 +1,10 @@
+.#{$prefix}spin-animation,
+.#{$prefix}pseudo-spin-animation::before {
+	animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}

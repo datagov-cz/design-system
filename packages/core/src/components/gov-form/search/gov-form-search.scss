@@ -1,0 +1,34 @@
+/*
+ *   Search
+ */
+
+$class: ".gov-form-search";
+
+#{$class} {
+	@include base(flex);
+	@include focus-outline($border-radius, 0, true);
+	gap: rem-calc(8);
+	align-items: center;
+	border-radius: $border-radius;
+	background-color: $form-bg-color;
+	&__input {
+		flex: 1 1 auto;
+		input {
+			height: auto;
+			border-width: 0 !important;
+			&:focus-visible {
+				outline: none !important;
+			}
+		}
+	}
+	&__button {
+		flex: 0 0 auto;
+		margin: rem-calc(3) rem-calc(3) rem-calc(3) 0;
+	}
+
+	@each $variant, $definitions in $form-input-core-variants {
+		&[variant="#{$variant}"] {
+			border: get("border", $definitions);
+		}
+	}
+}

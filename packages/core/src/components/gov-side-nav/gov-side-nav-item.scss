@@ -1,0 +1,124 @@
+/*
+ *   Side nav - Item
+ */
+
+$class: ".gov-side-nav-item";
+
+#{$class} {
+	@include base();
+	&__header {
+		display: flex;
+		align-items: center;
+		border-bottom: $side-nav-border;
+	}
+	&__name {
+		@include button-core();
+		@include typography($font-size-m);
+		@include focus-outline();
+		display: flex;
+		gap: rem-calc(16);
+		flex: 1 1 auto;
+		justify-content: flex-start;
+		padding: rem-calc(12 16 12 8);
+		color: $side-nav-color;
+		text-align: left;
+		transition: background-color $t;
+		@at-root button#{&} {
+			padding-right: 0 !important;
+		}
+
+		// HOVERS
+		@include hover() {
+			background: $side-nav-hover-bg;
+		}
+	}
+	&__icon {
+		display: flex;
+		flex: 0 0 auto;
+		width: rem-calc(16);
+		height: rem-calc(16);
+		.gov-icon {
+			margin: 0;
+			color: $side-nav-color;
+		}
+	}
+	&__label {
+		color: inherit;
+	}
+	&__chip {
+		display: flex;
+		flex: 0 0 auto;
+	}
+	&__arrow {
+		@include button-core();
+		@include focus-outline();
+		flex: 0 0 auto;
+		align-self: stretch;
+		width: rem-calc(48);
+		margin-left: auto;
+		color: $side-nav-arrow-color;
+		transition: background-color $t;
+		.gov-icon {
+			width: rem-calc(12);
+			height: rem-calc(12);
+		}
+		@include hover() {
+			background: $side-nav-hover-bg;
+		}
+	}
+	&__content {
+		display: none;
+	}
+
+	// VARIANTS
+	&--w-icon &__label {
+		margin-left: rem-calc(32);
+	}
+	&--w-icon &__icon + &__label {
+		margin-left: 0;
+	}
+	// nested styles
+	& & {
+		#{$class} {
+			&__header {
+				border: none !important;
+			}
+			&__name {
+				@include typography($font-size-s);
+				padding: rem-calc(10 8);
+				font-weight: bold;
+			}
+		}
+		@include parameter("aria-expanded") {
+			background: $side-nav-bg-level-2;
+			@include parameter("inverse") {
+				background: $side-nav-bg-level-2-inverse;
+			}
+		}
+	}
+	& & & {
+		#{$class} {
+			&__name {
+				gap: rem-calc(12);
+				font-weight: inherit;
+			}
+		}
+	}
+	@include parameter("compact") {
+		#{$class} {
+			&__header {
+				border-bottom: none;
+			}
+		}
+	}
+
+	// STATES
+	@include parameter("aria-expanded") {
+		& > #{$class}__header #{$class}__arrow .gov-icon {
+			transform: scale(-1);
+		}
+		& > #{$class}__content {
+			display: block;
+		}
+	}
+}

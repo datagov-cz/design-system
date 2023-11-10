@@ -1,0 +1,6 @@
+/*
+ -	Variables - Form file
+ */
+
+$form-file-border: make-var("form-file-border", rem-calc(1) dashed color("secondary.500"));
+$form-file-disabled-color: make-var("form-file-disabled-color", color("secondary.600"));

@@ -1,0 +1,31 @@
+.#{$prefix}hide {
+	display: none;
+}
+
+.#{$prefix}hide--sm {
+	@include mq($until: sm) {
+		display: none;
+		visibility: hidden;
+	}
+}
+
+.#{$prefix}hide--md {
+	@include mq($until: md) {
+		display: none;
+		visibility: hidden;
+	}
+}
+
+.#{$prefix}hide--lg {
+	@include mq($until: lg) {
+		display: none;
+		visibility: hidden;
+	}
+}
+
+.#{$prefix}hide--xl {
+	@include mq($until: xl) {
+		display: none;
+		visibility: hidden;
+	}
+}

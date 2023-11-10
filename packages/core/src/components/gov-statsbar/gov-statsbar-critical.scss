@@ -1,0 +1,77 @@
+gov-statsbar:not(.hydrated) {
+	@include base();
+	@include container();
+
+	@each $variant, $definitions in $statsbar-variants {
+		&[variant="#{$variant}"] {
+			background-color: #{get("bg-color", $definitions)};
+			color: #{get("text-color", $definitions)};
+
+			@include parameter("inverse") {
+				background: color("neutral.white");
+				color: #{get("text-color-inverse", $definitions)};
+			}
+		}
+	}
+
+	gov-statsbar-item {
+		position: relative;
+		display: block;
+		padding: rem-calc(20);
+		gov-icon {
+			display: block;
+			margin-bottom: rem-calc(16);
+			width: rem-calc(32);
+			height: rem-calc(32);
+		}
+		slot {
+			@include typography($font-size-5xl);
+			margin-bottom: rem-calc(16);
+		}
+		p {
+			@include reset-last-margin();
+			letter-spacing: em-calc(0.2);
+		}
+
+		&[icon-position="left"] {
+			padding-left: rem-calc(48);
+
+			gov-icon {
+				position: absolute;
+				top: rem-calc(24);
+				left: 0;
+			}
+		}
+
+		// MQ
+		@include mq($from: sm) {
+			flex: 1 0 50%;
+			max-width: 50%;
+		}
+		@include mq($from: md) {
+			padding: rem-calc(40);
+			gov-icon {
+				width: rem-calc(48);
+				height: rem-calc(48);
+			}
+
+			&[icon-position="left"] {
+				padding-left: rem-calc(64);
+				gov-icon {
+					top: rem-calc(44);
+				}
+			}
+		}
+		@include mq($from: lg) {
+			flex-basis: auto;
+			max-width: 25%;
+		}
+	}
+
+	// MQ
+	@include mq($from: sm) {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}

@@ -1,0 +1,31 @@
+/*
+ *   Alert
+ */
+
+@import "../gov-toast/gov-toast-message-core.scss";
+$class: ".gov-message";
+
+#{$class} {
+	@include toast-message-core;
+
+	// VARIANTS
+	@include parameter("shadow") {
+		box-shadow: $message-box-shadow;
+	}
+	@each $variant, $definitions in $message-variants {
+		&[variant="#{$variant}"] {
+			border-left-color: get("color", $definitions);
+			background: get("bg-color", $definitions);
+			#{$class} {
+				&__icon {
+					color: get("color", $definitions);
+				}
+			}
+
+			// STATES
+			@include parameter("inverse") {
+				background: $message-bg-inverse;
+			}
+		}
+	}
+}

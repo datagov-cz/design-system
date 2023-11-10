@@ -1,0 +1,33 @@
+gov-error-code:not(.hydrated) {
+	@include base();
+	margin: 0 auto;
+	text-align: center;
+
+	gov-icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: rem-calc(150);
+		height: rem-calc(150);
+		margin: 0 auto rem-calc(24);
+		border-radius: 50%;
+		background: $error-icon-circle-bg;
+		color: $error-icon-color;
+		& > * {
+			width: rem-calc(114);
+			height: rem-calc(114);
+		}
+	}
+
+	@include mq($from: md) {
+		gov-icon {
+			width: rem-calc(200);
+			height: rem-calc(200);
+			margin: 0 auto rem-calc(32);
+			& > * {
+				width: rem-calc(152);
+				height: rem-calc(152);
+			}
+		}
+	}
+}

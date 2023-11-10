@@ -1,0 +1,18 @@
+gov-empty:not(.hydrated) {
+	@include base();
+	gov-icon {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: rem-calc(96);
+		height: rem-calc(96);
+		margin-bottom: calc(rem-calc(96) / 3);
+		border-radius: 50%;
+		background: $empty-icon-circle-bg;
+		color: $empty-icon-color;
+		& > * {
+			width: rem-calc(56);
+			height: rem-calc(56);
+		}
+	}
+}

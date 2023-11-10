@@ -1,0 +1,32 @@
+{
+    "name" : "@gov-design-system-ce/vue",
+    "version" : "0.0.37",
+    "author" : "Zdeněk Vítek",
+    "license" : "EUPL v1.2 Licensed",
+    "sideEffects" : false,
+    "main" : "./dist/index.js",
+    "types" : "./dist/index.d.ts",
+    "directories" : {
+        "lib" : "lib"
+    },
+    "files" : [
+        "lib",
+        "dist"
+    ],
+    "scripts" : {
+        "build" : "npm run tsc",
+        "tsc" : "tsc -p ."
+    },
+    "publishConfig" : {
+        "access" : "public"
+    },
+    "dependencies" : {
+        "@gov-design-system-ce/components" : "0.0.70"
+    },
+    "postcss" : {
+        "plugins" : {
+            "tailwindcss" : { },
+            "autoprefixer" : { }
+        }
+    }
+}

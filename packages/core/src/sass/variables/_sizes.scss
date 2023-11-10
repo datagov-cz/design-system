@@ -1,0 +1,28 @@
+/*
+ -  Variables - Sizes
+ */
+/* "Constants" for general usage */
+
+$size-unset: "unset";
+$size-2xs: "2xs";
+$size-xs: "xs";
+$size-s: "s";
+$size-m: "m";
+$size-l: "l";
+$size-xl: "xl";
+$size-2xl: "2xl";
+$size-3xl: "3xl";
+$size-4xl: "4xl";
+
+$sizes: (
+	$size-unset: 0,
+	$size-2xs: rem-calc(4),
+	$size-xs: rem-calc(8),
+	$size-s: rem-calc(12),
+	$size-m: rem-calc(16),
+	$size-l: rem-calc(20),
+	$size-xl: rem-calc(28),
+	$size-2xl: rem-calc(32),
+	$size-3xl: rem-calc(48),
+	$size-4xl: rem-calc(72),
+);

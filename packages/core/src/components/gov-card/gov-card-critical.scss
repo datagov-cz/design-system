@@ -1,0 +1,70 @@
+gov-card:not(.hydrated) {
+	@include base(flex);
+	flex-direction: column;
+	border: $card-border;
+	border-radius: $border-radius;
+	background: $card-bg;
+	overflow: hidden;
+
+	p {
+		display: block;
+		padding: rem-calc(24);
+		margin-bottom: 0;
+	}
+	gov-button {
+		padding-left: rem-calc(24);
+		padding-bottom: rem-calc(24);
+	}
+	img {
+		width: 100%;
+		height: auto;
+		margin: 0;
+		line-height: 1;
+	}
+	gov-icon {
+		flex: 0 0 auto;
+		width: rem-calc(40);
+		height: rem-calc(40);
+		color: $card-icon-color;
+		margin-top: rem-calc(24);
+		margin-left: rem-calc(24);
+	}
+
+	*[slot="footer"] {
+		padding: rem-calc(16 24);
+		background: $card-footer-bg;
+		@include typography($font-size-s);
+	}
+
+	@include parameter("collapsible") {
+		p, gov-button {
+			display: none;
+		}
+
+		@include parameter("expanded") {
+			p, gov-button {
+				display: block;
+			}
+		}
+	}
+
+	@include mq($from: sm) {
+		@include parameter("promotion") {
+			flex-direction: row;
+			padding: rem-calc(32);
+			p {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+			gov-icon {
+				width: rem-calc(48);
+				height: rem-calc(48);
+				margin: 0;
+			}
+			gov-button {
+				flex-direction: column;
+				padding: 0;
+			}
+		}
+	}
+}

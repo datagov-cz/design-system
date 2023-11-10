@@ -1,0 +1,30 @@
+/*
+ -  Variables - Message
+ */
+
+$message-bg-inverse: make-var(message-bg-inverse, color("neutral.white"));
+$message-box-shadow: make-var(message-box-shadow, 0 rem-calc(4) rem-calc(20) rgba(0, 0, 0, 0.1));
+$message-box-min-height: make-var(message-box-min-height, rem-calc(48));
+
+$message-variants: (
+	$variant-warning: (
+		"color": make-var(message-warning-color, color("warning")),
+		"bg-color": make-var(message-warning-bg-color, color("warning.100")),
+	),
+	$variant-error: (
+		"color": make-var(message-error-color, color("error")),
+		"bg-color": make-var(message-error-bg-color, color("error.100")),
+	),
+	$variant-secondary: (
+		"color": make-var(message-secondary-color, color("secondary")),
+		"bg-color": make-var(message-secondary-bg-color, color("secondary.200")),
+	),
+	$variant-success: (
+		"color": make-var(message-success-color, color("success")),
+		"bg-color": make-var(message-success-bg-color, color("success.100")),
+	),
+	$variant-primary: (
+		"color": make-var(message-primary-color, color("primary")),
+		"bg-color": make-var(message-primary-bg-color, color("primary.100")),
+	),
+);

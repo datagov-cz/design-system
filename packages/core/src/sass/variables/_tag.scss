@@ -1,0 +1,15 @@
+/*
+ -  Variables - Tag
+ */
+
+$tag-gap: make-var("tag-gap", rem-calc(8));
+$tag-radius: make-var("tag-radius", rem-calc(4));
+
+$tag-variants: (
+	$variant-warning: (
+		solid: (
+			bg: make-var(button-warning-solid-bg, color("warning.400")),
+			color: make-var(button-warning-solid-color, color("neutral.black")),
+		)
+	),
+);

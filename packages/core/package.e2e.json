@@ -1,0 +1,16 @@
+{
+  "name": "core",
+  "version": "1",
+  "main": "../../dist/packages/core/dist/index.cjs.js",
+  "module": "../../dist/packages/core/dist/index.js",
+  "es2015": "../../dist/packages/core/dist/esm/index.mjs",
+  "es2017": "../../dist/packages/core/dist/esm/index.mjs",
+  "types": "../../dist/packages/core/dist/types/index.d.ts",
+  "collection": "../../dist/packages/core/dist/collection/collection-manifest.json",
+  "collection:main": "../../dist/packages/core/dist/collection/index.js",
+  "unpkg": "../../dist/packages/core/dist/core/core.js",
+  "files": [
+    "../../dist/packages/core/dist/",
+    "../../dist/packages/core/loader/"
+  ]
+}

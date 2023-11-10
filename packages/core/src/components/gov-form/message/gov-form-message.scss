@@ -1,0 +1,28 @@
+/*
+ *   Form Message
+ */
+
+$class: ".gov-form-message";
+$font-size: $font-size-s;
+
+#{$class} {
+	@include typography($font-size);
+	display: flex;
+	gap: rem-calc(8);
+	margin: rem-calc(0 0 16);
+	&__icon {
+		position: relative;
+		top: calc(var(--gov-text-#{$font-size}-font-size) / 6);
+		display: flex;
+		& > * {
+			width: calc(var(--gov-text-#{$font-size}-font-size) * 1.167);
+			height: calc(var(--gov-text-#{$font-size}-font-size) * 1.167);
+		}
+	}
+
+	@each $variant, $definitions in $form-message-variants {
+		&[variant="#{$variant}"] {
+			color: get("color", $definitions);
+		}
+	}
+}

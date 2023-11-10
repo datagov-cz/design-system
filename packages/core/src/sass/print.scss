@@ -1,0 +1,5 @@
+@import "core";
+
+@media print {
+	@import "../components/gov-form/checkbox/gov-form-checkbox-print";
+}

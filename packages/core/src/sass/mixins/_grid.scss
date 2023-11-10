@@ -1,0 +1,21 @@
+@use "sass:map";
+
+$breakpoints: map-remove($mq-breakpoints, "none");
+$gridColumns: 12;
+
+@mixin generateGridSize($breakpoints: $breakpoints, $columns: $gridColumns) {
+	@for $column from 1 to ($columns + 1) {
+		@at-root #{&}[size="#{$column}/#{$columns}"] {
+			width: percentage(calc($column / $columns));
+		}
+	}
+	@each $breakpoint, $value in $breakpoints {
+		@include mq($from: $breakpoint) {
+			@for $column from 1 to ($columns + 1) {
+				@at-root #{&}[size-#{$breakpoint}="#{$column}/#{$columns}"] {
+					width: percentage(calc($column / $columns));
+				}
+			}
+		}
+	}
+}

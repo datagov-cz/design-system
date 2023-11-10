@@ -1,0 +1,31 @@
+{
+	"name": "styles",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "packages/styles",
+	"projectType": "library",
+	"generators": {},
+	"tags": [],
+	"targets": {
+		"build": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "npm run build",
+				"cwd": "packages/styles"
+			}
+		},
+        "serve": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npm run build",
+                "cwd": "packages/styles"
+            }
+        },
+        "watch": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npm run watch",
+                "cwd": "packages/styles"
+            }
+        }
+	}
+}

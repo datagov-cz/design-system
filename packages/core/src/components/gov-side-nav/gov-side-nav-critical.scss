@@ -1,0 +1,30 @@
+gov-side-nav:not(.hydrated) {
+	@include base();
+
+	gov-side-nav-item {
+		display: flex;
+		border-bottom: $side-nav-border;
+		@include typography($font-size-m);
+		padding: rem-calc(12 16 12 8);
+		min-height: rem-calc(48);
+
+		gov-icon {
+			display: flex;
+			flex: 0 0 auto;
+			width: rem-calc(16);
+			height: rem-calc(16);
+			margin: 0;
+			color: $side-nav-color;
+		}
+
+		gov-side-nav-item {
+			display: none;
+		}
+	}
+
+	@include parameter("compact") {
+		gov-side-nav-item {
+			border-bottom: none;
+		}
+	}
+}

@@ -1,0 +1,8 @@
+@mixin space($value: 0) {
+	> * {
+		margin-bottom: 0;
+	}
+	> * + * {
+		margin-top: rem-calc($value);
+	}
+}

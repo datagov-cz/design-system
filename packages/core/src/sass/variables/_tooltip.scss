@@ -1,0 +1,60 @@
+/*
+ -  Variables - Tooltip
+ */
+
+$tooltip-content-bg-color: make-var("tooltip-content-bg-color", color("primary.300"));
+$tooltip-content-text-color: make-var("tooltip-content-text-color", color("secondary"));
+$tooltip-content-max-width: make-var("tooltip-content-max-width", rem-calc(336));
+
+$tooltip-content-positions: (
+	"top": (
+		"oppositeProperty": "bottom",
+		"directionProperty": "left",
+		"transformFn": "translateX",
+	),
+	"bottom": (
+		"oppositeProperty": "top",
+		"directionProperty": "left",
+		"transformFn": "translateX",
+	),
+	"left": (
+		"oppositeProperty": "right",
+		"directionProperty": "top",
+		"transformFn": "translateY",
+	),
+	"right": (
+		"oppositeProperty": "left",
+		"directionProperty": "top",
+		"transformFn": "translateY",
+	),
+);
+
+$tooltip-content-sizes: (
+	$size-s: (
+		"typography": $font-size-s,
+		"arrow-size": make-var(tooltip-s-arrow-size, rem-calc(7)),
+		"padding": make-var(tooltip-s-padding, rem-calc(8)),
+		"letter-spacing": make-var(tooltip-s-letter-spacing, rem-calc(0.2)),
+		"persist-space": make-var(tooltip-s-persist-space, rem-calc(48))
+	),
+	$size-l: (
+		"typography": $font-size-xl,
+		"arrow-size": make-var(tooltip-l-arrow-size, rem-calc(14)),
+		"padding": make-var(tooltip-l-padding, rem-calc(16)),
+		"letter-spacing": make-var(tooltip-l-letter-spacing, rem-calc(0.032)),
+        "persist-space": make-var(tooltip-s-persist-space, rem-calc(64))
+	),
+);
+
+$tooltip-content-variants: (
+	$variant-secondary: (
+		"bg-color": make-var(tooltip-secondary-bg-color, color("secondary")),
+		"text-color": make-var(tooltip-secondary-text-color, color("neutral.white")),
+		"text-color-inverse": make-var(tooltip-secondary-text-color-inverse, color("secondary")),
+	),
+	$variant-primary: (
+		"bg-color": make-var(tooltip-primary-bg-color, color("primary.300")),
+		"text-color": make-var(tooltip-primary-text-color, color("secondary")),
+		"text-color-inverse": make-var(tooltip-primary-text-color-inverse, color("primary")),
+	),
+);

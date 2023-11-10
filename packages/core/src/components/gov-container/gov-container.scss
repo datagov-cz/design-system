@@ -1,0 +1,9 @@
+/*
+ *   Container
+ */
+
+$class: ".gov-container";
+
+#{$class} {
+	@include container();
+}

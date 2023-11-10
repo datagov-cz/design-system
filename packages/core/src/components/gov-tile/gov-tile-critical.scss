@@ -1,0 +1,26 @@
+gov-tile:not(.hydrated) {
+	@include base();
+	padding: rem-calc(12);
+
+	& [slot="title"] {
+		@include typography($font-size-xl);
+		color: $tile-main-color;
+		margin: 0 0 rem-calc(8) 0;
+	}
+
+	gov-icon {
+		display: block;
+		color: $tile-main-color;
+		width: rem-calc(40);
+		height: rem-calc(40);
+		margin-bottom: rem-calc(24);
+	}
+
+	@include mq($from: md) {
+		padding: rem-calc(24);
+		gov-icon {
+			width: rem-calc(48);
+			height: rem-calc(48);
+		}
+	}
+}

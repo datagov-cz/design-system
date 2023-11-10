@@ -1,0 +1,62 @@
+gov-tag:not(.hydrated) {
+	@include general();
+	padding: rem-calc(4 8);
+	display: inline-flex;
+	align-items: center;
+	border: $button-border-width solid transparent;
+	letter-spacing: initial;
+	gov-icon:not(.hydrated) {
+		flex: 0 0 auto;
+		color: inherit;
+	}
+	gov-button:not(.hydrated) {
+		border: none;
+	}
+	@each $variant, $types in $button-variants {
+		@each $type, $definitions in $types {
+			&[type="#{$type}"][variant="#{$variant}"] {
+				background-color: deep-map-get($button-variants, $variant, $type, "bg");
+				color: deep-map-get($button-variants, $variant, $type, "color");
+				@if deep-map-get($button-variants, $variant, $type, "border") {
+					border-color: deep-map-get($button-variants, $variant, $type, "border");
+				} @else {
+					border-width: 0;
+				}
+			}
+		}
+	}
+	@each $variant, $types in $tag-variants {
+		@each $type, $definitions in $types {
+			&[type="#{$type}"][variant="#{$variant}"] {
+				background-color: deep-map-get($tag-variants, $variant, $type, "bg");
+				color: deep-map-get($tag-variants, $variant, $type, "color");
+			}
+		}
+	}
+	@each $size, $definitions in $button-sizes {
+		&[size="#{$size}"] {
+			@include typography($size, false, button);
+			min-height: map-get($definitions, "min-height");
+			gov-icon:not(.hydrated) {
+				width: map-get($definitions, "icon-size");
+				height: map-get($definitions, "icon-size");
+			}
+		}
+	}
+	@each $size, $definitions in $button-sizes {
+		&[size="#{$size}"] {
+			border-radius: $tag-radius;
+			column-gap: $tag-gap;
+		}
+	}
+	@each $variant, $types in $chip-inverse-variants {
+		&[type="solid"][variant="#{$variant}"] {
+			@include parameter("inverse") {
+				border-width: rem-calc(1);
+				border-color: deep-map-get($chip-inverse-variants, $variant, "border-color");
+				background-color: deep-map-get($chip-inverse-variants, $variant, "bg");
+				color: deep-map-get($chip-inverse-variants, $variant, "color");
+			}
+		}
+	}
+}

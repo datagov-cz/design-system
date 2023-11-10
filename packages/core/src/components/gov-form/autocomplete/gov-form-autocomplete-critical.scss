@@ -1,0 +1,33 @@
+gov-form-autocomplete:not(.hydrated) {
+	@include base(flex);
+	align-items: center;
+	justify-content: flex-end;
+	position: relative;
+	width: 100%;
+	border-radius: $border-radius;
+	background-color: $form-bg-color;
+	font-family: $font-family-primary;
+
+	// VARIANTS
+	@each $size, $definitions in $form-input-core-sizes {
+		&[size="#{$size}"] {
+			@include typography(get("font", $definitions));
+			height: get("height", $definitions);
+			padding: get("padding", $definitions);
+		}
+	}
+
+	@each $variant, $definitions in $form-input-core-variants {
+		&[variant="#{$variant}"] {
+			color: get("color", $definitions);
+			border: get("border", $definitions);
+		}
+	}
+
+	@include parameter("disabled") {
+		pointer-events: none;
+		border-color: $form-state-color-disabled;
+		background: $form-state-bg-input-disabled;
+		color: $form-state-color-disabled;
+	}
+}

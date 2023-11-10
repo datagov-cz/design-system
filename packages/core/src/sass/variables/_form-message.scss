@@ -1,0 +1,18 @@
+/*
+ -  Variables - Form Message
+ */
+
+$form-message-variants: (
+	$variant-error: (
+		"color": make-var(form-message-error-color, color("error.400")),
+	),
+	$variant-secondary: (
+		"color": make-var(form-message-secondary-color, color("secondary.700")),
+	),
+	$variant-warning: (
+		"color": make-var(form-message-warning-color, color("warning.500")),
+	),
+	$variant-success: (
+		"color": make-var(form-message-success-color, color("success.500")),
+	),
+);

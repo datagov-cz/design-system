@@ -1,0 +1,30 @@
+/*
+ *   Toast Message & Message Shared Definitions
+ */
+
+@mixin toast-message-core {
+	position: relative;
+	display: flex;
+	gap: rem-calc(16);
+	flex-direction: column;
+	padding: rem-calc(12 16);
+	border-left: rem-calc(4) solid transparent;
+	background: $toast-message-bg;
+	&__icon {
+		flex: 0 0 rem-calc(20);
+		width: rem-calc(20);
+		height: rem-calc(20);
+	}
+	&__content {
+		@include reset-last-margin();
+		flex: 1 1 auto;
+		p {
+			@include typography($font-size-m);
+		}
+	}
+
+	// MQ
+	@include mq($from: sm) {
+		flex-direction: row;
+	}
+}

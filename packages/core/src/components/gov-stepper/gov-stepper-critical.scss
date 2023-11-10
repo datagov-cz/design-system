@@ -1,0 +1,54 @@
+gov-stepper-test:not(.hydrated) {
+	@include base();
+
+	gov-stepper-item-test {
+		@include base();
+
+		gov-icon, span {
+			display: flex;
+			flex: 0 0 auto;
+			align-items: center;
+			border-radius: 50%;
+			width: 32px;
+			height: 32px;
+		}
+
+		span {
+			justify-content: center;
+		}
+
+		@each $size, $definitions in $stepper-sizes {
+			$connect-gap: get("connect-gap", $definitions);
+			&[size="#{$size}"] {
+				min-height: calc(get("indicator-size", $definitions) + 3 * $connect-gap);
+				&:last-child {
+					min-height: 0;
+				}
+				gov-icon {
+					@include typography(get("font-size-indicator", $definitions));
+					width: calc(get("indicator-size", $definitions) * 0.5);
+					height: calc(get("indicator-size", $definitions) * 0.5);
+					box-shadow: 0 0 0 $connect-gap color("neutral.white");
+				}
+				span {
+					@include typography(get("font-size-indicator", $definitions));
+					width: get("indicator-size", $definitions);
+					height: get("indicator-size", $definitions);
+					box-shadow: 0 0 0 $connect-gap color("neutral.white");
+				}
+				div {
+					padding: get("content-padding", $definitions);
+				}
+			}
+		}
+
+		@each $variant, $definitions in $wizard-core-variants {
+			&[variant="#{$variant}"] {
+				gov-icon, span {
+					background: get("indicator-bg", $definitions);
+					color: get("indicator-color", $definitions);
+				}
+			}
+		}
+	}
+}

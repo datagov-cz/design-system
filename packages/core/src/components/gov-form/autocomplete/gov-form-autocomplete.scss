@@ -1,0 +1,52 @@
+$class: ".gov-form-autocomplete";
+
+#{$class} {
+	@include base();
+	&__list {
+		@include typography($font-size-s);
+		@extend %reset-ul;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		left: 0;
+		z-index: 5;
+		max-height: rem-calc(225);
+		margin-top: rem-calc(8);
+		border: $form-autocomplete-border;
+		border-radius: $border-radius;
+		background: $form-autocomplete-bg;
+		overflow-x: hidden;
+		overflow-y: auto;
+		overscroll-behavior: none;
+	}
+	&__list > &__item {
+		@extend %reset-ul-li;
+		padding: rem-calc(12 8);
+		cursor: pointer;
+	}
+	&__item {
+		&--empty,
+		&--loading {
+			padding: rem-calc(12 8);
+			color: $form-autocomplete-item-disable-color;
+			& .gov-icon {
+				height: 12px;
+			}
+		}
+	}
+
+	// STATES
+	&__list:empty {
+		display: none;
+	}
+
+	// HOVERS
+	&__item {
+		@include parameter("aria-selected") {
+			background: $form-autocomplete-item-select-bg;
+		}
+		@include hover() {
+			background: $form-autocomplete-item-hover-bg;
+		}
+	}
+}

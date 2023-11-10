@@ -1,0 +1,20 @@
+/*
+ *   Input
+ */
+
+@import "../input/gov-form-input-core.scss";
+$class: ".gov-form-input";
+
+#{$class} {
+	@extend %form-input-core;
+
+	// VARIANTS
+	&[type="reset"] {
+		input {
+			border-width: 0;
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}

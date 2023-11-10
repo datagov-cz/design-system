@@ -1,0 +1,135 @@
+/*
+ *   Alert
+ */
+
+$class: ".gov-card";
+
+#{$class} {
+	@include base(flex);
+	flex-direction: column;
+	border: $card-border;
+	border-radius: $border-radius;
+	background: $card-bg;
+	overflow: hidden;
+	&__header {
+		gap: rem-calc(28);
+		width: 100%;
+		padding: rem-calc(24);
+		border-bottom: $card-border;
+		border-radius: 0;
+		text-align: left;
+		text-transform: none;
+		transition: background-color $t ease-in-out;
+	}
+	&__arrow {
+		flex: 0 0 auto;
+		width: rem-calc(16);
+		height: rem-calc(16);
+		color: $card-arrow-color;
+	}
+	&__title {
+		@include general;
+		@include typography($font-size-xl);
+		color: $card-title-color;
+		font-weight: 700;
+	}
+	&__img {
+		width: 100%;
+		margin: 0;
+		line-height: 1;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	&__inner {
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		@include parameter("aria-hidden") {
+			display: none;
+		}
+	}
+	&__main {
+		display: flex;
+		gap: 16px 24px;
+		flex: 1 1 auto;
+		flex-direction: column;
+		padding: rem-calc(24);
+	}
+	&__icon {
+		flex: 0 0 auto;
+		width: rem-calc(40);
+		height: rem-calc(40);
+		color: $card-icon-color;
+	}
+	&__btns {
+		display: flex;
+		gap: rem-calc(16);
+		flex: 0 0 auto;
+		flex-wrap: wrap;
+	}
+	&__content {
+		@include reset-last-margin();
+	}
+	&__footer {
+		@include reset-last-margin();
+		padding: rem-calc(16 24);
+		background: $card-footer-bg;
+		p {
+			@include typography($font-size-s);
+		}
+	}
+
+	// STATES
+	@include parameter("is-expanded") {
+		height: 100%;
+	}
+
+	// VARIANTS
+	@include parameter("collapsible") {
+		#{$class} {
+			&__header {
+				@include button-core();
+				@include focus-outline($border-radius, rem-calc(-2));
+				justify-content: space-between;
+				text-align: left;
+				@include hover() {
+					background: $card-header-hover-bg;
+				}
+			}
+		}
+
+		// STATES
+		@include parameter("is-expanded") {
+			#{$class} {
+				&__header {
+					border-bottom: $card-border;
+				}
+				&__arrow {
+					transform: scale(-1);
+				}
+			}
+		}
+	}
+
+	// MQ
+	@include mq($from: sm) {
+		// VARIANTS
+		@include parameter("promotion") {
+			#{$class} {
+				&__main {
+					flex-direction: row;
+					padding: rem-calc(32);
+				}
+				&__icon {
+					width: rem-calc(48);
+					height: rem-calc(48);
+				}
+				&__btns {
+					flex-direction: column;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+/*
+ *   Control group
+ */
+
+$class: ".gov-control-group";
+
+#{$class} {
+	@include base(flex);
+	align-items: center;
+	border-radius: $control-group-border-radius;
+	.element *,
+	.gov-button .element {
+		border: none !important;
+		border-radius: 0;
+	}
+
+	// VARIANTS
+	@each $variant, $definitions in $control-group-variants {
+		&[variant="#{$variant}"] {
+			border: get("border", $definitions);
+			> * {
+				border-right: get("border", $definitions);
+			}
+		}
+	}
+
+	> * {
+		&:last-child {
+			border-right: none;
+		}
+	}
+	&.no-border {
+		> * {
+			border-right: none;
+		}
+	}
+}
+

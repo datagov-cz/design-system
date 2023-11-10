@@ -1,0 +1,39 @@
+@use "sass:color";
+
+:root,
+:host {
+	// USED single RGB variables (those can be used in rgba functions)
+	// --#{$prefix}color-secondary-800-rgb: #{color.red(color-val("secondary.800"))}, #{color.green(color-val("secondary.800"))},
+	// 	#{color.blue(color-val("secondary.800"))};
+	// --#{$prefix}color-secondary-400-rgb: #{color.red(color-val("secondary.400"))}, #{color.green(color-val("secondary.400"))},
+	// 	#{color.blue(color-val("secondary.400"))};
+
+	// Generate theme-colors variables
+	@each $name, $value in $theme-colors {
+		--#{$prefix}color-#{$name}: #{$value};
+	}
+
+	// Generate palette-colors variables
+	@each $theme, $shades in $palette-colors {
+		@each $shade, $value in $shades {
+			--#{$prefix}color-#{$theme}-#{$shade}-rgb: #{color.red($value)}, #{color.green($value)}, #{color.blue($value)}; // RGB variables, which can be used in rgba functions
+			--#{$prefix}color-#{$theme}-#{$shade}: #{$value};
+		}
+	}
+
+	// Generate text variables
+	@each $viewport, $options in $font-sizes {
+		@media (min-width: #{map-get($font-viewport-breakpoints, $viewport)}) {
+			@each $fontName, $properties in map-get($options, "texts") {
+				@each $property, $value in $properties {
+					--#{$prefix}text-#{$fontName}-#{$property}: #{$value};
+				}
+			}
+		}
+	}
+
+	// Generate shadows variables
+	@each $name, $value in $shadows {
+		--#{$prefix}box-shadow-#{$name}: #{$value};
+	}
+}

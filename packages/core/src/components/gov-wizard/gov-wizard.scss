@@ -1,0 +1,10 @@
+/*
+ *   Wizard
+ */
+
+$class: ".gov-wizard";
+
+#{$class} {
+	@include base();
+	@include reset-last-margin();
+}

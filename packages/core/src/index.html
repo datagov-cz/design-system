@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="cs">
+	<head>
+		<script>
+					window.GOV_DS_CONFIG = {
+						canValidateWcagOnRender: true,
+						// iconsPath: `${window.location.origin}/build/assets/icons`
+					    iconsPath: './assets/icons'
+					}
+		</script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+		<title>Design System | Stencil</title>
+		<link rel="stylesheet" href="/build/core.css">
+		<script type="module" src="/build/core.esm.js"></script>
+		<script nomodule src="/build/core.js"></script>
+		<script src="https://kit.fontawesome.com/947c68eb6a.js" crossorigin="anonymous"></script>
+		<style>
+            .nav-top {
+	            margin-bottom: 4rem;
+            }
+            .nav-top::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+            .nav-top li {
+	            display: inline-block;
+	            padding: 0 1rem;
+            }
+		</style>
+	</head>
+	<body>
+		<gov-app></gov-app>
+		<ul class="gov-list--plain nav-top">
+			<li><a href="/">Home</a></li>
+			<li><a href="/accordion">Accordion</a></li>
+			<li><a href="/infobar">Infobar</a></li>
+			<li><a href="/chip">Chip</a></li>
+			<li><a href="/breadcrumbs">Breadcrumbs</a></li>
+			<li><a href="/button">Button</a></li>
+			<li><a href="/card">Card</a></li>
+			<li><a href="/cookiebar">Cookiebar</a></li>
+			<li><a href="/container">Container</a></li>
+			<li><a href="/control-group">Control group</a></li>
+			<li><a href="/empty">Empty</a></li>
+			<li><a href="/error">Error</a></li>
+			<li><a href="/forms">Forms</a></li>
+			<li><a href="/grid">Grid</a></li>
+			<li><a href="/layout">Layout</a></li>
+			<li><a href="/loading">Loading</a></li>
+			<li><a href="/message">Message</a></li>
+			<li><a href="/modal">Modal</a></li>
+			<li><a href="/nav">Nav</a></li>
+			<li><a href="/pagination">Pagination</a></li>
+			<li><a href="/prompt">Prompt</a></li>
+			<li><a href="/spacer">Spacer</a></li>
+			<li><a href="/side-nav">Side nav</a></li>
+			<li><a href="/statsbar">Statsbar</a></li>
+			<li><a href="/stepper">Stepper</a></li>
+			<li><a href="/tabs">Tabs</a></li>
+			<li><a href="/tag">Tag</a></li>
+			<li><a href="/tiles">Tiles</a></li>
+			<li><a href="/toast-message">Toast Message</a></li>
+			<li><a href="/toast-message-countdown">Toast Message - countdown</a></li>
+			<li><a href="/tooltip">Tooltip</a></li>
+			<li><a href="/typography">Typography</a></li>
+			<li><a href="/wizard">Wizard</a></li>
+		</ul>
+		<div id="outlet"></div>
+	</body>
+</html>

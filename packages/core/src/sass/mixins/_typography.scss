@@ -1,0 +1,18 @@
+@mixin typography($size, $only-spacing: false, $component: null) {
+	@if $only-spacing {
+		margin-bottom: var(--#{$prefix}text-#{$size}-margin-bottom);
+		margin-top: var(--#{$prefix}text-#{$size}-margin-top);
+	} @else {
+		@if $component {
+			font-weight: var(--#{$prefix}#{$component}-text-#{$size}-font-weight, var(--#{$prefix}text-#{$size}-font-weight));
+			font-size: var(--#{$prefix}#{$component}-text-#{$size}-font-size, var(--#{$prefix}text-#{$size}-font-size));
+			line-height: var(--#{$prefix}#{$component}-text-#{$size}-line-height, var(--#{$prefix}text-#{$size}-line-height));
+			letter-spacing: var(--#{$prefix}#{$component}-text-#{$size}-letter-spacing, var(--#{$prefix}text-#{$size}-letter-spacing));
+		} @else {
+			font-weight: var(--#{$prefix}text-#{$size}-font-weight);
+			font-size: var(--#{$prefix}text-#{$size}-font-size);
+			line-height: var(--#{$prefix}text-#{$size}-line-height);
+			letter-spacing: var(--#{$prefix}text-#{$size}-letter-spacing);
+		}
+	}
+}

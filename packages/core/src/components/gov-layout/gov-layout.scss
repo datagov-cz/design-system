@@ -1,0 +1,80 @@
+/*
+ *   Layout
+ */
+
+$class: ".gov-layout";
+
+@mixin big() {
+	flex: 1 1 auto;
+	width: auto;
+}
+
+@mixin small() {
+	flex: 0 0 auto;
+	width: calc($container-width / 3 - $layout-gap);
+}
+
+#{$class} {
+	@include base();
+	&__section {
+		display: flex;
+		gap: $layout-gap;
+		flex-direction: column;
+	}
+
+	// MQ
+	@include mq($from: lg) {
+		&__section {
+			flex-direction: row;
+
+			&-aside-right,
+			&-aside {
+				#{$class}-column:first-child {
+					@include big;
+				}
+
+				#{$class}-column:last-child {
+					@include small;
+				}
+			}
+
+			&-aside-left {
+				#{$class}-column:first-child {
+					@include small;
+				}
+
+				#{$class}-column:last-child {
+					@include big;
+				}
+			}
+
+			&-aside-right-inverse {
+				#{$class}-column:first-child {
+					order: 1;
+				}
+			}
+
+			&-aside-left-inverse {
+				#{$class}-column:first-child {
+					order: 2;
+				}
+			}
+
+			&-text {
+				width: $layout-content-width;
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			&-text-left {
+				width: $layout-content-width;
+				margin-right: auto;
+			}
+
+			&-text-right {
+				width: $layout-content-width;
+				margin-left: auto;
+			}
+		}
+	}
+}

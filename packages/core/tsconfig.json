@@ -5,7 +5,10 @@
 		"allowUnreachableCode": false,
 		"declaration": false,
 		"experimentalDecorators": true,
-		"lib": ["dom", "es2017"],
+		"lib": [
+			"dom",
+			"es2017"
+		],
 		"moduleResolution": "node",
 		"module": "esnext",
 		"target": "es2017",
@@ -24,5 +27,8 @@
 			"composite": true,
 		}
 	],
-	"files": ["./globals.d.ts", "./package.json"]
+	"files": [
+		"./globals.d.ts",
+		"./package.json"
+	],
 }

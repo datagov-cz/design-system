@@ -10,7 +10,7 @@
 	"jsnext:main": "./dist/esm/index.js",
 	"collection": "./dist/collection/collection-manifest.json",
 	"collection:main": "./dist/collection/index.js",
-    "types": "dist/types/interfaces.d.ts",
+	"types": "dist/types/interfaces.d.ts",
 	"files": [
 		"dist/",
 		"loader/"
@@ -21,9 +21,9 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-    "dependencies" : {
-        "@gov-design-system-ce/icons": "0.0.12",
-        "@gov-design-system-ce/fonts": "0.0.2",
-        "@gov-design-system-ce/styles": "0.0.16"
-    }
+	"dependencies": {
+		"@gov-design-system-ce/icons": "0.0.12",
+		"@gov-design-system-ce/fonts": "0.0.2",
+		"@gov-design-system-ce/styles": "0.0.16"
+	}
 }

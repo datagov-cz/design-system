@@ -3,8 +3,8 @@
 	"version": "1.0.0-20231109.3",
 	"license": "MIT",
 	"scripts": {
-		"build": "nx run-many -t build --exclude=core-angular",
-		"rebuild": "npm run build -- --skip-nx-cache",
+		"build": "nx run-many -t build --exclude=core-angular,core-react,core-vue,docs,storybook",
+		"rebuild": "npm run build -- --skip-nx-cache -exclude=core-angular,core-react,core-vue,docs,storybook",
 		"start": "nx run core:build --dev --watch --serve",
 		"watch": "npm run assets:serve && nx run core:build --watch",
 		"test": "nx run core:test --spec --e2e",

@@ -9,6 +9,7 @@
 		]
 	},
 	"exclude": [
+		"dist/**",
 		"**/*.spec.ts",
 		"**/*.spec.tsx",
 		"**/*.stories.ts",

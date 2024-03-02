@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="cs">
+
+<head>
+	<script>
+		window.GOV_DS_CONFIG = {
+			canValidateWcagOnRender: true,
+			iconsPath: '../assets/icons'
+		}
+	</script>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+	<title>Design System | Stencil</title>
+	<link rel="stylesheet" href="../../build/core.css">
+	<link rel="stylesheet" href="../../assets/fonts/roboto.css">
+	<script type="module" src="../../build/core.esm.js"></script>
+	<script nomodule src="../../build/core.js"></script>
+</head>
+
+<body>
+	<gov-cookiebar>
+		<h2 class="h4">Můžeme si u vás uložit cookies?</h2>
+
+		<p>
+			Co že to znamená? Cookies jsou malé datové soubory, které slouží např. k tomu, aby si web pamatoval vaše nastavení a to, co vás zajímá, nebo abychom jej zlepšovali . Pro ukládání různých typů cookies od vás potřebujeme souhlas. Web bude fungovat i bez souhlasu, s ním ale o něco lépe.
+		</p>
+
+		<gov-button variant="primary" slot="actions-primary">
+			Souhlasím se všemi
+		</gov-button>
+
+		<gov-button variant="primary" type="outlined" slot="actions-primary">
+			Odmítnout všechny
+		</gov-button>
+
+		<gov-button variant="primary" type="base" slot="actions-secondary">
+			Podrobné nastavení
+		</gov-button>
+	</gov-cookiebar>
+</body>
+
+</html>

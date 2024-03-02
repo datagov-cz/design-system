@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="cs">
+
+<head>
+	<script>
+		window.GOV_DS_CONFIG = {
+			canValidateWcagOnRender: true,
+			iconsPath: '../assets/icons'
+		}
+	</script>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+	<title>Design System | Stencil</title>
+	<link rel="stylesheet" href="../../build/core.css">
+	<link rel="stylesheet" href="../../assets/fonts/roboto.css">
+	<script type="module" src="../../build/core.esm.js"></script>
+	<script nomodule src="../../build/core.js"></script>
+</head>
+
+<body>
+	<form style="padding: 20px;">
+		<gov-form-label legend>
+			Form Label legend
+		</gov-form-label>
+		<gov-form-control type="input">
+			<gov-form-label size="s" slot="top">Label of input</gov-form-label>
+			<gov-form-group>
+				<gov-form-input type="number" name="test-me" placeholder="Placeholder" variant="primary" size="s"></gov-form-input>
+			</gov-form-group>
+		</gov-form-control>
+		<br><br>
+		<legend>Legend</legend>
+		<gov-form-control type="input">
+			<gov-form-label size="s" slot="top">Label of input</gov-form-label>
+			<gov-form-group>
+				<gov-form-input type="number" name="test-me" placeholder="Placeholder" variant="primary" size="s"></gov-form-input>
+			</gov-form-group>
+		</gov-form-control>
+		<br><br>
+		<gov-form-control type="input" fieldset>
+			<gov-form-label size="s" slot="top">Form control fieldset</gov-form-label>
+			<gov-form-group>
+				<gov-form-input type="number" name="test-me" placeholder="Placeholder" variant="primary" size="s"></gov-form-input>
+			</gov-form-group>
+		</gov-form-control>
+		<br><br>
+		<fieldset>
+			<gov-form-label size="s" slot="top">Fieldset</gov-form-label>
+			<gov-form-group>
+				<gov-form-input type="number" name="test-me" placeholder="Placeholder" variant="primary" size="s"></gov-form-input>
+			</gov-form-group>
+		</fieldset>
+		<br><br>
+		<fieldset>
+			<legend>Fieldset & Legend</legend>
+			<gov-form-label size="s" slot="top">Label of input</gov-form-label>
+			<gov-form-group>
+				<gov-form-input type="number" name="test-me" placeholder="Placeholder" variant="primary" size="s"></gov-form-input>
+			</gov-form-group>
+		</fieldset>
+	</form>
+</body>
+
+</html>

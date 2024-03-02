@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="cs">
+
+<head>
+	<script>
+		window.GOV_DS_CONFIG = {
+			canValidateWcagOnRender: true,
+			iconsPath: '../assets/icons'
+		}
+	</script>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+	<title>Design System | Stencil</title>
+	<link rel="stylesheet" href="../../build/core.css">
+	<link rel="stylesheet" href="../../assets/fonts/roboto.css">
+	<script type="module" src="../../build/core.esm.js"></script>
+	<script nomodule src="../../build/core.js"></script>
+	<style>
+		.custom-skeleton {
+			--skeleton-width: 100px;
+			--skeleton-height: 100px;
+			--skeleton-background: #cccccc;
+			--skeleton-border-radius: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Loading</h2>
+	<div class="preview-container">
+	<div class="skeletons-defaults">
+		<h2>Default</h2>
+		<gov-skeleton variant="success"></gov-skeleton>     
+	</div>
+	<div class="skeletons-appearance-circle">
+		<h2>Default circle</h2>
+		<gov-skeleton shape="circle"> </gov-skeleton>
+	</div> 
+	<div class="skeletons-appearance-circle">
+		<h2>Default rect</h2>
+		<gov-skeleton shape="rect"> </gov-skeleton>
+	</div>       
+	<div class="skeletons-with-count">
+		<h2>Default 4 rows</h2>
+		<gov-skeleton count="2"></gov-skeleton>
+	</div>           
+	<div class="skeletons-animation-no-animation">
+		<h2>Without animation</h2>
+		<gov-skeleton animation="false"></gov-skeleton>
+	</div>
+	<div class="skeletons-animation-pulse">
+		<h2>Pulse animation</h2>
+		<gov-skeleton animation="pulse"></gov-skeleton>
+	</div>
+	<div class="skeletons-animation-progress">
+		<h2>Progress animation</h2>
+		<gov-skeleton animation="progress"></gov-skeleton>
+	</div>
+	<div class="skeletons-with-theming">
+		<h2>Custom styles</h2>
+		<gov-skeleton></gov-skeleton>
+	</div>
+	<div>
+		<h2>Custom width</h2>
+		<gov-skeleton width="500px"></gov-skeleton>
+	</div>
+	<div>
+		<h2>Custom height</h2>
+		<gov-skeleton height="80px"></gov-skeleton>
+	</div>
+	
+	<gov-button variant="primary" id="btn" wcag-label="Zobrazit načítání">Zobrazit načítání</gov-button>
+
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+	<p>aspo idapo diopad siaspo dasipo dsaiopds iaposa ipodsai dpsoa isapdsoai pdso posadd</p>
+
+	<gov-loading id="loading">Načítání</gov-loading>
+
+</body>
+
+</html>

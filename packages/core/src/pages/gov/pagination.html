@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="cs">
+
+<head>
+	<script>
+		window.GOV_DS_CONFIG = {
+			canValidateWcagOnRender: true,
+			iconsPath: '../assets/icons'
+		}
+	</script>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+	<title>Design System | Stencil</title>
+	<link rel="stylesheet" href="../../build/core.css">
+	<link rel="stylesheet" href="../../assets/fonts/roboto.css">
+	<script type="module" src="../../build/core.esm.js"></script>
+	<script nomodule src="../../build/core.js"></script>
+</head>
+
+<body>
+	<h2>Pagination</h2>
+
+	<gov-pagination total="212" wcag-label="Stránkování pro sekci dokumenty" wcag-select-label="Vybrat stránku"></gov-pagination>
+	<br>
+	<gov-pagination size="s" total="212" wcag-label="Stránkování pro sekci dokumenty" wcag-select-label="Vybrat stránku"></gov-pagination>
+	<br>
+	<gov-pagination  id="bagr"  type="select" total="212"  wcag-label="Stránkování pro sekci dokumenty" wcag-select-label="Vybrat stránku"></gov-pagination>
+	<br>
+	<gov-pagination type="select" size="s" total="212"  wcag-label="Stránkování pro sekci dokumenty" wcag-select-label="Vybrat stránku"></gov-pagination>
+	<br>
+	<br>
+	<gov-pagination variant="secondary" total="212" current="2" wcag-label="Stránkování pro sekci dokumenty" wcag-select-label="Vybrat stránku"></gov-pagination>
+	<br>
+	<gov-pagination size="s" variant="secondary" wcag-label="Stránkování pro sekci dokumenty" wcag-select-label="Vybrat stránku"></gov-pagination>
+	<br>
+	<gov-pagination type="select" variant="secondary" total="212"  wcag-label="Stránkování pro sekci dokumenty" wcag-select-label="Vybrat stránku"></gov-pagination>
+	<br>
+	<gov-pagination type="select" variant="secondary" size="s" total="212"  wcag-label="Stránkování pro sekci dokumenty" wcag-select-label="Vybrat stránku"></gov-pagination>
+</body>
+
+</html>

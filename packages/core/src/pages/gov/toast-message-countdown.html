@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="cs">
+
+<head>
+	<script>
+		window.GOV_DS_CONFIG = {
+			canValidateWcagOnRender: true,
+			iconsPath: '../assets/icons'
+		}
+	</script>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+	<title>Design System | Stencil</title>
+	<link rel="stylesheet" href="../../build/core.css">
+	<link rel="stylesheet" href="../../assets/fonts/roboto.css">
+	<script type="module" src="../../build/core.esm.js"></script>
+	<script nomodule src="../../build/core.js"></script>
+</head>
+
+<body>
+	<h2>
+		Toast Message Countdown
+	</h2>
+	<gov-toast variant="success" type="solid" time="10000">
+		<gov-icon name="check-lg" slot="icon"></gov-icon>
+		<p>
+			Vaše dokumenty byly úspěšně staženy.
+		</p>
+	</gov-toast>
+	<br>
+	<gov-toast variant="error" type="solid" gravity="bottom" position="left" time="10000">
+		<gov-icon name="info" slot="icon"></gov-icon>
+		<p>
+			Není možné požadavek zpracovat z důvodu chyby serveru.
+		</p>
+	</gov-toast>
+	<br>
+	<gov-toast variant="warning" type="solid" position="left" time="10000">
+		<gov-icon name="info" slot="icon"></gov-icon>
+		<p>
+			Žádost se nepodařilo odeslat, zkontrolujte nastavení.
+		</p>
+	</gov-toast>
+	<br>
+	<gov-toast variant="primary" type="solid" position="center" time="10000">
+		<gov-icon name="info" slot="icon"></gov-icon>
+		<p>
+			Soubory jsou připraveny ke stažení.
+		</p>
+	</gov-toast>
+	<br>
+	<gov-toast variant="secondary" type="solid" gravity="bottom" position="right" time="10000">
+		<gov-icon name="info" slot="icon"></gov-icon>
+		<p>
+			Vaše aplikace byla aktualizovaná na novou verzi!
+		</p>
+	</gov-toast>
+</body>
+
+</html>

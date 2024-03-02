@@ -13,19 +13,19 @@
 				"cwd": "packages/styles"
 			}
 		},
-        "serve": {
-            "executor": "nx:run-commands",
-            "options": {
-                "command": "npm run build",
-                "cwd": "packages/styles"
-            }
-        },
-        "watch": {
-            "executor": "nx:run-commands",
-            "options": {
-                "command": "npm run watch",
-                "cwd": "packages/styles"
-            }
-        }
+		"serve": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "npm run build",
+				"cwd": "packages/styles"
+			}
+		},
+		"watch": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "npm run watch",
+				"cwd": "packages/styles"
+			}
+		}
 	}
 }

@@ -6,6 +6,7 @@ tmp
 /out-tsc
 /www
 /loader
+.nx
 
 # dependencies
 node_modules

@@ -38,11 +38,14 @@ export const config: Config = {
 		{
 			type: "www",
 			copy: [
-				{ src: "../../fonts/lib", dest: "build/assets/fonts" },
-				{ src: "../../icons/lib", dest: "build/assets/icons" },
-				{ src: "../../styles/lib", dest: "build/assets/styles" },
+				// Copy from build directory.
+				{ src: "../../../dist/packages/icons", dest: "assets/icons" },
+				{ src: "../../../dist/packages/fonts", dest: "assets/fonts" },
+				// Copy pages.
+				{ src: "pages", dest: "pages" }
 			],
 			serviceWorker: null,
+			dir: "../../dist/serve/www"
 		},
 		{
 			type: "dist-hydrate-script",

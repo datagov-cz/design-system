@@ -28,9 +28,15 @@
 				"tsConfig": "packages/core/tsconfig.lib.json",
 				"configPath": "packages/core/stencil.config.ts",
 				"outputPath": "dist/packages/core",
-				"docsReadme": true
+				"docsReadme": true,
+				"verbose": true
 			},
-			"dependsOn": ["fonts:build", "icons:build", "styles:build"],
+			"dependsOn": [
+				{
+					"projects": ["fonts", "icons", "styles"],
+					"target": "build"
+				}
+			],
 			"configurations": {
 				"production": {
 					"dev": false,
@@ -45,9 +51,14 @@
 				"projectType": "library",
 				"tsConfig": "packages/core/tsconfig.lib.json",
 				"configPath": "packages/core/stencil.config.ts",
-				"outputPath": "dist/packages/core"
+				"outputPath": "dist/serve/"
 			},
-			"dependsOn": ["fonts:build", "icons:build", "styles:build"]
+			"dependsOn": [
+				{
+					"projects": ["fonts", "icons"],
+					"target": "build"
+				}
+			]
 		},
 		"e2e": {
 			"executor": "@nxext/stencil:e2e",

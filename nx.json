@@ -1,12 +1,4 @@
 {
-	"tasksRunnerOptions": {
-		"default": {
-			"runner": "nx/tasks-runners/default",
-			"options": {
-				"cacheableOperations": ["lint", "test", "e2e", "build"]
-			}
-		}
-	},
 	"extends": "nx/presets/npm.json",
 	"$schema": "./node_modules/nx/schemas/nx-schema.json",
 	"targetDefaults": {
@@ -18,10 +10,9 @@
 		},
 		"build": {
 			"dependsOn": ["^build"]
+		},
+		"e2e": {
 		}
-	},
-	"cli": {
-		"defaultCollection": "@nxext/stencil"
 	},
 	"generators": {
 		"@nx/react": {

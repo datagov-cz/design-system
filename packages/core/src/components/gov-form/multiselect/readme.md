@@ -61,6 +61,13 @@ Type: `Promise<GovFormMultiSelectItem[]>`
 
 To remove an option from the selected list
 
+#### Parameters
+
+| Name     | Type                     | Description |
+| -------- | ------------------------ | ----------- |
+| `option` | `GovFormMultiSelectItem` |             |
+| `notify` | `boolean`                |             |
+
 #### Returns
 
 Type: `Promise<void>`
@@ -70,6 +77,12 @@ Type: `Promise<void>`
 ### `setFocus(options?: FocusOptions) => Promise<void>`
 
 Returns the current state of the component
+
+#### Parameters
+
+| Name      | Type           | Description |
+| --------- | -------------- | ----------- |
+| `options` | `FocusOptions` |             |
 
 #### Returns
 
@@ -81,6 +94,12 @@ Type: `Promise<void>`
 
 Setting a list of options to choose from
 
+#### Parameters
+
+| Name      | Type                       | Description |
+| --------- | -------------------------- | ----------- |
+| `options` | `GovFormMultiSelectItem[]` |             |
+
 #### Returns
 
 Type: `Promise<void>`
@@ -90,6 +109,13 @@ Type: `Promise<void>`
 ### `setSelectedOption(option: GovFormMultiSelectItem, notify?: boolean) => Promise<void>`
 
 Returns an instance of the native html select element
+
+#### Parameters
+
+| Name     | Type                     | Description |
+| -------- | ------------------------ | ----------- |
+| `option` | `GovFormMultiSelectItem` |             |
+| `notify` | `boolean`                |             |
 
 #### Returns
 
@@ -101,6 +127,12 @@ Type: `Promise<void>`
 
 Setting the list of selected options
 
+#### Parameters
+
+| Name      | Type                       | Description |
+| --------- | -------------------------- | ----------- |
+| `options` | `GovFormMultiSelectItem[]` |             |
+
 #### Returns
 
 Type: `Promise<void>`
@@ -110,6 +142,12 @@ Type: `Promise<void>`
 ### `setValue(value: string) => Promise<void>`
 
 Sets the ordered value of the element
+
+#### Parameters
+
+| Name    | Type     | Description |
+| ------- | -------- | ----------- |
+| `value` | `string` |             |
 
 #### Returns
 

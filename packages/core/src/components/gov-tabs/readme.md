@@ -39,6 +39,12 @@ Type: `Promise<string>`
 
 Set status of tab-item
 
+#### Parameters
+
+| Name     | Type      | Description |
+| -------- | --------- | ----------- |
+| `status` | `boolean` |             |
+
 #### Returns
 
 Type: `Promise<void>`

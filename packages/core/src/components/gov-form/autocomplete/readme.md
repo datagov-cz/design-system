@@ -54,6 +54,12 @@ Type: `Promise<void>`
 
 Returns the current state of the component
 
+#### Parameters
+
+| Name      | Type           | Description |
+| --------- | -------------- | ----------- |
+| `options` | `FocusOptions` |             |
+
 #### Returns
 
 Type: `Promise<void>`
@@ -63,6 +69,12 @@ Type: `Promise<void>`
 ### `setOptions(options: GovFormAutocompleteItem[]) => Promise<void>`
 
 Set options for list
+
+#### Parameters
+
+| Name      | Type                        | Description |
+| --------- | --------------------------- | ----------- |
+| `options` | `GovFormAutocompleteItem[]` |             |
 
 #### Returns
 
@@ -74,6 +86,12 @@ Type: `Promise<void>`
 
 Clears whisperer value
 
+#### Parameters
+
+| Name     | Type      | Description |
+| -------- | --------- | ----------- |
+| `status` | `boolean` |             |
+
 #### Returns
 
 Type: `Promise<void>`
@@ -84,6 +102,12 @@ Type: `Promise<void>`
 
 Set a custom asynchronous function for the whisperer
 
+#### Parameters
+
+| Name       | Type                              | Description |
+| ---------- | --------------------------------- | ----------- |
+| `callback` | `(value: string) => Promise<any>` |             |
+
 #### Returns
 
 Type: `Promise<void>`
@@ -93,6 +117,12 @@ Type: `Promise<void>`
 ### `setTemplateResolver(callback: (item: GovFormAutocompleteItem) => string) => Promise<void>`
 
 Setting a custom whisper result template
+
+#### Parameters
+
+| Name       | Type                                        | Description |
+| ---------- | ------------------------------------------- | ----------- |
+| `callback` | `(item: GovFormAutocompleteItem) => string` |             |
 
 #### Returns
 

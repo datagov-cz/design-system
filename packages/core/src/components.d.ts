@@ -168,8 +168,6 @@ export namespace Components {
          */
         "variant"?: AccordionVariantType;
     }
-    interface GovApp {
-    }
     interface GovAttachments {
         /**
           * Label of attachments section
@@ -2128,23 +2126,39 @@ export interface GovWizardItemCustomEvent<T> extends CustomEvent<T> {
     target: HTMLGovWizardItemElement;
 }
 declare global {
+    interface HTMLGovAccordionElementEventMap {
+        "gov-change": AccordionEvent;
+    }
     interface HTMLGovAccordionElement extends Components.GovAccordion, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovAccordionElementEventMap>(type: K, listener: (this: HTMLGovAccordionElement, ev: GovAccordionCustomEvent<HTMLGovAccordionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovAccordionElementEventMap>(type: K, listener: (this: HTMLGovAccordionElement, ev: GovAccordionCustomEvent<HTMLGovAccordionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovAccordionElement: {
         prototype: HTMLGovAccordionElement;
         new (): HTMLGovAccordionElement;
     };
+    interface HTMLGovAccordionItemElementEventMap {
+        "gov-change": AccordionItemEvent;
+    }
     interface HTMLGovAccordionItemElement extends Components.GovAccordionItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovAccordionItemElementEventMap>(type: K, listener: (this: HTMLGovAccordionItemElement, ev: GovAccordionItemCustomEvent<HTMLGovAccordionItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovAccordionItemElementEventMap>(type: K, listener: (this: HTMLGovAccordionItemElement, ev: GovAccordionItemCustomEvent<HTMLGovAccordionItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovAccordionItemElement: {
         prototype: HTMLGovAccordionItemElement;
         new (): HTMLGovAccordionItemElement;
-    };
-    interface HTMLGovAppElement extends Components.GovApp, HTMLStencilElement {
-    }
-    var HTMLGovAppElement: {
-        prototype: HTMLGovAppElement;
-        new (): HTMLGovAppElement;
     };
     interface HTMLGovAttachmentsElement extends Components.GovAttachments, HTMLStencilElement {
     }
@@ -2152,37 +2166,105 @@ declare global {
         prototype: HTMLGovAttachmentsElement;
         new (): HTMLGovAttachmentsElement;
     };
+    interface HTMLGovAttachmentsItemElementEventMap {
+        "gov-remove": PointerEvent;
+    }
     interface HTMLGovAttachmentsItemElement extends Components.GovAttachmentsItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovAttachmentsItemElementEventMap>(type: K, listener: (this: HTMLGovAttachmentsItemElement, ev: GovAttachmentsItemCustomEvent<HTMLGovAttachmentsItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovAttachmentsItemElementEventMap>(type: K, listener: (this: HTMLGovAttachmentsItemElement, ev: GovAttachmentsItemCustomEvent<HTMLGovAttachmentsItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovAttachmentsItemElement: {
         prototype: HTMLGovAttachmentsItemElement;
         new (): HTMLGovAttachmentsItemElement;
     };
+    interface HTMLGovBackdropElementEventMap {
+        "gov-click": MouseEvent;
+    }
     interface HTMLGovBackdropElement extends Components.GovBackdrop, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovBackdropElementEventMap>(type: K, listener: (this: HTMLGovBackdropElement, ev: GovBackdropCustomEvent<HTMLGovBackdropElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovBackdropElementEventMap>(type: K, listener: (this: HTMLGovBackdropElement, ev: GovBackdropCustomEvent<HTMLGovBackdropElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovBackdropElement: {
         prototype: HTMLGovBackdropElement;
         new (): HTMLGovBackdropElement;
     };
+    interface HTMLGovBreadcrumbsElementEventMap {
+        "gov-change": GovBreadcrumbsChangeEvent;
+    }
     interface HTMLGovBreadcrumbsElement extends Components.GovBreadcrumbs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovBreadcrumbsElementEventMap>(type: K, listener: (this: HTMLGovBreadcrumbsElement, ev: GovBreadcrumbsCustomEvent<HTMLGovBreadcrumbsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovBreadcrumbsElementEventMap>(type: K, listener: (this: HTMLGovBreadcrumbsElement, ev: GovBreadcrumbsCustomEvent<HTMLGovBreadcrumbsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovBreadcrumbsElement: {
         prototype: HTMLGovBreadcrumbsElement;
         new (): HTMLGovBreadcrumbsElement;
     };
+    interface HTMLGovButtonElementEventMap {
+        "gov-click": ButtonEvent;
+        "gov-focus": ButtonEvent;
+        "gov-blur": ButtonEvent;
+    }
     interface HTMLGovButtonElement extends Components.GovButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovButtonElementEventMap>(type: K, listener: (this: HTMLGovButtonElement, ev: GovButtonCustomEvent<HTMLGovButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovButtonElementEventMap>(type: K, listener: (this: HTMLGovButtonElement, ev: GovButtonCustomEvent<HTMLGovButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovButtonElement: {
         prototype: HTMLGovButtonElement;
         new (): HTMLGovButtonElement;
     };
+    interface HTMLGovCardElementEventMap {
+        "gov-toggle": GovCardChangeEvent;
+    }
     interface HTMLGovCardElement extends Components.GovCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovCardElementEventMap>(type: K, listener: (this: HTMLGovCardElement, ev: GovCardCustomEvent<HTMLGovCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovCardElementEventMap>(type: K, listener: (this: HTMLGovCardElement, ev: GovCardCustomEvent<HTMLGovCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovCardElement: {
         prototype: HTMLGovCardElement;
         new (): HTMLGovCardElement;
     };
+    interface HTMLGovChipElementEventMap {
+        "gov-click": PointerEvent;
+    }
     interface HTMLGovChipElement extends Components.GovChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovChipElementEventMap>(type: K, listener: (this: HTMLGovChipElement, ev: GovChipCustomEvent<HTMLGovChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovChipElementEventMap>(type: K, listener: (this: HTMLGovChipElement, ev: GovChipCustomEvent<HTMLGovChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovChipElement: {
         prototype: HTMLGovChipElement;
@@ -2206,7 +2288,18 @@ declare global {
         prototype: HTMLGovCookiebarElement;
         new (): HTMLGovCookiebarElement;
     };
+    interface HTMLGovDropdownElementEventMap {
+        "gov-change": DropdownEvent;
+    }
     interface HTMLGovDropdownElement extends Components.GovDropdown, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovDropdownElementEventMap>(type: K, listener: (this: HTMLGovDropdownElement, ev: GovDropdownCustomEvent<HTMLGovDropdownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovDropdownElementEventMap>(type: K, listener: (this: HTMLGovDropdownElement, ev: GovDropdownCustomEvent<HTMLGovDropdownElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovDropdownElement: {
         prototype: HTMLGovDropdownElement;
@@ -2224,13 +2317,40 @@ declare global {
         prototype: HTMLGovErrorCodeElement;
         new (): HTMLGovErrorCodeElement;
     };
+    interface HTMLGovFormAutocompleteElementEventMap {
+        "gov-focus": FormAutocompleteEvent;
+        "gov-blur": FormAutocompleteEvent;
+        "gov-input": FormAutocompleteEvent;
+        "gov-select": FormAutocompleteEvent;
+    }
     interface HTMLGovFormAutocompleteElement extends Components.GovFormAutocomplete, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovFormAutocompleteElementEventMap>(type: K, listener: (this: HTMLGovFormAutocompleteElement, ev: GovFormAutocompleteCustomEvent<HTMLGovFormAutocompleteElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovFormAutocompleteElementEventMap>(type: K, listener: (this: HTMLGovFormAutocompleteElement, ev: GovFormAutocompleteCustomEvent<HTMLGovFormAutocompleteElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovFormAutocompleteElement: {
         prototype: HTMLGovFormAutocompleteElement;
         new (): HTMLGovFormAutocompleteElement;
     };
+    interface HTMLGovFormCheckboxElementEventMap {
+        "gov-focus": FormCheckboxEvent;
+        "gov-blur": FormCheckboxEvent;
+        "gov-change": FormCheckboxEvent;
+    }
     interface HTMLGovFormCheckboxElement extends Components.GovFormCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovFormCheckboxElementEventMap>(type: K, listener: (this: HTMLGovFormCheckboxElement, ev: GovFormCheckboxCustomEvent<HTMLGovFormCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovFormCheckboxElementEventMap>(type: K, listener: (this: HTMLGovFormCheckboxElement, ev: GovFormCheckboxCustomEvent<HTMLGovFormCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovFormCheckboxElement: {
         prototype: HTMLGovFormCheckboxElement;
@@ -2242,7 +2362,22 @@ declare global {
         prototype: HTMLGovFormControlElement;
         new (): HTMLGovFormControlElement;
     };
+    interface HTMLGovFormFileElementEventMap {
+        "gov-focus": GovFormFileEvent;
+        "gov-blur": GovFormFileEvent;
+        "gov-files": GovFormFileEvent;
+        "gov-add-file": GovFormFileEvent;
+        "gov-remove-file": GovFormFileEvent;
+    }
     interface HTMLGovFormFileElement extends Components.GovFormFile, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovFormFileElementEventMap>(type: K, listener: (this: HTMLGovFormFileElement, ev: GovFormFileCustomEvent<HTMLGovFormFileElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovFormFileElementEventMap>(type: K, listener: (this: HTMLGovFormFileElement, ev: GovFormFileCustomEvent<HTMLGovFormFileElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovFormFileElement: {
         prototype: HTMLGovFormFileElement;
@@ -2254,13 +2389,39 @@ declare global {
         prototype: HTMLGovFormGroupElement;
         new (): HTMLGovFormGroupElement;
     };
+    interface HTMLGovFormInputElementEventMap {
+        "gov-focus": FormInputEvent;
+        "gov-blur": FormInputEvent;
+        "gov-input": FormInputEvent;
+        "gov-keyup": FormInputEvent;
+        "gov-keydown": FormInputEvent;
+    }
     interface HTMLGovFormInputElement extends Components.GovFormInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovFormInputElementEventMap>(type: K, listener: (this: HTMLGovFormInputElement, ev: GovFormInputCustomEvent<HTMLGovFormInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovFormInputElementEventMap>(type: K, listener: (this: HTMLGovFormInputElement, ev: GovFormInputCustomEvent<HTMLGovFormInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovFormInputElement: {
         prototype: HTMLGovFormInputElement;
         new (): HTMLGovFormInputElement;
     };
+    interface HTMLGovFormLabelElementEventMap {
+        "gov-click": PointerEvent;
+    }
     interface HTMLGovFormLabelElement extends Components.GovFormLabel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovFormLabelElementEventMap>(type: K, listener: (this: HTMLGovFormLabelElement, ev: GovFormLabelCustomEvent<HTMLGovFormLabelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovFormLabelElementEventMap>(type: K, listener: (this: HTMLGovFormLabelElement, ev: GovFormLabelCustomEvent<HTMLGovFormLabelElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovFormLabelElement: {
         prototype: HTMLGovFormLabelElement;
@@ -2272,7 +2433,22 @@ declare global {
         prototype: HTMLGovFormMessageElement;
         new (): HTMLGovFormMessageElement;
     };
+    interface HTMLGovFormMultiSelectElementEventMap {
+        "gov-focus": FormMultiselectEvent;
+        "gov-blur": FormMultiselectEvent;
+        "gov-change": FormMultiselectEvent;
+        "gov-select": FormMultiselectEvent;
+        "gov-remove": FormMultiselectEvent;
+    }
     interface HTMLGovFormMultiSelectElement extends Components.GovFormMultiSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovFormMultiSelectElementEventMap>(type: K, listener: (this: HTMLGovFormMultiSelectElement, ev: GovFormMultiSelectCustomEvent<HTMLGovFormMultiSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovFormMultiSelectElementEventMap>(type: K, listener: (this: HTMLGovFormMultiSelectElement, ev: GovFormMultiSelectCustomEvent<HTMLGovFormMultiSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovFormMultiSelectElement: {
         prototype: HTMLGovFormMultiSelectElement;
@@ -2284,7 +2460,20 @@ declare global {
         prototype: HTMLGovFormPasswordPowerElement;
         new (): HTMLGovFormPasswordPowerElement;
     };
+    interface HTMLGovFormRadioElementEventMap {
+        "gov-focus": FormRadioEvent;
+        "gov-blur": FormRadioEvent;
+        "gov-change": FormRadioEvent;
+    }
     interface HTMLGovFormRadioElement extends Components.GovFormRadio, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovFormRadioElementEventMap>(type: K, listener: (this: HTMLGovFormRadioElement, ev: GovFormRadioCustomEvent<HTMLGovFormRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovFormRadioElementEventMap>(type: K, listener: (this: HTMLGovFormRadioElement, ev: GovFormRadioCustomEvent<HTMLGovFormRadioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovFormRadioElement: {
         prototype: HTMLGovFormRadioElement;
@@ -2296,13 +2485,39 @@ declare global {
         prototype: HTMLGovFormSearchElement;
         new (): HTMLGovFormSearchElement;
     };
+    interface HTMLGovFormSelectElementEventMap {
+        "gov-focus": FormSelectEvent;
+        "gov-blur": FormSelectEvent;
+        "gov-change": FormSelectEvent;
+    }
     interface HTMLGovFormSelectElement extends Components.GovFormSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovFormSelectElementEventMap>(type: K, listener: (this: HTMLGovFormSelectElement, ev: GovFormSelectCustomEvent<HTMLGovFormSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovFormSelectElementEventMap>(type: K, listener: (this: HTMLGovFormSelectElement, ev: GovFormSelectCustomEvent<HTMLGovFormSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovFormSelectElement: {
         prototype: HTMLGovFormSelectElement;
         new (): HTMLGovFormSelectElement;
     };
+    interface HTMLGovFormSwitchElementEventMap {
+        "gov-focus": FormSwitchEvent;
+        "gov-blur": FormSwitchEvent;
+        "gov-change": FormSwitchEvent;
+    }
     interface HTMLGovFormSwitchElement extends Components.GovFormSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovFormSwitchElementEventMap>(type: K, listener: (this: HTMLGovFormSwitchElement, ev: GovFormSwitchCustomEvent<HTMLGovFormSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovFormSwitchElementEventMap>(type: K, listener: (this: HTMLGovFormSwitchElement, ev: GovFormSwitchCustomEvent<HTMLGovFormSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovFormSwitchElement: {
         prototype: HTMLGovFormSwitchElement;
@@ -2326,7 +2541,18 @@ declare global {
         prototype: HTMLGovIconElement;
         new (): HTMLGovIconElement;
     };
+    interface HTMLGovInfobarElementEventMap {
+        "gov-close": InfobarEvent;
+    }
     interface HTMLGovInfobarElement extends Components.GovInfobar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovInfobarElementEventMap>(type: K, listener: (this: HTMLGovInfobarElement, ev: GovInfobarCustomEvent<HTMLGovInfobarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovInfobarElementEventMap>(type: K, listener: (this: HTMLGovInfobarElement, ev: GovInfobarCustomEvent<HTMLGovInfobarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovInfobarElement: {
         prototype: HTMLGovInfobarElement;
@@ -2356,7 +2582,18 @@ declare global {
         prototype: HTMLGovMessageElement;
         new (): HTMLGovMessageElement;
     };
+    interface HTMLGovModalElementEventMap {
+        "gov-close": PointerEvent;
+    }
     interface HTMLGovModalElement extends Components.GovModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovModalElementEventMap>(type: K, listener: (this: HTMLGovModalElement, ev: GovModalCustomEvent<HTMLGovModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovModalElementEventMap>(type: K, listener: (this: HTMLGovModalElement, ev: GovModalCustomEvent<HTMLGovModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovModalElement: {
         prototype: HTMLGovModalElement;
@@ -2374,25 +2611,69 @@ declare global {
         prototype: HTMLGovNavItemElement;
         new (): HTMLGovNavItemElement;
     };
+    interface HTMLGovPaginationElementEventMap {
+        "gov-page": PaginationEvent;
+    }
     interface HTMLGovPaginationElement extends Components.GovPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovPaginationElementEventMap>(type: K, listener: (this: HTMLGovPaginationElement, ev: GovPaginationCustomEvent<HTMLGovPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovPaginationElementEventMap>(type: K, listener: (this: HTMLGovPaginationElement, ev: GovPaginationCustomEvent<HTMLGovPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovPaginationElement: {
         prototype: HTMLGovPaginationElement;
         new (): HTMLGovPaginationElement;
     };
+    interface HTMLGovPromptElementEventMap {
+        "gov-close": PointerEvent;
+    }
     interface HTMLGovPromptElement extends Components.GovPrompt, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovPromptElementEventMap>(type: K, listener: (this: HTMLGovPromptElement, ev: GovPromptCustomEvent<HTMLGovPromptElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovPromptElementEventMap>(type: K, listener: (this: HTMLGovPromptElement, ev: GovPromptCustomEvent<HTMLGovPromptElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovPromptElement: {
         prototype: HTMLGovPromptElement;
         new (): HTMLGovPromptElement;
     };
+    interface HTMLGovSideNavElementEventMap {
+        "gov-change": GovSideNavItemChangeEvent;
+    }
     interface HTMLGovSideNavElement extends Components.GovSideNav, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovSideNavElementEventMap>(type: K, listener: (this: HTMLGovSideNavElement, ev: GovSideNavCustomEvent<HTMLGovSideNavElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovSideNavElementEventMap>(type: K, listener: (this: HTMLGovSideNavElement, ev: GovSideNavCustomEvent<HTMLGovSideNavElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovSideNavElement: {
         prototype: HTMLGovSideNavElement;
         new (): HTMLGovSideNavElement;
     };
+    interface HTMLGovSideNavItemElementEventMap {
+        "gov-change": GovSideNavItemChangeEvent;
+    }
     interface HTMLGovSideNavItemElement extends Components.GovSideNavItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovSideNavItemElementEventMap>(type: K, listener: (this: HTMLGovSideNavItemElement, ev: GovSideNavItemCustomEvent<HTMLGovSideNavItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovSideNavItemElementEventMap>(type: K, listener: (this: HTMLGovSideNavItemElement, ev: GovSideNavItemCustomEvent<HTMLGovSideNavItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovSideNavItemElement: {
         prototype: HTMLGovSideNavItemElement;
@@ -2422,19 +2703,52 @@ declare global {
         prototype: HTMLGovStatsbarItemElement;
         new (): HTMLGovStatsbarItemElement;
     };
+    interface HTMLGovStepperElementEventMap {
+        "gov-change": GovStepperItemChangeEvent;
+    }
     interface HTMLGovStepperElement extends Components.GovStepper, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovStepperElementEventMap>(type: K, listener: (this: HTMLGovStepperElement, ev: GovStepperCustomEvent<HTMLGovStepperElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovStepperElementEventMap>(type: K, listener: (this: HTMLGovStepperElement, ev: GovStepperCustomEvent<HTMLGovStepperElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovStepperElement: {
         prototype: HTMLGovStepperElement;
         new (): HTMLGovStepperElement;
     };
+    interface HTMLGovStepperItemElementEventMap {
+        "gov-change": GovStepperItemChangeEvent;
+    }
     interface HTMLGovStepperItemElement extends Components.GovStepperItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovStepperItemElementEventMap>(type: K, listener: (this: HTMLGovStepperItemElement, ev: GovStepperItemCustomEvent<HTMLGovStepperItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovStepperItemElementEventMap>(type: K, listener: (this: HTMLGovStepperItemElement, ev: GovStepperItemCustomEvent<HTMLGovStepperItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovStepperItemElement: {
         prototype: HTMLGovStepperItemElement;
         new (): HTMLGovStepperItemElement;
     };
+    interface HTMLGovTabsElementEventMap {
+        "gov-change": HTMLGovTabsItemElement;
+    }
     interface HTMLGovTabsElement extends Components.GovTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovTabsElementEventMap>(type: K, listener: (this: HTMLGovTabsElement, ev: GovTabsCustomEvent<HTMLGovTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovTabsElementEventMap>(type: K, listener: (this: HTMLGovTabsElement, ev: GovTabsCustomEvent<HTMLGovTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovTabsElement: {
         prototype: HTMLGovTabsElement;
@@ -2464,7 +2778,18 @@ declare global {
         prototype: HTMLGovTilesElement;
         new (): HTMLGovTilesElement;
     };
+    interface HTMLGovToastElementEventMap {
+        "gov-close": string;
+    }
     interface HTMLGovToastElement extends Components.GovToast, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovToastElementEventMap>(type: K, listener: (this: HTMLGovToastElement, ev: GovToastCustomEvent<HTMLGovToastElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovToastElementEventMap>(type: K, listener: (this: HTMLGovToastElement, ev: GovToastCustomEvent<HTMLGovToastElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovToastElement: {
         prototype: HTMLGovToastElement;
@@ -2482,13 +2807,35 @@ declare global {
         prototype: HTMLGovTooltipContentElement;
         new (): HTMLGovTooltipContentElement;
     };
+    interface HTMLGovWizardElementEventMap {
+        "gov-change": GovWizardItemChangeEvent;
+    }
     interface HTMLGovWizardElement extends Components.GovWizard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovWizardElementEventMap>(type: K, listener: (this: HTMLGovWizardElement, ev: GovWizardCustomEvent<HTMLGovWizardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovWizardElementEventMap>(type: K, listener: (this: HTMLGovWizardElement, ev: GovWizardCustomEvent<HTMLGovWizardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovWizardElement: {
         prototype: HTMLGovWizardElement;
         new (): HTMLGovWizardElement;
     };
+    interface HTMLGovWizardItemElementEventMap {
+        "gov-change": WizardItemEvent;
+    }
     interface HTMLGovWizardItemElement extends Components.GovWizardItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGovWizardItemElementEventMap>(type: K, listener: (this: HTMLGovWizardItemElement, ev: GovWizardItemCustomEvent<HTMLGovWizardItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGovWizardItemElementEventMap>(type: K, listener: (this: HTMLGovWizardItemElement, ev: GovWizardItemCustomEvent<HTMLGovWizardItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGovWizardItemElement: {
         prototype: HTMLGovWizardItemElement;
@@ -2497,7 +2844,6 @@ declare global {
     interface HTMLElementTagNameMap {
         "gov-accordion": HTMLGovAccordionElement;
         "gov-accordion-item": HTMLGovAccordionItemElement;
-        "gov-app": HTMLGovAppElement;
         "gov-attachments": HTMLGovAttachmentsElement;
         "gov-attachments-item": HTMLGovAttachmentsItemElement;
         "gov-backdrop": HTMLGovBackdropElement;
@@ -2610,8 +2956,6 @@ declare namespace LocalJSX {
           * Style variation of the button.
          */
         "variant"?: AccordionVariantType;
-    }
-    interface GovApp {
     }
     interface GovAttachments {
         /**
@@ -4326,7 +4670,6 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "gov-accordion": GovAccordion;
         "gov-accordion-item": GovAccordionItem;
-        "gov-app": GovApp;
         "gov-attachments": GovAttachments;
         "gov-attachments-item": GovAttachmentsItem;
         "gov-backdrop": GovBackdrop;
@@ -4393,7 +4736,6 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "gov-accordion": LocalJSX.GovAccordion & JSXBase.HTMLAttributes<HTMLGovAccordionElement>;
             "gov-accordion-item": LocalJSX.GovAccordionItem & JSXBase.HTMLAttributes<HTMLGovAccordionItemElement>;
-            "gov-app": LocalJSX.GovApp & JSXBase.HTMLAttributes<HTMLGovAppElement>;
             "gov-attachments": LocalJSX.GovAttachments & JSXBase.HTMLAttributes<HTMLGovAttachmentsElement>;
             "gov-attachments-item": LocalJSX.GovAttachmentsItem & JSXBase.HTMLAttributes<HTMLGovAttachmentsItemElement>;
             "gov-backdrop": LocalJSX.GovBackdrop & JSXBase.HTMLAttributes<HTMLGovBackdropElement>;

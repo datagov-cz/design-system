@@ -36,6 +36,12 @@ Type: `Promise<boolean>`
 
 Sets the dropdown state
 
+#### Parameters
+
+| Name    | Type      | Description |
+| ------- | --------- | ----------- |
+| `state` | `boolean` |             |
+
 #### Returns
 
 Type: `Promise<void>`

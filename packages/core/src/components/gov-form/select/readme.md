@@ -48,6 +48,12 @@ Type: `Promise<HTMLSelectElement>`
 
 Returns the current state of the component
 
+#### Parameters
+
+| Name      | Type           | Description |
+| --------- | -------------- | ----------- |
+| `options` | `FocusOptions` |             |
+
 #### Returns
 
 Type: `Promise<void>`
@@ -58,6 +64,12 @@ Type: `Promise<void>`
 
 Sets the selection options
 
+#### Parameters
+
+| Name      | Type                 | Description |
+| --------- | -------------------- | ----------- |
+| `options` | `FormSelectOption[]` |             |
+
 #### Returns
 
 Type: `Promise<void>`
@@ -67,6 +79,12 @@ Type: `Promise<void>`
 ### `setValue(value: string) => Promise<void>`
 
 Sets the ordered value of the element
+
+#### Parameters
+
+| Name    | Type     | Description |
+| ------- | -------- | ----------- |
+| `value` | `string` |             |
 
 #### Returns
 

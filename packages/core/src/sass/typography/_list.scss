@@ -2,7 +2,6 @@
  * Lists
  */
 
-ol,
 #{$gov-class-ordered-list} {
 	margin: 0;
 
@@ -12,7 +11,6 @@ ol,
 	}
 }
 
-ul,
 #{$gov-class-list} {
 	@include reset-last-margin();
 	margin: 0;
@@ -40,7 +38,6 @@ ul,
 	}
 }
 
-ul > li,
 #{$gov-class-list} > li,
 #{$gov-class-list}__item {
 	position: relative;

@@ -1,5 +1,5 @@
 /*
- *   Pagination
+ *   Breadcrumbs
  */
 
 $class: ".gov-breadcrumbs";
@@ -10,6 +10,7 @@ $class: ".gov-breadcrumbs";
 		@include base(flex);
 		padding-bottom: rem-calc(5);
 		overflow-x: auto;
+		flex-wrap: wrap;
 	}
 	li {
 		@extend %reset-ul-li;

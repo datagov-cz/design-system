@@ -4,6 +4,13 @@
 
 $class: ".gov-tile";
 
+// Maskování obsahu aplikujeme pouze tehdy, pokud není element odmaskován.
+#{$class} {
+	&:not([unmasked]) #{$class}__title {
+		@extend %link-mask;
+	}
+}
+
 #{$class} {
 	@include base();
 	padding: rem-calc(12);
@@ -18,7 +25,6 @@ $class: ".gov-tile";
 		}
 	}
 	&__title {
-		@extend %link-mask;
 		display: flex;
 		gap: rem-calc(8);
 		justify-content: space-between;

@@ -39,8 +39,9 @@ export const config: Config = {
 			type: "www",
 			copy: [
 				// Copy from build directory.
-				{ src: "../../../dist/packages/icons", dest: "assets/icons" },
 				{ src: "../../../dist/packages/fonts", dest: "assets/fonts" },
+				{ src: "../../../dist/packages/icons", dest: "assets/icons" },
+				{ src: "../../../dist/packages/styles", dest: "assets/styles" },
 				// Copy pages.
 				{ src: "pages", dest: "pages" }
 			],

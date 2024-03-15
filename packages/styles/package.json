@@ -4,23 +4,26 @@
   "description": "This package includes Gov Design System CE Styles.",
   "author": "Zdeněk Vítek",
   "directories": {
-    "lib": "lib"
+    "dist": "dist"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "prebuild": "rimraf --glob 'lib/'",
-    "build": "npm run copyAll && npm run sass && npm run copyAllFinished && npm run sassGlobal && npm run sassContent && npm run sassLayout && npm run sassCritical && npm run sassPrint && npm run copyDist",
-    "sass": "sass --no-source-map --style=compressed -I ./../core/src/sass lib/components_:lib/components_",
-    "sassGlobal": "sass --no-source-map --style=compressed ./../core/src/sass/global.scss:lib/styles.css",
-    "sassCritical": "sass --no-source-map --style=compressed ./../core/src/sass/critical.scss:lib/critical.css",
-    "sassPrint": "sass --no-source-map --style=compressed ./../core/src/sass/print.scss:lib/print.css",
-    "sassContent": "sass --no-source-map --style=compressed ./../core/src/sass/content.scss:lib/content.css",
-    "sassLayout": "sass --no-source-map --style=compressed ./../core/src/sass/layout.scss:lib/layout.css",
-    "copyAll": "copyfiles --up 2 ./../core/src/components/**/*.scss lib/components_ && copyfiles --up 2 ./../core/src/components/**/**/*.scss lib/components_ && node run.js",
-    "copyAllFinished": "copyfiles --flat lib/components_/**/*.css lib/components && copyfiles --flat lib/components_/**/**/*.css lib/components && rimraf lib/components_",
-    "copyDist": "copyfiles --flat ./lib/* ../../dist/packages/styles",
+    "prebuild": "rimraf --glob 'dist/'",
+    "build": "npm run compile && npm run copyPackages",
+    "compile": "npm run copyAll && npm run sass && npm run copyAllFinished && npm run sassGlobal && npm run sassContent && npm run sassLayout && npm run sassCritical && npm run sassPrint",
+    "copyAll": "copyfiles --up 2 ./../core/src/components/**/*.scss dist/components_ && copyfiles --up 2 ./../core/src/components/**/**/*.scss dist/components_ && node run.js",
+    "copyAllFinished": "copyfiles --flat dist/components_/**/*.css dist/components && copyfiles --flat dist/components_/**/**/*.css dist/components && rimraf dist/components_",
+    "sass": "sass --no-source-map --style=compressed -I ./../core/src/sass dist/components_:dist/components_",
+    "sassGlobal": "sass --no-source-map --style=compressed ./../core/src/sass/global.scss:dist/styles.css",
+    "sassCritical": "sass --no-source-map --style=compressed ./../core/src/sass/critical.scss:dist/critical.css",
+    "sassPrint": "sass --no-source-map --style=compressed ./../core/src/sass/print.scss:dist/print.css",
+    "sassContent": "sass --no-source-map --style=compressed ./../core/src/sass/content.scss:dist/content.css",
+    "sassLayout": "sass --no-source-map --style=compressed ./../core/src/sass/layout.scss:dist/layout.css",
+    "copyPackages": "copyfiles --up 1 ./dist/* ../../dist/packages/styles",
+    "serve": "npm run compile && npm run copyServe",
+    "copyServe": "copyfiles --up 1 ./dist/* ../../dist/serve/www/assets/styles",
     "watch": "chokidar '../core/src/**/*.scss' -c 'npm run build'"
   },
   "devDependencies": {

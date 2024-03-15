@@ -25,4 +25,4 @@ function callback(path, stats) {
 }
 
 
-walk(path.dirname(__filename) + "/lib/components_", callback)
+walk(path.dirname(__filename) + "/dist/components_", callback)

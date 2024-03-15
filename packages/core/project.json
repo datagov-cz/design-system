@@ -55,7 +55,7 @@
 			},
 			"dependsOn": [
 				{
-					"projects": ["fonts", "icons"],
+					"projects": ["fonts", "icons", "styles"],
 					"target": "build"
 				}
 			]

@@ -11,8 +11,8 @@
     "lib"
   ],
   "scripts": {
-    "build": "copyfiles --flat ./lib/* ../../dist/packages/fonts",
-    "serve": "copyfiles --flat ./lib/* ../../dist/packages/core/www/build/assets/fonts"
+    "build": "copyfiles --up 1 ./lib/* ../../dist/packages/fonts",
+    "serve": "copyfiles --up 1 ./lib/* ../../dist/serve/www/assets/fonts"
   },
   "devDependencies": {
     "copyfiles": "2.4.1"

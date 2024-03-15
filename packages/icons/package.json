@@ -10,8 +10,8 @@
     "lib"
   ],
   "scripts": {
-    "serve": "copyfiles --flat ./lib/basic/* ../../dist/packages/core/www/build/assets/icons/basic && copyfiles --flat ./lib/complex/* .../../dist/packages/core/www/build/assets/icons/complex",
-    "build": "copyfiles --flat ./lib/basic/* ../../dist/packages/icons/basic && copyfiles --flat ./lib/complex/* ../../dist/packages/icons/complex"
+    "build": "copyfiles --up 1 ./lib/**/* ../../dist/packages/icons/",
+    "serve": "copyfiles --up 1 ./lib/**/* ../../dist/serve/www/assets/icons/"
   },
   "devDependencies": {
     "copyfiles": "2.4.1"

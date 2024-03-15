@@ -1,8 +1,8 @@
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 import { TilesClass } from './constants'
-import { prepareClasses } from '../../../helpers/Dom/template'
-import { govHost } from '../../../helpers/Dom/template'
-import { GovHost } from '../../../helpers/Dom/template.types'
+import { prepareClasses } from '../../helpers/Dom/template'
+import { govHost } from '../../helpers/Dom/template'
+import { GovHost } from '../../helpers/Dom/template.types'
 
 @Component({
 	tag: 'gov-tiles',

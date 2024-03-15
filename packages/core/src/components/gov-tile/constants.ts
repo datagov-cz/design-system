@@ -1,3 +1,7 @@
+export const TilesClass = {
+	root: 'gov-tiles',
+}
+
 export const TileClass = {
 	root: 'gov-tile',
 	icon: 'gov-tile__icon',

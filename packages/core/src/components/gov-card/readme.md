@@ -9,6 +9,7 @@
 | ----------------------- | -------------------------- | --------------------------------------------------------------------------------------- | --------- | ----------- |
 | `collapsible`           | `collapsible`              | Defines wether the card can be collapsible                                              | `boolean` | `false`     |
 | `expanded`              | `expanded`                 | Defines whether the card is open or closed by button                                    | `boolean` | `false`     |
+| `fullHeight`            | `full-height`              | Set height to 100% thus filling all vertical space.                                     | `boolean` | `false`     |
 | `headlineTag`           | `headline-tag`             | Used to change the HMTL tag in the card headline for correct semantic structure         | `string`  | `'h3'`      |
 | `label`                 | `label`                    | Item label of the card                                                                  | `string`  | `undefined` |
 | `promotion`             | `promotion`                | Style variation of the card.                                                            | `boolean` | `false`     |

@@ -4,6 +4,10 @@
 
 $class: ".gov-card";
 
+#{$class}[full-height] {
+	height: 100%;
+}
+
 #{$class} {
 	@include base(flex);
 	flex-direction: column;

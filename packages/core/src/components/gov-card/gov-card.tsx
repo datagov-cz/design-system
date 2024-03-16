@@ -43,6 +43,10 @@ export class GovCard {
 	 */
 	@Prop() readonly expanded: boolean = false
 	/**
+	 * Set height to 100% thus filling all vertical space.
+	 */
+	@Prop({ attribute: 'full-height'}) fullHeight : boolean = false
+	/**
 	 * Used to change the HMTL tag in the card headline for correct semantic structure
 	 */
 	@Prop({ attribute: 'headline-tag' }) readonly headlineTag: string = 'h3'
@@ -58,6 +62,9 @@ export class GovCard {
 	 * Called when the card toggle state changes
 	 */
 	@Event({ eventName: 'gov-toggle' }) govToggle: EventEmitter<GovCardChangeEvent>
+	/**
+	 * Is card open.
+	 */
 	@State() isExpanded: boolean
 
 	@Watch('headlineTag')

@@ -18,7 +18,7 @@
 </head>
 
 <body>
-	<h4>Nav</h4>
+	<h4>Navigation</h4>
 	<gov-nav wcag-label="Hlavní navigace">
 		<gov-nav-item href="#">
 			Úvod
@@ -32,6 +32,44 @@
 		<gov-nav-item href="#">
 			O živote v ČR
 		</gov-nav-item>
+		<gov-nav-item href="#">
+			Časté dotazy
+		</gov-nav-item>
+	</gov-nav>
+	<br/>
+	<hr/>
+	<br/>
+	<h4>Navigation with drop down</h4>
+	<gov-nav wcag-label="Hlavní navigace">
+		<gov-nav-item href="#">
+			Úvod
+		</gov-nav-item>
+		<gov-nav-item href="#">
+			Služby veřejná správy
+		</gov-nav-item>
+		<gov-nav-item href="#">
+			Životní události
+		</gov-nav-item>
+		<gov-nav-dropdown>
+			<span slot="label">O živote v ČR</span>
+			<ul slot="dropdown">
+				<li>
+					<a href="#">Pro zájemce o otevírání dat</a>
+				</li>
+				<li>
+					<a href="#">Pro uživatele a programátory</a>
+				</li>
+				<li>
+					<a href="#">Pro poskytovatele dat</a>
+				</li>
+				<li>
+					<a href="#">Lokální katalogy</a>
+				</li>
+				<li>
+					<a href="#">Návrhy na datové sady k otevření</a>
+				</li>
+			</ul>
+		</gov-nav-dropdown>		
 		<gov-nav-item href="#">
 			Časté dotazy
 		</gov-nav-item>

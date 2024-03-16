@@ -18,6 +18,7 @@ $class: ".gov-nav";
 		&__nav {
 			display: flex;
 			justify-content: space-between;
+			flex-wrap: wrap;
 		}
 	}
 }

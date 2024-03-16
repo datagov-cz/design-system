@@ -14,6 +14,10 @@ gov-nav:not(.hydrated) {
 		text-decoration: none;
 	}
 
+	gov-nav-dropdown {
+		display: none;
+	}
+
 	// MQ
 	@include mq($from: md) {
 		text-align: center;

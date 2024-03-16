@@ -10,4 +10,10 @@ $class: ".gov-grid-item";
 
 	// hide the border in MS high contrast mode
 	border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E");
+
+	// We use --gov-gutter-x and --gov-gutter-y to set gutters.
+	margin-top: calc(var(--gov-gutter-y, 0) * .5);
+	margin-bottom: calc(var(--gov-gutter-y, 0) * .5);
+	padding-left: calc(var(--gov-gutter-x, 0) * .5);
+	padding-right: calc(var(--gov-gutter-x, 0) * .5);
 }

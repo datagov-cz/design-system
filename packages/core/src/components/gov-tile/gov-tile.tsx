@@ -23,9 +23,9 @@ export class GovTile {
 	@Prop({ reflect: true }) readonly href: string
 
 	/**
-	 * Remove element masking making it interactive for the user.
+	 * When set remove element masking making it interactive for the user.
 	 */
-	@Prop({ reflect: true }) readonly unmasked: string
+	@Prop() readonly unmasked: boolean
 
 	/**
 	 * Same as original parameter

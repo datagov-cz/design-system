@@ -1,0 +1,26 @@
+gov-branding {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: rem-calc(2 0);
+
+  & div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    & gov-form-search.gov-form-search {
+      width: 34rem;
+    }
+
+    & gov-form-select.gov-form-select {
+      width: 10rem;
+
+      & gov-icon {
+        color: var(--gov-form-input-color-secondary, var(--gov-color-secondary-700));
+      }
+    }
+  }
+}

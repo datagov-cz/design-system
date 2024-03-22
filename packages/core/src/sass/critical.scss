@@ -35,6 +35,12 @@
 @import "../components/gov-tile/gov-tile-critical.scss";
 @import "../components/gov-wizard/gov-wizard-critical";
 
+// CSS only components.
+@import "../components/gov-branding/gov-branding.scss";
+@import "../components/gov-facet/gov-facet.scss";
+@import "../components/gov-footer/gov-footer.scss";
+@import "../components/gov-header/gov-header.scss";
+
 gov-attachments,
 gov-attachments-item,
 gov-backdrop,

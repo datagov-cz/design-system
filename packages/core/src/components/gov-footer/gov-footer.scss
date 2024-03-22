@@ -1,0 +1,9 @@
+.gov-footer {
+  color: var(--gov-color-primary-100);
+  background: var(--gov-color-primary-900);
+
+  & a {
+    color: var(--gov-color-primary-300);
+  }
+
+}

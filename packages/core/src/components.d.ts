@@ -395,6 +395,10 @@ export namespace Components {
          */
         "expanded": boolean;
         /**
+          * Set height to 100% thus filling all vertical space.
+         */
+        "fullHeight": boolean;
+        /**
           * Used to change the HMTL tag in the card headline for correct semantic structure
          */
         "headlineTag": string;
@@ -1292,6 +1296,14 @@ export namespace Components {
           * Vertical align of cells
          */
         "alignY": string;
+        /**
+          * Size of horizontal gutter in the grid.
+         */
+        "gutterX": string;
+        /**
+          * Size of the vertical gutter in the grid.
+         */
+        "gutterY": string;
     }
     interface GovGridItem {
         /**
@@ -1442,6 +1454,8 @@ export namespace Components {
           * String of id's that indicate alternative labels elements
          */
         "wcagLabelledBy": string;
+    }
+    interface GovNavDropdown {
     }
     interface GovNavItem {
         /**
@@ -1831,6 +1845,10 @@ export namespace Components {
           * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target
          */
         "target"?: ButtonTargetType;
+        /**
+          * When set remove element masking making it interactive for the user.
+         */
+        "unmasked": boolean;
     }
     interface GovTiles {
         /**
@@ -2605,6 +2623,12 @@ declare global {
         prototype: HTMLGovNavElement;
         new (): HTMLGovNavElement;
     };
+    interface HTMLGovNavDropdownElement extends Components.GovNavDropdown, HTMLStencilElement {
+    }
+    var HTMLGovNavDropdownElement: {
+        prototype: HTMLGovNavDropdownElement;
+        new (): HTMLGovNavDropdownElement;
+    };
     interface HTMLGovNavItemElement extends Components.GovNavItem, HTMLStencilElement {
     }
     var HTMLGovNavItemElement: {
@@ -2881,6 +2905,7 @@ declare global {
         "gov-message": HTMLGovMessageElement;
         "gov-modal": HTMLGovModalElement;
         "gov-nav": HTMLGovNavElement;
+        "gov-nav-dropdown": HTMLGovNavDropdownElement;
         "gov-nav-item": HTMLGovNavItemElement;
         "gov-pagination": HTMLGovPaginationElement;
         "gov-prompt": HTMLGovPromptElement;
@@ -3175,6 +3200,10 @@ declare namespace LocalJSX {
           * Defines whether the card is open or closed by button
          */
         "expanded"?: boolean;
+        /**
+          * Set height to 100% thus filling all vertical space.
+         */
+        "fullHeight"?: boolean;
         /**
           * Used to change the HMTL tag in the card headline for correct semantic structure
          */
@@ -4035,6 +4064,14 @@ declare namespace LocalJSX {
           * Vertical align of cells
          */
         "alignY"?: string;
+        /**
+          * Size of horizontal gutter in the grid.
+         */
+        "gutterX"?: string;
+        /**
+          * Size of the vertical gutter in the grid.
+         */
+        "gutterY"?: string;
     }
     interface GovGridItem {
         /**
@@ -4173,6 +4210,8 @@ declare namespace LocalJSX {
           * String of id's that indicate alternative labels elements
          */
         "wcagLabelledBy"?: string;
+    }
+    interface GovNavDropdown {
     }
     interface GovNavItem {
         /**
@@ -4514,6 +4553,10 @@ declare namespace LocalJSX {
           * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target
          */
         "target"?: ButtonTargetType;
+        /**
+          * When set remove element masking making it interactive for the user.
+         */
+        "unmasked"?: boolean;
     }
     interface GovTiles {
         /**
@@ -4707,6 +4750,7 @@ declare namespace LocalJSX {
         "gov-message": GovMessage;
         "gov-modal": GovModal;
         "gov-nav": GovNav;
+        "gov-nav-dropdown": GovNavDropdown;
         "gov-nav-item": GovNavItem;
         "gov-pagination": GovPagination;
         "gov-prompt": GovPrompt;
@@ -4773,6 +4817,7 @@ declare module "@stencil/core" {
             "gov-message": LocalJSX.GovMessage & JSXBase.HTMLAttributes<HTMLGovMessageElement>;
             "gov-modal": LocalJSX.GovModal & JSXBase.HTMLAttributes<HTMLGovModalElement>;
             "gov-nav": LocalJSX.GovNav & JSXBase.HTMLAttributes<HTMLGovNavElement>;
+            "gov-nav-dropdown": LocalJSX.GovNavDropdown & JSXBase.HTMLAttributes<HTMLGovNavDropdownElement>;
             "gov-nav-item": LocalJSX.GovNavItem & JSXBase.HTMLAttributes<HTMLGovNavItemElement>;
             "gov-pagination": LocalJSX.GovPagination & JSXBase.HTMLAttributes<HTMLGovPaginationElement>;
             "gov-prompt": LocalJSX.GovPrompt & JSXBase.HTMLAttributes<HTMLGovPromptElement>;

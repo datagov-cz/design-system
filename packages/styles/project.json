@@ -16,7 +16,7 @@
 		"serve": {
 			"executor": "nx:run-commands",
 			"options": {
-				"command": "npm run build",
+				"command": "npm run serve",
 				"cwd": "packages/styles"
 			}
 		},

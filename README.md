@@ -14,6 +14,14 @@ Příkazy spouští přímo [nx](https://nx.dev/), který je použitý pro sprá
 ```shell
 npx nx run core:serve
 ```
+Při tomto spuštění dojde k úvodnímu sestavení závislostí jako jsou CSS styly, ikonky a fonty.
+
+Bohužel jednotlivé závislosti nejsou automaticky sestavovány v případě změny.
+Z tohoto důvodu je třeba spouštět sestavení ručně.
+Třeba CSS styly je možné sestavit pro serve příkaz pomocí následujícího příkazu.
+```shell
+npx nx run styles:serve
+```
 
 ## Sestavení
 ```shell

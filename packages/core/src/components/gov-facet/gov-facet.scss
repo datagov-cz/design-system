@@ -22,30 +22,44 @@
       overflow-wrap: break-word;
       border: 0.0625rem solid var(--gov-color-primary-600);
       border-top-width: 0;
-      text-decoration: none;
       margin-bottom: 0;
-      padding: 0.5rem 1rem;
+      
+      & > * {
+        // Anything inside, probably a link.
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+      }
+      
+      &:hover, &:hover a {
+        color: var(--gov-color-secondary-100);
+        background-color: var(--gov-color-primary-600);
+      }      
 
       &:first-child {
+        // Border for the first item.
         border-top-width: 1px;
         border-top-left-radius: var(--gov-border-radius, 0.1875rem);
         border-top-right-radius: var(--gov-border-radius, 0.1875rem);
       }
 
       &:last-child {
+        // Border for the last item.
         border-bottom-left-radius: var(--gov-border-radius, 0.1875rem);
         border-bottom-right-radius: var(--gov-border-radius, 0.1875rem);
       }
 
-      &:hover {
-        color: var(--gov-color-secondary-100);
-        background-color: var(--gov-color-primary-600);
-      }
     }
 
     & .facet-item.active {
         color: var(--gov-color-secondary);
         background-color: var(--gov-color-primary-200);
+
+        &:hover, &:hover a {
+          color: var(--gov-color-secondary-100);
+          background-color: var(--gov-color-primary-600);
+        }
     }
   }
 }

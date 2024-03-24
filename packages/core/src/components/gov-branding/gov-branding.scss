@@ -11,11 +11,13 @@ gov-branding {
     flex-wrap: wrap;
     gap: 1rem;
 
-    & gov-form-search.gov-form-search {
+    & gov-form-search:not(.hydrated),
+    gov-form-search.gov-form-search {
       width: 34rem;
     }
 
-    & gov-form-select.gov-form-select {
+    & gov-form-select:not(.hydrated),
+    gov-form-select.gov-form-select {
       width: 10rem;
 
       & gov-icon {

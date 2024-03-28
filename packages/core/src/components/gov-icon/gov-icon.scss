@@ -6,6 +6,8 @@ $class: ".gov-icon";
 
 #{$class} {
 	display: inline-flex;
+	height: 1em;
+
 	&__holder {
 		display: inline-flex;
 		width: 100%;

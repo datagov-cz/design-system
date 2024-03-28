@@ -5,6 +5,22 @@ gov-branding {
   justify-content: space-between;
   padding: rem-calc(2 0);
 
+  h1 {
+    font-weight: var(--gov-text-3xl-font-weight);
+    font-size: var(--gov-text-3xl-font-size);
+    line-height: var(--gov-text-3xl-line-height);
+    letter-spacing: var(--gov-text-3xl-letter-spacing);
+
+    & a {
+      text-decoration: none;
+      color: var(--gov-nav-color, var(--gov-color-neutral-white));
+
+      &:hover {
+        color: var(--gov-nav-color, var(--gov-color-neutral-white));
+      }
+    }
+  }
+
   & div {
     display: flex;
     flex-direction: row;

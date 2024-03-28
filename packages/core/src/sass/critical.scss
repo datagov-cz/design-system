@@ -61,7 +61,7 @@ gov-tooltip {
 	}
 }
 
-// Layout section ...
+// Layout section
 
 .p-0 {
   padding: 0 !important;
@@ -85,4 +85,24 @@ gov-tooltip {
 
 .p-5 {
   padding: 3rem !important;
+}
+
+.inline {
+  display: inline;
+}
+
+// Basic elements.
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin-bottom: .5rem;
+  margin-left: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
